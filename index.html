@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Otokoç - Gengage Entegrasyon Teklifi</title>
+    <title>Setur - Glov İçerik Zenginleştirme ve Dönüşüm Optimizasyonu Teklifi</title>
     <style>
         * {
             margin: 0;
@@ -26,21 +26,81 @@
         }
         
         .header {
-            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+            background: linear-gradient(135deg, #e2221b 0%, #c91d16 100%);
             color: white;
-            padding: 60px 40px;
+            padding: 50px 40px 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo-divider {
+            font-size: 40px;
+            opacity: 0.4;
+            font-weight: 200;
+        }
+        
+        .setur-logo {
+            height: 40px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            display: block;
+            object-fit: contain;
+        }
+        
+        .glov-logo {
+            height: 40px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+        
+        .header-title {
             text-align: center;
         }
         
         .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 2.2em;
+            margin-bottom: 15px;
             font-weight: 600;
+            line-height: 1.3;
         }
         
         .header .subtitle {
-            font-size: 1.2em;
+            font-size: 1.15em;
             opacity: 0.95;
+            font-weight: 400;
         }
         
         .content {
@@ -52,11 +112,11 @@
         }
         
         .section-title {
-            color: #FF6B35;
+            color: #e2221b;
             font-size: 1.8em;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 3px solid #FF6B35;
+            border-bottom: 3px solid #e2221b;
         }
         
         .subsection-title {
@@ -67,9 +127,9 @@
         }
         
         .executive-summary {
-            background: #FFF5F2;
+            background: #FFF5F4;
             padding: 30px;
-            border-left: 5px solid #FF6B35;
+            border-left: 5px solid #e2221b;
             margin-bottom: 40px;
             border-radius: 5px;
         }
@@ -80,7 +140,7 @@
         
         .goal {
             font-weight: 600;
-            color: #FF6B35;
+            color: #e2221b;
         }
         
         .feature-box {
@@ -88,11 +148,11 @@
             padding: 20px;
             margin: 15px 0;
             border-radius: 8px;
-            border-left: 4px solid #FF8C42;
+            border-left: 4px solid #e2221b;
         }
         
         .feature-box h4 {
-            color: #FF6B35;
+            color: #e2221b;
             margin-bottom: 10px;
             font-size: 1.1em;
         }
@@ -105,18 +165,54 @@
             margin: 8px 0;
         }
         
-        .example-box {
-            background: white;
-            border: 2px solid #e0e0e0;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
+        .module-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
         }
         
-        .example-box h4 {
-            color: #FF6B35;
-            margin-bottom: 15px;
+        .module-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .module-card:hover {
+            border-color: #e2221b;
+            box-shadow: 0 5px 15px rgba(226, 34, 27, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .module-card h4 {
+            color: #e2221b;
+            margin-bottom: 12px;
             font-size: 1.1em;
+        }
+        
+        .module-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        
+        .module-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #e2221b 0%, #c91d16 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .module-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
         }
         
         table {
@@ -127,7 +223,7 @@
         }
         
         th {
-            background: #FF6B35;
+            background: #e2221b;
             color: white;
             padding: 15px;
             text-align: left;
@@ -140,13 +236,61 @@
         }
         
         tr:hover {
-            background: #FFF5F2;
+            background: #FFF5F4;
         }
         
         .timeline-table td:first-child {
             font-weight: 600;
-            color: #FF6B35;
+            color: #e2221b;
             white-space: nowrap;
+        }
+        
+        .pricing-highlight {
+            background: linear-gradient(135deg, #FFF5F4 0%, #FFE5E3 100%);
+            padding: 35px;
+            border-radius: 12px;
+            border: 3px solid #e2221b;
+            margin: 30px 0;
+        }
+        
+        .pricing-highlight h3 {
+            color: #e2221b;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .pricing-model {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .pricing-model h4 {
+            color: #e2221b;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .price-detail {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .price-label {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .price-value {
+            font-weight: 700;
+            color: #e2221b;
+            font-size: 1.2em;
         }
         
         .warning-box {
@@ -158,7 +302,7 @@
         }
         
         .warning-box h4 {
-            color: #FF6B35;
+            color: #e2221b;
             margin-bottom: 10px;
         }
         
@@ -173,11 +317,11 @@
             background: #F0F8FF;
             padding: 20px;
             border-radius: 8px;
-            border-top: 4px solid #FF6B35;
+            border-top: 4px solid #e2221b;
         }
         
         .criteria-card h4 {
-            color: #FF6B35;
+            color: #e2221b;
             margin-bottom: 10px;
         }
         
@@ -192,11 +336,11 @@
             background: #f9f9f9;
             padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid #FF8C42;
+            border-left: 4px solid #e2221b;
         }
         
         .responsibility-card h4 {
-            color: #FF6B35;
+            color: #e2221b;
             margin-bottom: 12px;
             font-size: 1.05em;
         }
@@ -210,23 +354,8 @@
             font-size: 0.95em;
         }
         
-        .commercial-section {
-            background: #FFF5F2;
-            padding: 30px;
-            border-radius: 8px;
-            border: 2px dashed #FF6B35;
-            margin: 20px 0;
-            text-align: center;
-        }
-        
-        .commercial-section p {
-            font-style: italic;
-            color: #666;
-            margin: 10px 0;
-        }
-        
         .next-steps {
-            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+            background: linear-gradient(135deg, #e2221b 0%, #c91d16 100%);
             color: white;
             padding: 30px;
             border-radius: 8px;
@@ -252,7 +381,7 @@
         }
         
         .contact-box h3 {
-            color: #FF8C42;
+            color: #FFB0AA;
             margin-bottom: 20px;
         }
         
@@ -262,47 +391,348 @@
         }
         
         .contact-info strong {
-            color: #FF8C42;
+            color: #FFB0AA;
         }
         
-        .appendix {
+        .footer {
             background: #f9f9f9;
-            padding: 30px;
+            padding: 40px;
             margin-top: 40px;
-            border-radius: 8px;
+            border-top: 3px solid #e2221b;
+            text-align: center;
         }
         
-        .methods {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 20px 0;
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
         }
         
-        .method-card {
+        .footer-logo {
+            margin-bottom: 20px;
             background: white;
             padding: 20px;
             border-radius: 8px;
+            display: inline-block;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+        
+        .footer-text {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        
+        .footer-company-info {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 3px solid #e2221b;
+        }
+        
+        .footer-company-info strong {
+            color: #333;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+        
+        .footer-company-info p {
+            margin: 8px 0;
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #e2221b;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .dashboard-embed {
+            background: #f9f9f9;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+        
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e2221b;
+        }
+        
+        .dashboard-logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .dashboard-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #e2221b;
+            flex: 1;
+        }
+        
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: rgba(0, 255, 0, 0.1);
+            border-radius: 20px;
+        }
+        
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.5);
+            }
+        }
+        
+        .live-text {
+            color: #4caf50;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .dashboard-summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .dashboard-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-top: 3px solid #e2221b;
+        }
+        
+        .dashboard-card-label {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        
+        .dashboard-card-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .dashboard-card-change {
+            font-size: 13px;
+            color: #4caf50;
+            font-weight: 600;
+        }
+        
+        .dashboard-card-change.negative {
+            color: #f44336;
+        }
+        
+        .comparison-section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .comparison-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .comparison-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .significance-badge {
+            padding: 6px 14px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .variant-box {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
             border: 2px solid #e0e0e0;
         }
         
-        .method-card h4 {
-            color: #FF6B35;
-            margin-bottom: 10px;
+        .variant-box.winner {
+            border-color: #e2221b;
+            background: #FFF5F4;
         }
         
-        .method-card.recommended {
-            border-color: #FF6B35;
-            background: #FFF5F2;
+        .variant-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .variant-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .winner-badge {
+            background: #e2221b;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            color: #666;
+            font-size: 13px;
+        }
+        
+        .metric-value {
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .metric-value.positive {
+            color: #e2221b;
+        }
+        
+        .metric-value.negative {
+            color: #2e7d32;
         }
         
         .badge {
-            background: #FF6B35;
+            background: #e2221b;
             color: white;
             padding: 3px 10px;
             border-radius: 12px;
             font-size: 0.8em;
             margin-left: 10px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e2221b 0%, #c91d16 100%);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(226, 34, 27, 0.3);
+        }
+        
+        .highlight-box h4 {
+            color: white;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .highlight-box p {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.05em;
+            opacity: 0.95;
+        }
+        
+        .highlight-box a {
+            display: inline-block;
+            background: white;
+            color: #e2221b;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .highlight-box a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .methodology-box {
+            background: white;
+            border: 2px solid #e2221b;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .methodology-box h4 {
+            color: #e2221b;
+            margin-bottom: 15px;
+            font-size: 1.2em;
         }
         
         @media print {
@@ -318,13 +748,31 @@
             .header {
                 padding: 40px 20px;
             }
+            .header-logos {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .logo-divider {
+                display: none;
+            }
+            .setur-logo {
+                height: 32px;
+                display: block;
+            }
+            .glov-logo {
+                height: 32px;
+                display: block;
+            }
             .header h1 {
-                font-size: 1.8em;
+                font-size: 1.6em;
+            }
+            .header .subtitle {
+                font-size: 1em;
             }
             .content {
                 padding: 20px;
             }
-            .methods {
+            .module-showcase {
                 grid-template-columns: 1fr;
             }
         }
@@ -333,189 +781,272 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Otokoç - Gengage Entegrasyon Teklifi</h1>
-            <div class="subtitle">Lead Üretimini Artırma Çözümü</div>
+            <div class="header-content">
+                <div class="header-logos">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Setur_Logo.png" alt="Setur" class="setur-logo" style="height: 50px; margin: 0 auto;">
+                </div>
+                <div class="header-title">
+                    <h1>İçerik Zenginleştirme ve Dönüşüm Optimizasyonu Teklifi</h1>
+                    <div class="subtitle">Otel Rezervasyon Dönüşüm Oranlarını Artırma Çözümü</div>
+                </div>
+            </div>
         </div>
         
         <div class="content">
             <div class="executive-summary">
-                <h2 style="color: #FF6B35; margin-bottom: 15px;">Yönetici Özeti</h2>
-                <p>Bu teklif, <strong>otokoc.com.tr</strong> sitenizde lead üretimini artırmak amacıyla Gengage'in entegrasyonunu kapsamaktadır.</p>
-                <p><span class="goal">Proje Hedefi:</span> Ziyaretçilerin araç araştırma ve karar verme süreçlerinde hızlı ve etkili lead toplama deneyimleri sunarak, nitelikli lead sayısını artırmak ve bu lead'leri CRM sisteminize sorunsuz aktarmak.</p>
-            </div>
-            
-            <div class="section" style="background: linear-gradient(135deg, #FFF5F2 0%, #FFEBE6 100%); padding: 35px; border-radius: 12px; border: 3px solid #FF6B35; margin-bottom: 40px;">
-                <h2 style="color: #FF6B35; font-size: 2em; margin-bottom: 25px; text-align: center;">Aylık Hizmet Ücreti</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Hizmet</th>
-                            <th>Aylık Ücret (+KDV)</th>
-                            <th>Açıklama</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Gengage Entegrasyonu<br/>(Otokoc.com.tr için)</td>
-                            <td style="font-size: 1.3em; font-weight: 700; color: #FF6B35;">195.000 TL</td>
-                            <td>Otokoc.com.tr için platform altyapı, AI sistemi, teknik destek ve optimizasyon hizmetleri</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <div style="background: white; padding: 20px; border-left: 4px solid #FF6B35; margin: 20px 0; border-radius: 5px;">
-                    <p><strong>Notlar:</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>Fiyatlara artı KDV uygulanır.</li>
-                        <li>Sınırsız lead toplama kapasitesi sunulmaktadır.</li>
-                    </ul>
-                </div>
+                <h2 style="color: #e2221b; margin-bottom: 15px;">Yönetici Özeti</h2>
+                <p>Bu teklif, <strong>setur.com.tr</strong> otel detay sayfalarında dönüşüm oranlarını artırmak amacıyla Glov'un içerik zenginleştirme ve A/B test optimizasyonu hizmetini kapsamaktadır.</p>
+                <p><span class="goal">Proje Hedefi:</span> Otel detay sayfalarına AI destekli zenginleştirilmiş içerik modülleri ekleyerek ve sürekli A/B testleri ile optimize ederek, rezervasyon dönüşüm oranlarını artırmak ve faturalanan satış gelirini maksimize etmek.</p>
+                <p><strong>Değer Önerisi:</strong> Public web ve 3. parti veri kaynaklarından (TripAdvisor vb.) toplanan bilgilerle zenginleştirilmiş, kullanıcı deneyimini iyileştiren 6 modülün GTM üzerinden entegrasyonu ve performans bazlı sürekli optimizasyon.</p>
             </div>
             
             <div class="section">
                 <h2 class="section-title">1. Çözüm Kapsamı</h2>
                 
-                <h3 class="subsection-title">1.1 Genel Özellikler</h3>
-                
+                <h3 class="subsection-title">1.1 Kapsam</h3>
                 <div class="feature-box">
-                    <h4>7/24 AI Sesli ve Yazılı Lead Toplama Sistemi:</h4>
-                    <ul>
-                        <li>Her etkileşimden öğrenen akıllı lead toplama akışları</li>
-                        <li>Doğal konuşma yoluyla kullanıcı bilgilerinin toplanması</li>
-                        <li>Yazılı ve sesli kanallar üzerinden kesintisiz hizmet</li>
-                    </ul>
+                    <h4>Otel Kapsamı:</h4>
+                    <p><strong>Tüm setur.com.tr otel detay sayfaları</strong> bu projede kapsanacaktır. İçerik zenginleştirme ve optimizasyon tüm oteller için uygulanacaktır.</p>
                 </div>
                 
-                <div class="feature-box">
-                    <h4>Dinamik Görsel ve Mesaj Üretimi:</h4>
-                    <ul>
-                        <li>Kullanıcıların ilgilendiği araç sayfasında kişiselleştirilmiş görsel ve yazılı mesajlar</li>
-                        <li>Bilgi toplama ve kayıt oluşturma süreçlerinin otomasyonu</li>
-                        <li>Kullanıcı ilgisine uygun (context-aware) içerik sunumu</li>
-                    </ul>
-                </div>
+                <h3 class="subsection-title">1.2 Altı Temel Modül</h3>
+                <p>Otel detay sayfalarına entegre edilecek 6 içerik modülü:</p>
                 
-                <h3 class="subsection-title">1.2 Kullanıcı Deneyimi</h3>
-                
-                <div class="example-box">
-                    <h4>Araç Detay Sayfası Deneyimi</h4>
-                    <p>Kullanıcılar araç detay sayfalarında gezinirken, Gengage otomatik olarak devreye girerek:</p>
-                    <ul>
-                        <li>"Test sürüşü randevusu alın" çağrısı ile hızlı lead toplama</li>
-                        <li>"Soru sor" alanı ile anında bilgi alma imkanı</li>
-                        <li>Sesli arama butonu ile doğrudan konuşma seçeneği</li>
-                        <li>"Test Sürüşü", "Servis Talebi", "Bilgi Al" gibi hızlı erişim butonları</li>
-                    </ul>
-                </div>
-                
-                
-                <div style="margin: 30px 0;">
-                    <h4 style="color: #FF6B35; margin-bottom: 15px;">Kullanıcı Arayüzü Örneği:</h4>
-                    <div style="max-width: 300px; margin: 20px;">
-                        <div style="border: 2px solid #e0e0e0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                            <img src="otokoc.png" alt="Ford Focus Detay Sayfası - Test Sürüşü" style="width: 100%; height: auto; display: block;">
-                            <div style="padding: 15px; background: #f9f9f9;">
-                                <p style="font-size: 0.9em; color: #666; margin: 0;"><strong>Ekran:</strong> Ford Focus araç detay sayfasında test sürüşü randevusu ve soru sorma alanı</p>
-                            </div>
+                <div class="module-showcase">
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
                         </div>
-                    </div>
-                </div>
-                
-                <h3 class="subsection-title">1.3 Lead Toplama Kapasitesi</h3>
-                
-                <p>Otokoc.com.tr için toplanan lead bilgileri <strong>Ek-1: Lead Detayları Tablosu</strong>'nda detaylandırılmıştır.</p>
-                
-                <div style="margin: 20px 0;">
-                    <p><strong>Otokoc.com.tr için toplanan lead tipleri:</strong></p>
-                    <ul style="margin-left: 30px; margin-top: 10px;">
-                        <li>Bilgi Almak İsteyen Lead'ler</li>
-                        <li>Servis Randevusu Lead'leri</li>
-                        <li>Test Sürüşü Lead'leri</li>
-                    </ul>
-                </div>
-                
-                <div style="margin: 30px 0;">
-                    <h4 style="color: #FF6B35; margin-bottom: 15px;">Raporlama Ekranları:</h4>
-                    <p style="margin-bottom: 20px;">Gengage platformu, toplanan lead'leri ve performans metriklerini detaylı olarak görüntülemenizi sağlayan kapsamlı raporlama araçları sunar:</p>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; margin-top: 20px;">
-                        <div style="border: 2px solid #e0e0e0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                            <img src="Screenshot 2025-10-17 at 10.19.23.png" alt="Raporlama Ekranı 1" style="width: 100%; height: auto; display: block;">
-                            <div style="padding: 15px; background: #f9f9f9;">
-                                <p style="font-size: 0.9em; color: #666; margin: 0;"><strong>Rapor 1:</strong> Lead performans metrikleri ve genel bakış</p>
-                            </div>
-                        </div>
-                        <div style="border: 2px solid #e0e0e0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                            <img src="Screenshot 2025-10-17 at 10.19.14.png" alt="Raporlama Ekranı 2" style="width: 100%; height: auto; display: block;">
-                            <div style="padding: 15px; background: #f9f9f9;">
-                                <p style="font-size: 0.9em; color: #666; margin: 0;"><strong>Rapor 2:</strong> Detaylı lead analizi ve dönüşüm oranları</p>
-                            </div>
-                        </div>
-                        <div style="border: 2px solid #e0e0e0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                            <img src="Screenshot 2025-10-17 at 10.18.59.png" alt="Raporlama Ekranı 3" style="width: 100%; height: auto; display: block;">
-                            <div style="padding: 15px; background: #f9f9f9;">
-                                <p style="font-size: 0.9em; color: #666; margin: 0;"><strong>Rapor 3:</strong> Kullanıcı etkileşim istatistikleri</p>
-                            </div>
-                        </div>
-                        <div style="border: 2px solid #e0e0e0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                            <img src="Screenshot 2025-10-17 at 10.18.45.png" alt="Raporlama Ekranı 4" style="width: 100%; height: auto; display: block;">
-                            <div style="padding: 15px; background: #f9f9f9;">
-                                <p style="font-size: 0.9em; color: #666; margin: 0;"><strong>Rapor 4:</strong> Zamana dayalı performans trendleri</p>
-                            </div>
-                        </div>
+                        <h4>1. Öne Çıkan Özellikler</h4>
+                        <p>Ana özellik kartı ve yatay kaydırmalı slider ile otelin en önemli özelliklerinin görsel ve interaktif sunumu. Kullanıcı feedback mekanizması dahil.</p>
                     </div>
                     
-                    <div style="background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%); border-radius: 12px; padding: 30px; margin-top: 30px; text-align: center; box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);">
-                        <h4 style="color: white; font-size: 1.3em; margin-bottom: 15px; font-weight: 600;">Demo Dashboard</h4>
-                        <p style="color: white; margin-bottom: 25px; font-size: 1.05em; opacity: 0.95;">Gengage raporlama sisteminin bir örneğini görmek için demo panelimizi inceleyebilirsiniz.</p>
-                        <a href="https://dashing-hamster-f719fe.netlify.app/" target="_blank" style="display: inline-block; background: white; color: #FF6B35; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 1.1em; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)';">
-                            Demo Paneli İncele →
-                        </a>
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h4>2. Müşteri Puanları</h4>
+                        <p>Detaylı rating metrikleri (konum, odalar, değer, temizlik, hizmet, uyku kalitesi) ve en iyi özellikler grid'i. Otel sıralaması bilgisi ile güven oluşturma.</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 11l3 3L22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                        </div>
+                        <h4>3. Özet Özellikler</h4>
+                        <p>Akordion yapısında, kategorilere ayrılmış (konaklama, oda, sağlık/spa, çocuklar) tüm otel özelliklerinin kompakt listesi.</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                            </svg>
+                        </div>
+                        <h4>4. Detaylı Yorum Özeti</h4>
+                        <p>AI tarafından üretilen yorum özeti, tag cloud (konum, atmosfer, temizlik vb.) ve misafir avatar'ları ile sosyal kanıt. Feedback mekanizması.</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                        </div>
+                        <h4>5. Benzer Otellerle Kıyaslama</h4>
+                        <p>İki görünüm: (A) Seçilen otel + 3 benzer otel kartları, (B) Karşılaştırma tablosu formatında yan yana detaylı özellik karşılaştırması.</p>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h4>6. AI Asistanına Sor</h4>
+                        <p>Yatay kaydırmalı öneri pill'leri ve soru input alanı. Kullanıcıların otelle ilgili hızlı cevap alması için AI destekli soru-cevap arayüzü.</p>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title">1.3 Canlı Örnek</h3>
+                <div class="highlight-box">
+                    <h4>Modüllerin Canlı Örneğini Görün</h4>
+                    <p>Ducale Lara oteli örneğinde tüm 6 modülün nasıl çalıştığını inceleyebilirsiniz.</p>
+                    <p style="opacity: 0.9; font-size: 0.95em; margin-bottom: 20px;">
+                        <strong>Not:</strong> Link yeni sekmede Google Tag Manager önizleme modunda açılacaktır. Açılan pencerede "Connect" butonuna tıklayarak Glov modüllerini görüntüleyebilirsiniz.
+                    </p>
+                    <a href="https://tagassistant.google.com/#/?id=GTM-KT88RHV&url=https:%2F%2Fwww.setur.com.tr%2Fducale-lara%3Fgtm_debug%3D1759824126674&source=TAG_MANAGER&gtm_auth=yd0yTq0WzTvR-tFwG_MUGQ&gtm_preview=env-1311" target="_blank">Örnek Sayfayı İncele →</a>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">2. Glov Sorumlulukları</h2>
+                
+                <div class="responsibility-grid">
+                    <div class="responsibility-card">
+                        <h4>2.1 İçerik Oluşturma ve Zenginleştirme</h4>
+                        <ul>
+                            <li>Public web'den otel bilgilerinin toplanması</li>
+                            <li>3. parti veri kaynaklarından (TripAdvisor vb.) içerik çıkarımı</li>
+                            <li>Veri lisanslarına uygun kullanım sağlanması</li>
+                            <li>AI ile otomatik içerik üretimi ve zenginleştirme</li>
+                            <li>İçerik kalite kontrolü ve güncelleme</li>
+                            <li>Setur marka rehberine uygun dil ve ton kullanımı</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="responsibility-card">
+                        <h4>2.2 Ön-Uç Geliştirme</h4>
+                        <ul>
+                            <li>6 modül için HTML/CSS/JavaScript kodlaması</li>
+                            <li>GTM script entegrasyonu ve enjeksiyon</li>
+                            <li>Responsive tasarım (mobil, tablet, desktop)</li>
+                            <li>Performans optimizasyonu (lazy loading, vb.)</li>
+                            <li>Setur brand guidelines'a görsel uyum</li>
+                            <li>Cross-browser uyumluluk testleri</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="responsibility-card">
+                        <h4>2.3 A/B Test Yönetimi</h4>
+                        <ul>
+                            <li>Test senaryolarının tasarlanması</li>
+                            <li>Trafik bölümleme stratejisi (50/50 veya custom)</li>
+                            <li>İstatistiksel anlamlılık hesaplama ve takip</li>
+                            <li>Sürekli varyasyon testleri ve iterasyon</li>
+                            <li>Performans bazlı otomatik optimizasyon</li>
+                            <li>Kazanan varyantların deployment'ı</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="responsibility-card">
+                        <h4>2.4 Dashboard ve Raporlama</h4>
+                        <ul>
+                            <li>Near real-time A/B test sonuçları dashboard'u</li>
+                            <li>Conversion rate metrikleri (günlük/haftalık/aylık)</li>
+                            <li>Faturalanan satış takibi ve delta hesaplama</li>
+                            <li>Modül bazlı performans analizi</li>
+                            <li>İstatistiksel güvenilirlik göstergeleri</li>
+                            <li>Aylık performans raporları ve öneriler</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="responsibility-card">
+                        <h4>2.5 Teknik Destek ve Bakım</h4>
+                        <ul>
+                            <li>7/24 teknik destek (kritik sorunlar için)</li>
+                            <li>Bug fix'ler ve güncellemeler</li>
+                            <li>İçerik veri kaynaklarının düzenli yenilenmesi</li>
+                            <li>Performans monitoring ve alerting</li>
+                            <li>Aylık optimizasyon toplantıları</li>
+                            <li>Yeni modül ve özellik geliştirme önerileri</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             
             <div class="section">
-                <h2 class="section-title">2. Otokoç IT'den Beklentiler</h2>
+                <h2 class="section-title">3. Setur'dan Beklentiler</h2>
                 
-                <h3 class="subsection-title">2.1 GTM Tag Entegrasyonu</h3>
-                
+                <h3 class="subsection-title">3.1 GTM Erişimi</h3>
                 <div class="feature-box">
-                    <p>GTM tag mevcut, ek işlem gerekmiyor</p>
+                    <p>GTM (Google Tag Manager) üzerinde Glov için bir container/tag oluşturulması ve yönetim erişimi verilmesi. Mevcut GTM altyapısına müdahale edilmeden, bağımsız tag'ler ile çalışılacaktır.</p>
                 </div>
                 
-                <h3 class="subsection-title">2.2 Araç Verilerinin Alınması</h3>
-                
+                <h3 class="subsection-title">3.2 Otel Verilerine Erişim</h3>
                 <div class="feature-box">
-                    <p>Gengage IT ekibi, araç verilerini otomatik olarak alan yapıyı kurmuştur. Ek bir işlem gerekmiyor.</p>
+                    <p>Otel temel bilgilerine (isim, konum, özellikler, görsel URL'leri) erişim için:</p>
+                    <ul>
+                        <li>Mevcut data layer yapısı ve otel ID'lerinin paylaşılması</li>
+                        <li>Alternatif olarak: read-only API endpoint erişimi (tercih edilen)</li>
+                        <li>Veri güncellenme sıklığının bilgilendirilmesi</li>
+                    </ul>
                 </div>
                 
-                <h3 class="subsection-title">2.3 CRM Entegrasyonu</h3>
-                
-                <p><strong>Lead İletim Mekanizması:</strong></p>
-                <p style="margin: 15px 0;">Gengage, toplanan lead'leri belirlenen bir alana (API endpoint veya secure database) yazar. CRM ekibi bu alandan lead'leri güvenli bir şekilde okur ve kendi sistemine aktarır.</p>
-                
-                <div class="methods">
-                    <div class="method-card recommended">
-                        <h4>Yöntem A <span class="badge">ÖNERİLEN</span></h4>
-                        <p>Webhook ile anlık push - CRM'inize lead'ler otomatik olarak gönderilir</p>
-                    </div>
-                    <div class="method-card">
-                        <h4>Yöntem B</h4>
-                        <p>API ile pull - CRM ekibiniz belirlenen aralıklarla lead'leri çeker</p>
-                    </div>
+                <h3 class="subsection-title">3.3 Üçüncü Parti Veri Lisansı Koordinasyonu</h3>
+                <div class="feature-box">
+                    <p>TripAdvisor ve benzeri platformlardan veri kullanımı için:</p>
+                    <ul>
+                        <li>Setur'un mevcut veri lisanslarının Glov ile paylaşılması</li>
+                        <li>Yeni lisans gereksinimi durumunda birlikte koordinasyon</li>
+                        <li>Kullanım limitleri ve koşullarının netleştirilmesi</li>
+                    </ul>
                 </div>
                 
-                <p>CRM ekibi ile birlikte en uygun yöntem belirlenecek ve kurulum yapılacaktır.</p>
-                
-                <h3 class="subsection-title">2.4 İçerik ve Veri Toplama</h3>
-                
+                <h3 class="subsection-title">3.4 Analytics ve Conversion Tracking</h3>
                 <div class="feature-box">
-                    <p>Gengage ekibi, gerekli tüm içerikleri (araç görselleri, özellikler, açıklamalar vb.) otomatik olarak toplayacak ve eksik içerikleri kendi üretecektir. Bu konuda Otokoç'tan ek bir beklenti bulunmamaktadır.</p>
+                    <p>Dönüşüm ölçümü için:</p>
+                    <ul>
+                        <li>Rezervasyon tamamlama event'lerinin paylaşılması</li>
+                        <li>Faturalanan satış verilerine erişim (aylık reconciliation için)</li>
+                        <li>A/B test gruplarının analytics'e yansıtılması için data layer desteği</li>
+                    </ul>
                 </div>
             </div>
             
             <div class="section">
-                <h2 class="section-title">3. Proje Zaman Planı</h2>
+                <h2 class="section-title">4. A/B Test Metodolojisi</h2>
+                
+                <div class="methodology-box">
+                    <h4>Test Stratejisi</h4>
+                    <p><strong>Kontrol Grubu (OFF):</strong> Mevcut otel detay sayfası (Glov modülleri olmadan)</p>
+                    <p><strong>Test Grubu (ON):</strong> Glov modülleri eklenmiş otel detay sayfası</p>
+                    <p><strong>Trafik Dağılımı:</strong> Başlangıçta 50% kontrol, 50% test (ayarlanabilir)</p>
+                </div>
+                
+                <div class="methodology-box">
+                    <h4>Başarı Metrikleri</h4>
+                    <p><strong>Tek KPI:</strong> Yaratılan Ek Gelir</p>
+                    
+                    <div style="background: #FFF5F4; padding: 20px; margin-top: 20px; border-radius: 8px;">
+                        <p style="margin-bottom: 15px;"><strong>Hesaplama Metodolojisi:</strong></p>
+                        
+                        <p style="margin: 10px 0;"><strong>1. ON Grubu (Glov Modülleri Aktif):</strong></p>
+                        <p style="margin-left: 20px;">Ziyaretçi Başına Gelir = ON Gelir / ON Ziyaretçi Sayısı</p>
+                        
+                        <p style="margin: 10px 0; margin-top: 20px;"><strong>2. OFF Grubu (Kontrol - Modüller Pasif):</strong></p>
+                        <p style="margin-left: 20px;">Ziyaretçi Başına Gelir = OFF Gelir / OFF Ziyaretçi Sayısı</p>
+                        
+                        <p style="margin: 10px 0; margin-top: 20px;"><strong>3. Toplam Ek Gelir:</strong></p>
+                        <p style="margin-left: 20px;">Delta Gelir = (ON Ziyaretçi Başına Gelir) - (OFF Ziyaretçi Başına Gelir)</p>
+                        <p style="margin-left: 20px;"><strong style="color: #e2221b;">Toplam Ek Gelir = Delta Gelir × ON Ziyaretçi Sayısı</strong></p>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title">4.1 Sürekli Optimizasyon Döngüsü</h3>
+                <div class="success-criteria">
+                    <div class="criteria-card">
+                        <h4>Hafta 1-2</h4>
+                        <p>İlk A/B test başlatma, veri toplama, initial signals analizi</p>
+                    </div>
+                    <div class="criteria-card">
+                        <h4>Hafta 3-4</h4>
+                        <p>Performans değerlendirme, kazanan varyant belirleme</p>
+                    </div>
+                    <div class="criteria-card">
+                        <h4>Hafta 5-6</h4>
+                        <p>Yeni varyasyonların test edilmesi, modül bazlı optimizasyon</p>
+                    </div>
+                    <div class="criteria-card">
+                        <h4>Devam Eden</h4>
+                        <p>Sürekli iyileştirme, yeni hipotez testleri, içerik güncellemeleri</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">5. Proje Zaman Planı</h2>
                 
                 <table class="timeline-table">
                     <thead>
@@ -527,321 +1058,288 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1 Aralık</td>
+                            <td>1 Aralık 2024</td>
                             <td>Kick-off Toplantısı</td>
-                            <td>Teknik ekipler arası koordinasyon, erişimlerin sağlanması</td>
+                            <td>Ekipler arası koordinasyon, GTM erişimi, veri kaynaklarının kurulumu</td>
                         </tr>
                         <tr>
-                            <td>2-14 Aralık</td>
-                            <td>Geliştirme ve Entegrasyon</td>
-                            <td>Lead toplama akışları kurulumu, AI eğitimi</td>
+                            <td>2-15 Aralık</td>
+                            <td>İçerik Pipeline Kurulumu</td>
+                            <td>Veri toplama altyapısı, public web scraping, TripAdvisor entegrasyonu</td>
                         </tr>
                         <tr>
-                            <td>15 Aralık</td>
-                            <td>Soft Launch</td>
-                            <td>%10 test trafiğinde canlıya alım</td>
+                            <td>2-22 Aralık</td>
+                            <td>Modül Geliştirme</td>
+                            <td>6 modülün front-end kodlaması, responsive tasarım, GTM test ortamı</td>
                         </tr>
                         <tr>
-                            <td>16-29 Aralık</td>
-                            <td>İzleme ve Optimizasyon</td>
-                            <td>Lead kalitesi analizi, kullanıcı geri bildirimleri</td>
+                            <td>16-22 Aralık</td>
+                            <td>İçerik Zenginleştirme</td>
+                            <td>İlk batch oteller için içerik üretimi ve kalite kontrolü</td>
                         </tr>
                         <tr>
-                            <td>30 Aralık</td>
-                            <td>Full Launch</td>
-                            <td>%100 trafikte canlıya alım</td>
+                            <td>23 Aralık</td>
+                            <td>QA ve Test</td>
+                            <td>Cross-browser test, performance test, staging ortamında doğrulama</td>
                         </tr>
                         <tr>
-                            <td>2-14 Ocak</td>
-                            <td>Sesli Kanal Geliştirme</td>
-                            <td>Voice interface entegrasyonu ve test</td>
+                            <td>26 Aralık</td>
+                            <td>A/B Test Başlangıcı (Soft Launch)</td>
+                            <td>%10 trafikte ilk test, monitoring ve hata giderme</td>
                         </tr>
                         <tr>
-                            <td>15 Ocak</td>
-                            <td>Sesli Kanal Lansmanı</td>
-                            <td>Tüm trafikte sesli kanal aktif</td>
+                            <td>1 Ocak 2025</td>
+                            <td>Full A/B Test Lansmanı</td>
+                            <td>%50/%50 trafik dağılımı ile tam ölçekli test başlatma</td>
+                        </tr>
+                        <tr>
+                            <td>1-14 Ocak</td>
+                            <td>İlk Veri Toplama Periyodu</td>
+                            <td>Minimum 2 haftalık veri, initial performance signals</td>
+                        </tr>
+                        <tr>
+                            <td>15-22 Ocak</td>
+                            <td>İlk Analiz ve Raporlama</td>
+                            <td>İstatistiksel analiz, ilk bulgular, optimizasyon önerileri</td>
+                        </tr>
+                        <tr>
+                            <td>23 Ocak+</td>
+                            <td>Sürekli Optimizasyon</td>
+                            <td>Yeni varyasyonlar, içerik güncellemeleri, iteratif iyileştirmeler</td>
                         </tr>
                     </tbody>
                 </table>
                 
-                <h3 class="subsection-title">3.1 Önemli Notlar</h3>
-                
                 <div class="warning-box">
                     <h4>⚠️ Zaman Planı Koşulları:</h4>
                     <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>Bu plan, 1 Aralık'a kadar kontratın tamamlanması varsayımına dayanmaktadır</li>
-                        <li>Eğer kontrat daha erken tamamlanırsa, 1 Aralık'tan önce başlangıç için plan revize edilebilir</li>
-                        <li>Her aşama için Otokoç ekiplerinin aktif katılımı ve zamanında geri bildirim sağlaması kritik önem taşımaktadır</li>
+                        <li>Bu plan, 1 Aralık'ta kontratın imzalanması ve gerekli erişimlerin sağlanması varsayımına dayanmaktadır</li>
+                        <li>GTM erişimi ve veri kaynakları kurulumunda gecikmeler timeline'ı etkileyebilir</li>
+                        <li>Tatil döneminde (23 Aralık - 5 Ocak arası) trafik ve davranış değişiklikleri beklenmektedir</li>
+                        <li>Her aşama için Setur ekiplerinin aktif katılımı ve zamanında geri bildirim kritik önem taşımaktadır</li>
                     </ul>
                 </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">5.5. A/B Test Performans Dashboard Örneği</h2>
                 
-                <h4 style="color: #FF6B35; margin: 25px 0 15px 0;">Başarı Kriterleri:</h4>
-                <div class="success-criteria">
-                    <div class="criteria-card">
-                        <h4>Lead Sayısı</h4>
-                        <p>Nitelikli lead sayısında artış</p>
+                <div class="dashboard-embed">
+                    <div class="dashboard-header">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Setur_Logo.png" alt="Setur Logo" class="dashboard-logo">
+                        <h3 class="dashboard-title">Glov A/B Testing Dashboard</h3>
+                        <div class="live-badge">
+                            <span class="live-dot"></span>
+                            <span class="live-text">CANLI</span>
+                        </div>
                     </div>
-                    <div class="criteria-card">
-                        <h4>Ortalama Yanıt Süresi</h4>
-                        <p>Kullanıcı sorularına hızlı yanıt</p>
+                    
+                    <p style="margin-bottom: 25px; color: #666; font-style: italic;">
+                        Aşağıda, A/B test sonuçlarının nasıl raporlanacağına dair bir örnek görsel sunulmaktadır. Gerçek zamanlı dashboard, projeye başladıktan sonra Setur ekiplerine özel erişim ile sağlanacaktır.
+                    </p>
+                    
+                    <div class="dashboard-summary-cards">
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-label">Kontrol Grubu CR</div>
+                            <div class="dashboard-card-value">2.04%</div>
+                            <div class="dashboard-card-change">847 rezervasyon</div>
+                        </div>
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-label">Test Grubu CR (Glov)</div>
+                            <div class="dashboard-card-value">2.37%</div>
+                            <div class="dashboard-card-change">982 rezervasyon</div>
+                        </div>
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-label">Dönüşüm Artışı</div>
+                            <div class="dashboard-card-value">+0.33%</div>
+                            <div class="dashboard-card-change">+135 ek rezervasyon</div>
+                        </div>
+                        <div class="dashboard-card">
+                            <div class="dashboard-card-label">Aylık Artımlı Gelir</div>
+                            <div class="dashboard-card-value">₺8.4M</div>
+                            <div class="dashboard-card-change">+14.8%</div>
+                        </div>
                     </div>
-                    <div class="criteria-card">
-                        <h4>Memnuniyet Skoru</h4>
-                        <p>Kullanıcı deneyimi ve lead kalitesi ölçümü</p>
+                    
+                    <div class="comparison-section">
+                        <div class="comparison-header">
+                            <h4 class="comparison-title">Kontrol vs Test Grubu Detaylı Karşılaştırma</h4>
+                        </div>
+                        
+                        <div class="comparison-grid">
+                            <div class="variant-box">
+                                <div class="variant-header">
+                                    <span class="variant-name">Kontrol Grubu</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Toplam Ziyaret</span>
+                                    <span class="metric-value">41,520</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Rezervasyon</span>
+                                    <span class="metric-value">847</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Dönüşüm Oranı</span>
+                                    <span class="metric-value">2.04%</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Ortalama Sepet</span>
+                                    <span class="metric-value">₺61,850</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Toplam Gelir</span>
+                                    <span class="metric-value">₺52.4M</span>
+                                </div>
+                            </div>
+                            
+                            <div class="variant-box winner">
+                                <div class="variant-header">
+                                    <span class="variant-name">Test Grubu (Glov)</span>
+                                    <span class="winner-badge">🏆 KAZANAN</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Toplam Ziyaret</span>
+                                    <span class="metric-value">41,435</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Rezervasyon</span>
+                                    <span class="metric-value">982</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Dönüşüm Oranı</span>
+                                    <span class="metric-value positive">2.37% (+16.2%)</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Ortalama Sepet</span>
+                                    <span class="metric-value positive">₺62,222 (+0.6%)</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span class="metric-label">Toplam Gelir</span>
+                                    <span class="metric-value positive">₺61.1M (+16.6%)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: #FFF5F4; padding: 20px; border-left: 4px solid #e2221b; border-radius: 5px; margin-top: 25px;">
+                        <p style="margin: 0; color: #666; font-size: 14px;">
+                            <strong style="color: #e2221b;">Not:</strong> Yukarıdaki veriler örnek senaryoya dayanmaktadır. Gerçek dashboard, canlı veri akışı ile sürekli güncellenecek ve detaylı segment analizleri, modül bazlı performans metrikleri ve zaman serisi grafikleri içerecektir.
+                        </p>
                     </div>
                 </div>
             </div>
             
             <div class="section">
-                <h2 class="section-title">4. Gengage Sorumlulukları</h2>
+                <h2 class="section-title">6. Ticari Koşullar</h2>
                 
-                <div class="responsibility-grid">
-                    <div class="responsibility-card">
-                        <h4>4.1 Teknik Altyapı</h4>
-                        <ul>
-                            <li>GTM tag sağlama ve kurulum desteği</li>
-                            <li>Secure lead storage ve iletim altyapısı</li>
-                            <li>API/webhook endpoint'leri</li>
-                            <li>Sistem izleme ve monitoring</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="responsibility-card">
-                        <h4>4.2 AI Sistemi Geliştirme</h4>
-                        <ul>
-                            <li>Otomotiv sektörüne özel AI model eğitimi</li>
-                            <li>Otokoç marka ses tonu ve dilinin uygulanması</li>
-                            <li>Araç verisi üzerinden akıllı lead toplama akışları</li>
-                            <li>Doğal dil işleme ve sesli asistan entegrasyonu</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="responsibility-card">
-                        <h4>4.3 İçerik Yönetimi</h4>
-                        <ul>
-                            <li>Araç ve ilan verilerinin otomatik toplanması</li>
-                            <li>Eksik içeriklerin üretilmesi</li>
-                            <li>Dinamik görsel ve mesaj üretimi</li>
-                            <li>Sürekli içerik güncellemesi</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="responsibility-card">
-                        <h4>4.4 Kullanıcı Deneyimi</h4>
-                        <ul>
-                            <li>Lead toplama akışlarının tasarımı</li>
-                            <li>Mobil-responsive arayüz</li>
-                            <li>Yazılı ve sesli kanal entegrasyonu</li>
-                            <li>Kişiselleştirilmiş mesajlaşma deneyimi</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="responsibility-card">
-                        <h4>4.5 Destek ve Optimizasyon</h4>
-                        <ul>
-                            <li>7/24 teknik destek</li>
-                            <li>Haftalık performans raporları</li>
-                            <li>Aylık optimizasyon toplantıları</li>
-                            <li>A/B test desteği</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2 class="section-title">5. Ticari Anlaşma</h2>
+                <h3 class="subsection-title">6.1 Ücretlendirme Detayları</h3>
                 
-                <h3 class="subsection-title">5.1 Ücretlendirme Modeli</h3>
-                
-                <p style="margin: 20px 0;">Gengage entegrasyonu için sabit aylık hizmet ücreti modeli uygulanmaktadır.</p>
-                
-                <h4 style="color: #FF6B35; margin: 30px 0 15px 0;">Aylık Hizmet Ücreti</h4>
                 <table>
                     <thead>
                         <tr>
-                            <th>Hizmet</th>
-                            <th>Aylık Ücret (+KDV)</th>
+                            <th>Bileşen</th>
+                            <th>Tutar</th>
                             <th>Açıklama</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Gengage Entegrasyonu<br/>(Otokoc.com.tr için)</td>
-                            <td>195.000 TL</td>
-                            <td>Otokoc.com.tr için platform altyapı, AI sistemi, teknik destek ve optimizasyon hizmetleri</td>
+                            <td>Aylık Sabit Ücret</td>
+                            <td>130.000 TL (+KDV)</td>
+                            <td>Platform altyapı, geliştirme, içerik üretimi, A/B test yönetimi, teknik destek</td>
+                        </tr>
+                        <tr>
+                            <td>Performans Primi</td>
+                            <td>Artımlı Gelirin %5'i</td>
+                            <td>Test grubu ile kontrol grubu arasındaki faturalanan satış farkının %5'i</td>
                         </tr>
                     </tbody>
                 </table>
                 
-                <div style="background: #FFF5F2; padding: 20px; border-left: 4px solid #FF6B35; margin: 20px 0; border-radius: 5px;">
-                    <p><strong>Notlar:</strong></p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li>Fiyatlara artı KDV uygulanır.</li>
-                        <li>Sınırsız lead toplama kapasitesi sunulmaktadır.</li>
+                <h3 class="subsection-title">6.2 Performans Primi Hesaplama Örneği</h3>
+                <div class="feature-box">
+                    <p><strong>Senaryo:</strong> Ocak ayında toplam 2 milyon ziyaretçi (50/50 split)</p>
+                    
+                    <div style="background: white; padding: 20px; margin: 15px 0; border-left: 3px solid #e2221b;">
+                        <p style="margin-bottom: 10px;"><strong>OFF Grubu (Kontrol - 1M ziyaretçi):</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Toplam Gelir: 50M TL</li>
+                            <li>Ziyaretçi Başına Gelir: 50M TL / 1M = <strong>50 TL</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: white; padding: 20px; margin: 15px 0; border-left: 3px solid #e2221b;">
+                        <p style="margin-bottom: 10px;"><strong>ON Grubu (Glov Modülleri - 1M ziyaretçi):</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li>Toplam Gelir: 54M TL</li>
+                            <li>Ziyaretçi Başına Gelir: 54M TL / 1M = <strong>54 TL</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #FFF5F4; padding: 20px; margin: 15px 0; border-radius: 8px;">
+                        <p style="margin-bottom: 10px;"><strong style="color: #e2221b;">Ek Gelir Hesaplama:</strong></p>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Delta Gelir:</strong> 54 TL - 50 TL = 4 TL/ziyaretçi</li>
+                            <li><strong>Toplam Ek Gelir:</strong> 4 TL × 1M ziyaretçi = <strong style="color: #e2221b;">4M TL</strong></li>
+                            <li><strong>Performans Primi:</strong> 4M TL × 5% = <strong style="color: #e2221b;">200.000 TL</strong></li>
+                            <li><strong>Toplam Aylık Ödeme:</strong> 130.000 TL (sabit) + 200.000 TL (primi) = <strong style="color: #e2221b;">330.000 TL (+KDV)</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title">6.3 Sözleşme Süresi ve Koşullar</h3>
+                <div class="feature-box">
+                    <ul>
+                        <li><strong>Minimum Süre:</strong> 12 ay (1 Aralık 2024 - 30 Kasım 2025)</li>
+                        <li><strong>Yenileme:</strong> Otomatik 12 aylık dönemler halinde, 3 ay önceden yazılı bildirimle iptal edilebilir</li>
+                        <li><strong>Fatura Dönemi:</strong> Aylık (ay sonunda performans reconciliation)</li>
+                        <li><strong>Ödeme Koşulu:</strong> 30 gün vadeli</li>
+                        <li><strong>Erken Sonlandırma:</strong> 3 aylık yazılı bildirimle, kalan aylar için sabit ücret ödemesi ile</li>
                     </ul>
                 </div>
-   
-                
-                <h3 class="subsection-title">5.2 Sözleşme Süresi ve Koşullar</h3>
-                
-
             </div>
             
             <div class="next-steps">
-                <h2 style="margin-bottom: 15px;">6. Sonraki Adımlar</h2>
+                <h2 style="margin-bottom: 15px;">7. Sonraki Adımlar</h2>
                 <ol>
-                    <li><strong>Teklif İncelemesi:</strong> Otokoç ekipleriyle detaylı teklif görüşmesi</li>
-                    <li><strong>Ticari Koşulların Belirlenmesi:</strong> Hizmet kapsamı ve detaylarının müzakeresi</li>
+                    <li><strong>Teklif İncelemesi:</strong> Setur ekipleriyle detaylı teklif görüşmesi ve Q&A</li>
+                    <li><strong>Ticari Koşulların Belirlenmesi:</strong> Ücretlendirme, sözleşme koşulları, SLA'ların müzakeresi</li>
+                    <li><strong>Teknik Ön Değerlendirme:</strong> GTM yapısı, veri erişimi, analytics setup incelemesi</li>
                     <li><strong>Kontrat İmzası:</strong> Yasal süreçlerin tamamlanması</li>
-                    <li><strong>Kick-off Toplantısı:</strong> Teknik ekiplerin bir araya gelmesi</li>
+                    <li><strong>Kick-off Toplantısı:</strong> 1 Aralık'ta teknik ekiplerin bir araya gelmesi</li>
                     <li><strong>Proje Başlangıcı:</strong> Zaman planına göre ilerleme</li>
                 </ol>
             </div>
             
             <div class="contact-box">
                 <h3>İletişim</h3>
-                <p style="margin-bottom: 15px;"><strong style="color: #FF8C42;">Gengage Proje Ekibi</strong></p>
+                <p style="margin-bottom: 15px;"><strong style="color: #FFB0AA;">Glov Proje Ekibi</strong></p>
                 <div class="contact-info"><strong>Proje Yöneticisi:</strong> Buse Çelik</div>
                 <div class="contact-info"><strong>E-posta:</strong> buse@glov.ai</div>
                 <div class="contact-info"><strong>Telefon:</strong> 0541 940 89 59</div>
                 <p style="margin-top: 20px; font-style: italic;">Bu teklif hakkında sorularınız için lütfen bizimle iletişime geçin.</p>
             </div>
             
-            <div class="appendix">
-                <h2 style="color: #FF6B35; margin-bottom: 20px;">Ekler</h2>
-                <h3 style="color: #333; margin-bottom: 15px;">Ek-1: Lead Detayları Tablosu</h3>
-                
-                <h4 style="color: #FF6B35; margin: 25px 0 15px 0;">Otokoc.com.tr Lead Bilgileri</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Lead Tipi</th>
-                            <th>Toplanan Bilgiler</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Bilgi Almak</td>
-                            <td>İsim, Soyad, E-posta, Telefon, Araç Marka & Model, Müşteri Notu (opsiyonel)</td>
-                        </tr>
-                        <tr>
-                            <td>Servis Randevusu</td>
-                            <td>İsim, Soyad, E-posta, Telefon, Araç Marka & Model, Lokasyon (Şehir & İlçe), Müşteri Notu (opsiyonel)</td>
-                        </tr>
-                        <tr>
-                            <td>Test Sürüşü</td>
-                            <td>İsim, Soyad, E-posta, Telefon, Araç Marka & Model, Lokasyon (Şehir & İlçe)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="appendix" style="background: #FFF9E6; border: 2px solid #FFB700;">
-                <h2 style="color: #FF6B35; margin-bottom: 20px;">Ek-2: Gelecek Çalışmalar - Otokocikinciel.com Entegrasyonu</h2>
-                <p style="margin-bottom: 20px; font-style: italic;">Bu bölüm, otokocikinciel.com için planlanan entegrasyon kapsamını içermektedir ve gelecekte uygulanabilecek özellikler olarak referans amaçlı sunulmaktadır.</p>
-                
-                <h3 style="color: #333; margin: 25px 0 15px 0;">İkinci El Araç İlanı Deneyimi</h3>
-                <div class="example-box">
-                    <p>İkinci el araç ilanlarında:</p>
-                    <ul>
-                        <li>"Uzman Danışman Çevrimiçi" göstergesi ile güven oluşturma</li>
-                        <li>"Bu aracın detaylı ekspertiz raporu var mı?" gibi proaktif sorular</li>
-                        <li>"Araçla ilgili tüm sorularınız için buradayım" mesajı</li>
-                        <li>Anında telefon görüşmesi başlatma butonu</li>
-                    </ul>
-                </div>
-                
-                <h3 style="color: #333; margin: 25px 0 15px 0;">Kullanıcı Arayüzü Örneği</h3>
-                <div style="max-width: 300px; margin: 20px;">
-                    <div style="border: 2px solid #e0e0e0; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                        <img src="otokoc-2EL.png" alt="İkinci El Araç İlanı - Uzman Danışman Ekranı" style="width: 100%; height: auto; display: block;">
-                        <div style="padding: 15px; background: #f9f9f9;">
-                            <p style="font-size: 0.9em; color: #666; margin: 0;"><strong>Ekran:</strong> İkinci el araç ilanında uzman danışman çevrimiçi göstergesi ve ekspertiz raporu sorgusu</p>
-                        </div>
+            <div class="footer">
+                <div class="footer-content">
+
+                    
+                    <div class="footer-company-info">
+                        <strong>Glov Bilgi Teknolojileri ve Servisleri Yazılım Danışmanlık Ticaret Anonim Şirketi</strong>
+                        <p>
+                            📍 Şehit Muhtar Mah. Mis Sk. No: 24 İç Kapı No: 12<br>
+                            Beyoğlu / İstanbul 34435
+                        </p>
+
+                    </div>
+                    
+      
+                    
+                    <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #ddd; color: #999; font-size: 0.85em;">
+                        © 2025 Glov Bilgi Teknolojileri A.Ş. Tüm hakları saklıdır.
                     </div>
                 </div>
-                
-                <h3 style="color: #333; margin: 25px 0 15px 0;">IT Gereksinimleri</h3>
-                
-                <div class="feature-box" style="background: white;">
-                    <h4>GTM Tag Entegrasyonu:</h4>
-                    <p>Gengage tarafından sağlanacak GTM tag'inin siteye eklenmesi gerekiyor</p>
-                </div>
-                
-                <div class="feature-box" style="background: white;">
-                    <h4>İlan Verilerinin Alınması:</h4>
-                    <p>İlan verilerinin otomatik alınması için Gengage bu işi üstlenecektir. Otokoç IT ekibinden ek bir işlem gerekmiyor.</p>
-                </div>
-                
-                <h3 style="color: #333; margin: 25px 0 15px 0;">Proje Zaman Planı</h3>
-                
-                <table class="timeline-table">
-                    <thead>
-                        <tr>
-                            <th>Tarih</th>
-                            <th>Milestone</th>
-                            <th>Açıklama</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1 Aralık</td>
-                            <td>Kick-off Toplantısı</td>
-                            <td>Teknik ekipler arası koordinasyon, GTM tag kurulumu</td>
-                        </tr>
-                        <tr>
-                            <td>2-15 Aralık</td>
-                            <td>Geliştirme ve Entegrasyon</td>
-                            <td>GTM tag ekleme, ilan verisi akışı kurulumu</td>
-                        </tr>
-                        <tr>
-                            <td>16-20 Aralık</td>
-                            <td>Test ve QA</td>
-                            <td>Test ortamında doğrulama</td>
-                        </tr>
-                        <tr>
-                            <td>21 Aralık</td>
-                            <td>Sistem Testi Handoff</td>
-                            <td>Otokoç test ekibine teslim</td>
-                        </tr>
-                        <tr>
-                            <td>22-31 Aralık</td>
-                            <td>Otokoç İç Testleri</td>
-                            <td>Kalite kontrol, kullanıcı senaryoları</td>
-                        </tr>
-                        <tr>
-                            <td>1 Ocak</td>
-                            <td>Soft Launch</td>
-                            <td>%10 test trafiğinde canlıya alım</td>
-                        </tr>
-                        <tr>
-                            <td>2-14 Ocak</td>
-                            <td>İzleme ve Optimizasyon</td>
-                            <td>Lead kalitesi analizi, geri bildirimler</td>
-                        </tr>
-                        <tr>
-                            <td>15 Ocak</td>
-                            <td>Full Launch</td>
-                            <td>%100 trafikte canlıya alım</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <h3 style="color: #333; margin: 25px 0 15px 0;">Lead Detayları</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Lead Tipi</th>
-                            <th>Toplanan Bilgiler</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Bilgi Almak</td>
-                            <td>İsim, Soyad, E-posta, Telefon, İlan Linki, Konuşma Geçmişi, Danışmana (Satıcıya) Tavsiye</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
