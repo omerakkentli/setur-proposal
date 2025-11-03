@@ -27,4 +27,42 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(cycleCardStates, delay); // Start the cycle for each card
     });
 
+    // --- Hero Form Handling ---
+    const heroForm = document.getElementById('heroForm');
+    
+    if (heroForm) {
+        heroForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const productUrl = document.getElementById('productUrl').value;
+            const submitBtn = heroForm.querySelector('.btn-form-submit');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call (replace with actual API endpoint)
+            setTimeout(() => {
+                // Show success state
+                submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Success!';
+                submitBtn.style.backgroundColor = '#28a745';
+                
+                // Log for demo purposes (replace with actual submission logic)
+                console.log('Product URL submitted:', productUrl);
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    heroForm.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.backgroundColor = '';
+                    
+                    // Optional: Show thank you message or redirect
+                    alert('Thank you! We\'ll connect you with decision-makers within 48 hours.');
+                }, 2000);
+            }, 1500);
+        });
+    }
+
 });
