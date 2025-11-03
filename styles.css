@@ -248,9 +248,17 @@ a {
     padding: 0; /* No padding for front face so photo fills card */
 }
 
+.card-face-review,
 .card-face-feedback,
 .card-face-action {
-    padding: 1.5rem; /* Keep padding for feedback and action states */
+    padding: 1.5rem; /* Keep padding for review, feedback and action states */
+}
+
+.card-face-review {
+    transform: rotateY(180deg); /* Start rotated */
+    background-color: var(--color-off-white);
+    color: var(--color-dark-charcoal);
+    z-index: 3;
 }
 
 .card-face-feedback {
@@ -306,6 +314,43 @@ a {
     font-style: italic;
     background: none; /* Remove gradient background */
     padding: 0; /* Reset padding */
+}
+
+.review-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark-charcoal);
+}
+
+.progress-bar-container {
+    width: 80%;
+    height: 8px;
+    background-color: var(--color-light-grey);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    width: 0%; /* Initial state, JS animates this */
+    height: 100%;
+    background-color: var(--color-electric-blue);
+    border-radius: 4px;
+    animation: loading-bar 3s linear infinite alternate; /* Animates back and forth */
+}
+
+.review-status {
+    font-size: 0.95rem;
+    color: var(--color-medium-grey);
+    font-style: italic;
+}
+
+@keyframes loading-bar {
+    0% { width: 10%; transform: translateX(0); }
+    50% { width: 50%; transform: translateX(25%); }
+    100% { width: 90%; transform: translateX(10%); }
 }
 
 .action-text {
@@ -439,13 +484,15 @@ a {
     }
 }
 
-/* Add this to your styles.css, ideally near the .impact-card definition */
+/* Card State Transitions - 4 States: 0=Front, 1=Review, 2=Feedback, 3=Action */
 
+/* State 0: Front */
 .impact-card[data-current-state="0"] .card-face-front {
     opacity: 1;
     transform: rotateY(0deg);
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
+.impact-card[data-current-state="0"] .card-face-review,
 .impact-card[data-current-state="0"] .card-face-feedback,
 .impact-card[data-current-state="0"] .card-face-action {
     opacity: 0;
@@ -453,29 +500,51 @@ a {
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
+/* State 1: Review */
 .impact-card[data-current-state="1"] .card-face-front {
     opacity: 0;
     transform: rotateY(-180deg); /* Rotate front away */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
-.impact-card[data-current-state="1"] .card-face-feedback {
+.impact-card[data-current-state="1"] .card-face-review {
+    opacity: 1;
+    transform: rotateY(0deg); /* Show review */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.impact-card[data-current-state="1"] .card-face-feedback,
+.impact-card[data-current-state="1"] .card-face-action {
+    opacity: 0;
+    transform: rotateY(180deg); /* Keep feedback and action hidden */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* State 2: Feedback */
+.impact-card[data-current-state="2"] .card-face-front,
+.impact-card[data-current-state="2"] .card-face-review {
+    opacity: 0;
+    transform: rotateY(-180deg); /* Rotate previous faces away */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.impact-card[data-current-state="2"] .card-face-feedback {
     opacity: 1;
     transform: rotateY(0deg); /* Show feedback */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
-.impact-card[data-current-state="1"] .card-face-action {
+.impact-card[data-current-state="2"] .card-face-action {
     opacity: 0;
     transform: rotateY(180deg); /* Keep action hidden */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.impact-card[data-current-state="2"] .card-face-front,
-.impact-card[data-current-state="2"] .card-face-feedback {
+/* State 3: Action */
+.impact-card[data-current-state="3"] .card-face-front,
+.impact-card[data-current-state="3"] .card-face-review,
+.impact-card[data-current-state="3"] .card-face-feedback {
     opacity: 0;
     transform: rotateY(-180deg); /* Rotate previous faces away */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
-.impact-card[data-current-state="2"] .card-face-action {
+.impact-card[data-current-state="3"] .card-face-action {
     opacity: 1;
     transform: rotateY(0deg); /* Show action */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
