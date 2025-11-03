@@ -121,13 +121,15 @@ a {
     padding: 4rem 3rem;
     background-color: var(--color-white);
     gap: 4rem; /* Spacing between left and right columns */
+    align-items: flex-start; /* Align panels to the top */
 }
 
 .hero-content-left {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Align content to top instead of center */
+    padding-top: 2rem; /* Add some top padding for better visual balance */
     max-width: 50%; /* Adjusted for visual balance with the grid */
     padding-right: 2rem;
 }
@@ -186,7 +188,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Align content to top */
     position: relative;
     padding: 2rem;
     background-color: var(--color-light-grey); /* Subtle background for the visual area */
@@ -424,6 +426,38 @@ a {
         grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
         max-width: 400px; /* Constrain width */
     }
+
+    .meta-info-bar {
+        gap: 1.5rem;
+        padding: 0.5rem 1rem; /* Keep slim */
+        margin-bottom: 2rem;
+        font-size: 0.8rem;
+    }
+
+    .opportunities-panel {
+        padding: 1.5rem;
+    }
+
+    .opportunities-header {
+        margin-bottom: 1rem;
+    }
+
+    .opportunities-title {
+        font-size: 1.3rem;
+    }
+
+    .opportunity-card {
+        min-height: 160px;
+        padding: 1.2rem;
+    }
+
+    .card-title {
+        font-size: 1.05rem;
+    }
+
+    .card-compensation {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -455,9 +489,54 @@ a {
     }
 
     .cta-block {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row; /* Keep buttons side-by-side if space allows */
+        justify-content: flex-start; /* Align left */
         gap: 1rem;
+    }
+
+    .meta-info-bar {
+        flex-direction: column;
+        align-items: flex-start; /* Align left for readability */
+        gap: 0.4rem;
+        padding: 0.6rem 1rem; /* Keep compact */
+        width: 100%; /* Full width on mobile */
+    }
+
+    .meta-info-bar p {
+        justify-content: flex-start;
+    }
+
+    .hero-content-left {
+        padding-right: 0;
+        text-align: left; /* Revert text alignment for better flow */
+        align-items: flex-start;
+    }
+
+    .social-proof {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .opportunities-header {
+        font-size: 1.1rem;
+    }
+
+    .opportunity-card {
+        min-height: 140px;
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-compensation {
+        font-size: 0.95rem;
+    }
+
+    .card-cta {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
     }
 }
 
@@ -481,6 +560,21 @@ a {
     }
     .action-text {
         font-size: 1.1rem;
+    }
+    .opportunities-list-container {
+        padding: 0;
+    }
+    .opportunity-card {
+        padding: 0.8rem;
+    }
+    .card-title {
+        font-size: 0.95rem;
+    }
+    .card-category, .master-info {
+        font-size: 0.8rem;
+    }
+    .card-compensation {
+        font-size: 0.9rem;
     }
 }
 
@@ -548,4 +642,193 @@ a {
     opacity: 1;
     transform: rotateY(0deg); /* Show action */
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Navbar Active Link (for consistency) */
+.nav-link-active {
+    color: var(--color-dark-charcoal) !important; /* Make active link darker */
+    font-weight: 600 !important;
+}
+
+/* Meta Info Bar */
+.meta-info-bar {
+    display: flex;
+    gap: 3rem;
+    background-color: var(--color-light-grey);
+    border-radius: 6px;
+    padding: 0.5rem 1.5rem; /* Much slimmer padding */
+    margin-bottom: 2.5rem;
+    font-size: 0.85rem; /* Slightly smaller font */
+    color: var(--color-medium-grey);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03); /* More subtle shadow */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: flex-start; /* Align left */
+    align-items: center; /* Vertically center items */
+    width: fit-content; /* Only take needed width */
+}
+
+.meta-info-bar p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Prevent line breaks */
+}
+
+.meta-highlight {
+    color: var(--color-dark-charcoal);
+    font-weight: 700;
+    margin-right: 0.35rem;
+    white-space: nowrap; /* Prevent numbers from wrapping */
+}
+
+/* Right Panel for Opportunities */
+.opportunities-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 2rem;
+    background-color: var(--color-light-grey); /* Subtle background for the visual area */
+    border-radius: 15px; /* Soft rounding */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+    max-height: 700px; /* Constrain to typical hero height */
+    height: fit-content; /* Only take up needed space */
+}
+
+.opportunities-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+.opportunities-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-dark-charcoal);
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    color: var(--color-medium-grey);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-arrow:hover {
+    background-color: rgba(0,0,0,0.05);
+    color: var(--color-dark-charcoal);
+}
+
+.opportunities-list-container {
+    flex-grow: 1;
+    overflow: hidden; /* CRITICAL: Hides the native scrollbars */
+    position: relative;
+    padding: 0.5rem; /* Internal padding for cards not to touch edges */
+    /* Constrain height to fit within the panel */
+    max-height: 600px; /* Adjust based on panel max-height minus header */
+    height: 100%; /* Take available space */
+}
+
+.opportunities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Space between cards */
+    position: relative; /* Change from absolute to relative */
+    top: 0;
+    left: 0;
+    width: 100%;
+    will-change: transform; /* Optimize for animation */
+    /* Remove min-height/height if you had it, let content define it */
+}
+
+.opportunity-card {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 180px; /* IMPORTANT: Maintain this or a reasonable fixed height */
+    flex-shrink: 0; /* Don't shrink cards */
+    opacity: 1; /* Default opacity */
+    /* transition: opacity 0.5s ease-out; Remove or adjust if not explicitly needed for animation */
+}
+
+.card-details {
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-dark-charcoal);
+    margin-bottom: 0.4rem;
+}
+
+.card-category {
+    font-size: 0.9rem;
+    color: var(--color-medium-grey);
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.card-compensation {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-electric-blue);
+    white-space: nowrap;
+}
+
+.company-avatars {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+
+.avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder color */
+    border: 2px solid var(--color-white);
+    margin-left: -8px; /* Overlap effect */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.avatar:first-child {
+    margin-left: 0;
+}
+
+.avatar-count {
+    font-size: 0.85rem;
+    color: var(--color-medium-grey);
+    margin-left: 0.5rem;
+}
+
+.card-cta {
+    background-color: var(--color-light-grey);
+    color: var(--color-dark-charcoal);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.card-cta:hover {
+    background-color: var(--color-electric-blue);
+    color: var(--color-white);
 }
