@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HİZMET SÖZLEŞMESİ</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            line-height: 1.6;
+            color: #333;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 0;
+            margin: 1cm auto;
+            background: white;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .doc-header {
+            padding: 3px 1.5cm 3px;
+            background: linear-gradient(135deg, #1A1033 0%, #2D1B4E 50%, #1A1033 100%);
+            color: #FFFFFF;
+            border-bottom: 2px solid #8A00FF;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .doc-header .logo {
+            width: 90px;
+            height: auto;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .st1, .st2 {
+            fill: #FFFFFF !important;
+        }
+
+        .header-info {
+            text-align: right;
+            font-size: 8px;
+            line-height: 1.4;
+            color: #FFFFFF;
+        }
+
+        .header-info .company-name {
+            font-weight: 600;
+            font-size: 9px;
+            margin-bottom: 2px;
+        }
+
+        .header-info .company-address {
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 2px;
+        }
+
+        .header-info .company-contact {
+            font-weight: 400;
+            opacity: 0.9;
+            font-size: 9px;
+        }
+
+        .header-info .company-tax {
+            font-weight: 400;
+            opacity: 0.9;
+            font-size: 8px;
+            margin-top: 2px;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px 1.5cm 20px;
+            background: linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%);
+        }
+
+        .footer {
+            padding: 8px 1.5cm;
+            font-size: 8px;
+            margin-top: auto;
+            width: 100%;
+            box-sizing: border-box;
+            background: #f5f5f5;
+            color: #666;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 2px 0;
+            line-height: 1.4;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #8A00FF;
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, #8A00FF 0%, #b366ff 100%);
+            border-image-slice: 1;
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+            position: relative;
+        }
+
+        .header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: #8A00FF;
+            border-radius: 2px;
+        }
+
+        .header .contract-no {
+            font-size: 11px;
+            margin-top: 8px;
+            font-style: italic;
+            color: #666;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #2D2D2D;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding-left: 10px;
+            border-left: 3px solid #8A00FF;
+            background: linear-gradient(90deg, rgba(138, 0, 255, 0.05) 0%, transparent 100%);
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
+        .article {
+            margin-bottom: 20px;
+        }
+
+        .article-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #444;
+            margin-top: 14px;
+            margin-bottom: 8px;
+            padding-left: 8px;
+            border-left: 2px solid #b366ff;
+        }
+
+        .article-content {
+            text-align: justify;
+            font-size: 11px;
+            margin-left: 15px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .article-content p {
+            margin-bottom: 10px;
+            font-size: 11px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .sub-article {
+            margin-left: 20px;
+            margin-top: 8px;
+            text-align: justify;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 10px;
+            margin-bottom: 12px;
+            font-size: 11px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        }
+
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        th {
+            background: linear-gradient(135deg, #8A00FF 0%, #a033ff 100%);
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+        }
+
+        tbody tr {
+            background-color: #fff;
+            transition: background-color 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background-color: rgba(138, 0, 255, 0.02);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        td {
+            color: #555;
+            border-right: 1px solid #f0f0f0;
+        }
+
+        td:last-child {
+            border-right: none;
+        }
+
+        td strong {
+            color: #2D2D2D;
+            font-weight: 600;
+        }
+
+        .party-box {
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            margin: 15px 0;
+            background: linear-gradient(135deg, #fafbfc 0%, #ffffff 100%);
+            border-radius: 6px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            font-size: 10px;
+            line-height: 1.6;
+        }
+
+        .party-box strong {
+            font-size: 10px;
+            color: #2D2D2D;
+        }
+
+        .party-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 11px;
+            color: #2D2D2D;
+        }
+
+        .signatures {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #fafbfc 0%, #ffffff 100%);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            page-break-inside: avoid;
+        }
+
+        .signature-block {
+            text-align: center;
+        }
+
+        .signature-line {
+            border-top: 2px solid #8A00FF;
+            margin-top: 45px;
+            padding-top: 8px;
+            font-weight: 600;
+            color: #2D2D2D;
+            font-size: 12px;
+        }
+
+        .signature-title {
+            color: #666;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 24px;
+            font-size: 11px;
+            line-height: 1.5;
+            color: #444;
+            text-align: justify;
+        }
+
+        li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #fff;
+            background: linear-gradient(135deg, #8A00FF 0%, #a033ff 100%);
+            font-weight: bold;
+            font-size: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 3px rgba(138, 0, 255, 0.2);
+        }
+
+        li strong {
+            color: #2D2D2D;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 10px;
+            font-size: 11px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        p strong {
+            color: #2D2D2D;
+            font-weight: 600;
+        }
+
+        .note {
+            font-size: 11px;
+            color: #666;
+            font-style: italic;
+            margin-top: 8px;
+            padding: 8px 10px;
+            background: linear-gradient(90deg, rgba(138, 0, 255, 0.05) 0%, transparent 100%);
+            border-left: 3px solid #b366ff;
+            text-align: left;
+        }
+
+        .note::before {
+            content: none;
+        }
+
+        .highlight {
+            background-color: rgba(138, 0, 255, 0.1);
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            body {
+                background: #fff;
+                color: #000;
+                padding: 0;
+                margin: 0;
+                width: 210mm;
+            }
+
+            .page {
+                width: 210mm;
+                min-height: 297mm;
+                margin: 0;
+                border: none;
+                box-shadow: none;
+                border-radius: 0;
+                padding: 0;
+                page-break-after: always;
+                page-break-before: auto;
+                page-break-inside: avoid;
+                display: block;
+                position: relative;
+            }
+
+            .page:last-child {
+                page-break-after: auto;
+            }
+
+            .doc-header {
+                background: linear-gradient(135deg, #1A1033 0%, #2D1B4E 50%, #1A1033 100%) !important;
+                border-bottom: 2px solid #8A00FF !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                padding: 3px 1.5cm 3px !important;
+                page-break-inside: avoid !important;
+                page-break-after: avoid !important;
+            }
+
+            .doc-header .logo {
+                filter: brightness(0) invert(1);
+                width: 90px;
+            }
+
+            .header-info {
+                color: #fff !important;
+            }
+
+            .header-info .company-name,
+            .header-info .company-address,
+            .header-info .company-contact,
+            .header-info .company-tax {
+                color: #fff !important;
+            }
+
+            .content {
+                padding: 20px 1.5cm;
+                background: #fff;
+                page-break-inside: auto;
+            }
+
+            .footer {
+                background: #f5f5f5 !important;
+                border-top: 1px solid #ddd !important;
+                color: #666 !important;
+                page-break-inside: avoid !important;
+                page-break-before: auto;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .footer p {
+                color: #666 !important;
+            }
+
+            .header h1 {
+                color: #8A00FF;
+                border-image: linear-gradient(90deg, #8A00FF 0%, #b366ff 100%);
+                border-image-slice: 1;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            .header h1::after {
+                background: #8A00FF;
+            }
+
+            .section-title {
+                color: #2D2D2D;
+                border-left: 3px solid #8A00FF;
+                background: rgba(138, 0, 255, 0.05);
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            .article-title {
+                border-left: 2px solid #b366ff;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            table {
+                border: 1px solid #e0e0e0;
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+
+            th {
+                background: linear-gradient(135deg, #8A00FF 0%, #a033ff 100%) !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            tbody tr {
+                background-color: #fff;
+            }
+
+            tbody tr:hover {
+                background-color: #fff;
+            }
+
+            td {
+                border-right: 1px solid #f0f0f0;
+            }
+
+            li::before {
+                background: linear-gradient(135deg, #8A00FF 0%, #a033ff 100%) !important;
+                color: #fff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .note {
+                background: rgba(138, 0, 255, 0.05);
+                border-left: 3px solid #b366ff;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .party-box {
+                border: 1px solid #e0e0e0;
+                background: #fff;
+                box-shadow: none;
+                page-break-inside: avoid;
+                font-size: 10px;
+            }
+
+            .party-box strong {
+                font-size: 10px;
+            }
+
+            .party-title {
+                font-size: 11px;
+            }
+
+            .signatures {
+                border: 1px solid #e0e0e0;
+                background: #fff;
+                box-shadow: none;
+                page-break-inside: avoid !important;
+                page-break-before: auto;
+                margin-top: 20px;
+                padding: 15px;
+            }
+
+            .signature-line {
+                border-top: 2px solid #8A00FF;
+                margin-top: 35px;
+            }
+
+            .page-break {
+                page-break-after: always;
+            }
+
+            ul, li {
+                page-break-inside: avoid;
+            }
+
+            p {
+                orphans: 3;
+                widows: 3;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <header class="doc-header">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
+                    <style type="text/css">
+                        .st0{fill:none;}
+                        .st1{fill:#FFFFFF;}
+                        .st2{fill:#FFFFFF;}
+                    </style>
+                    <g id="Your_design">
+                        <g>
+                            <g>
+                                <circle class="st1" cx="264.95" cy="502.04" r="12.64"/>
+                                <circle class="st1" cx="314.27" cy="502.04" r="12.64"/>
+                            </g>
+                            <g>
+                                <path class="st2" d="M564.05,431.5h-37.02c-38.9,0-70.54,31.65-70.54,70.54s31.65,70.54,70.54,70.54h37.02    c38.9,0,70.54-31.65,70.54-70.54S602.95,431.5,564.05,431.5z M564.05,544.98h-37.02c-23.68,0-42.94-19.26-42.94-42.94    c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94C606.99,525.72,587.73,544.98,564.05,544.98z"/>
+                                <path class="st2" d="M417.52,572.59c-7.61,0-13.8-6.19-13.8-13.8V385.61c0-7.61,6.19-13.8,13.8-13.8c7.61,0,13.8,6.19,13.8,13.8    v173.18C431.32,566.39,425.13,572.59,417.52,572.59z"/>
+                                <path class="st2" d="M266.48,628.2c-7.61,0-13.8-6.19-13.8-13.8c0-7.61,6.19-13.8,13.8-13.8h50.22    c15.25,0,29.48-8.21,37.14-21.43l0.13-0.23l0.06-0.13c0.28-0.48,0.55-0.97,0.81-1.48c2.57-4.05,6.93-6.46,11.73-6.46    c7.62,0,13.83,6.2,13.83,13.83c0,2.1-0.46,4.12-1.36,5.99c-0.2,0.41-0.4,0.79-0.62,1.15l-0.13,0.23    c-12.46,22.29-36.06,36.14-61.58,36.14H266.48z"/>
+                                <path class="st2" d="M363.83,459.17l13.56-13.55c5.38-5.38,5.38-14.14,0-19.52c-2.61-2.61-6.07-4.04-9.76-4.04    c-3.69,0-7.15,1.44-9.76,4.04l-14.79,14.79l-4.45-2.19c-9.73-4.78-20.18-7.2-31.07-7.2h-37.02c-38.9,0-70.54,31.65-70.54,70.54    s31.65,70.54,70.54,70.54h37.02c38.9,0,70.54-31.65,70.54-70.54c0-13.58-3.88-26.78-11.24-38.17L363.83,459.17z M307.56,544.98    h-37.02c-23.68,0-42.94-19.26-42.94-42.94c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94    C350.5,525.72,331.24,544.98,307.56,544.98z"/>
+                                <path class="st2" d="M798.42,451.68l-55.74,107.21c-4.38,8.42-13.09,13.71-22.58,13.71l0,0c-9.49,0-18.2-5.29-22.58-13.71    l-55.74-107.21c-4.78-9.19,1.89-20.17,12.25-20.17h0c5.15,0,9.87,2.87,12.25,7.44l51.83,99.73c0.83,1.6,3.12,1.6,3.96,0    l51.85-99.74c2.38-4.57,7.10-7.44,12.25-7.44l0,0C796.53,431.51,803.2,442.49,798.42,451.68z"/>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div class="header-info">
+                <div class="company-name">Glov Bilgi Teknolojileri ve Servisleri Yazılım Danışmanlık Ticaret A.Ş.</div>
+                <div class="company-address">Cube Beyoğlu, Şehit Muhtar Mah. Mis Sok. No:24, 34435 Beyoğlu / İstanbul, Turkey</div>
+                <div class="company-contact">Tel: (0216) 999 70 00 | support@gengage.ai</div>
+                <div class="company-tax">Vergi Numarası: 3961548765</div>
+            </div>
+        </header>
+
+        <div class="content">
+    <div class="header">
+        <h1>Yazılım Geliştirme ve Hizmet Sözleşmesi</h1>
+        <div class="contract-no">Sözleşme No: GLOV-KOÇ-2025-001</div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">TARAFLAR</div>
+
+        <div class="party-box">
+            <div class="party-title">HİZMET SAĞLAYICI (YÜKLENICI):</div>
+            <strong>Ünvanı:</strong> Glov Bilgi Teknolojileri ve Servisleri Yazılım Danışmanlık Ticaret A.Ş.<br>
+            <strong>Adresi:</strong> Cube Beyoğlu, Şehit Muhtar Mah. Mis Sok. No:24, 34435 Beyoğlu / İstanbul<br>
+            <strong>Vergi Dairesi/No:</strong> 3961548765<br>
+            <strong>Telefon:</strong> (0216) 999 70 00<br>
+            <strong>E-posta:</strong> support@gengage.ai<br>
+            (Bundan sonra "<strong>GLOV</strong>" veya "<strong>Yüklenici</strong>" olarak anılacaktır)
+        </div>
+
+        <div class="party-box">
+            <div class="party-title">HİZMET ALAN (İŞVEREN):</div>
+            <strong>Ünvanı:</strong> Koçtaş Yapı Marketleri Ticaret Anonim Şirketi<br>
+            <strong>Adresi:</strong> Taşdelen Mahallesi, Sırrı Çelik Bulvarı No:5, Çekmeköy, 34788 İstanbul<br>
+            <strong>Vergi Dairesi/No:</strong> İstanbul - Büyük Mükellefler Vergi Dairesi, Vergi No: 5740132885<br>
+            <strong>Telefon:</strong> 0 850 209 50 50 (Müşteri Hizmetleri) / 0216 430 03 00<br>
+            <strong>E-posta:</strong> koctas@hs02.kep.tr (Kayıtlı E-posta)<br>
+            (Bundan sonra "<strong>Koçtaş</strong>" veya "<strong>İşveren</strong>" olarak anılacaktır)
+        </div>
+
+        <p style="text-align: justify; font-size: 12px; margin-top: 20px;">
+            Yukarıda bilgileri belirtilen taraflar, aşağıda belirtilen şartlar dahilinde işbu Yazılım Geliştirme ve Hizmet Sözleşmesi'ni ("Sözleşme") karşılıklı mutabakatla akdetmişlerdir.
+        </p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 1 - SÖZLEŞME'NİN KONUSU VE AMACI</div>
+        <div class="article-content">
+            <p>1.1. İşbu Sözleşme'nin konusu, Yüklenici tarafından İşveren'e, aşağıda detayları belirtilen üç (3) ayrı proje kapsamında yazılım geliştirme, entegrasyon, bakım, destek ve danışmanlık hizmetlerinin verilmesine ilişkin tarafların hak ve yükümlülüklerinin belirlenmesidir.</p>
+            
+            <p>1.2. Sözleşme kapsamındaki projeler:</p>
+            <ul>
+                <li>Satıcı Ürün İçeriği Otomasyon Platformu</li>
+                <li>AI Asistanlar Projesi (4 özelleştirilmiş AI asistan)</li>
+                <li>Satış Asistanı (GMV bazlı performans modeli)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 2 - SÖZLEŞME SÜRESİ</div>
+        <div class="article-content">
+            <p>2.1. İşbu Sözleşme <strong>1 Aralık 2025</strong> tarihinde yürürlüğe girer ve aksi taraflarca kararlaştırılmadıkça <strong>1 (bir) yıl</strong> süreyle geçerlidir.</p>
+            
+            <p>2.2. Sözleşme süresi bitiminden en az 60 (altmış) gün önce taraflardan birinin yazılı fesih bildirimi yapmaması halinde, Sözleşme aynı şartlarla 1 (bir) yıllık sürelerle otomatik olarak yenilenir.</p>
+            
+            <p>2.3. Satış Asistanı projesi için ilk 6 aylık dönem sonunda fiyatlandırma ve devam koşulları taraflarca müştereken değerlendirilecektir.</p>
+        </div>
+    </div>
+
+        </div>
+
+        <footer class="footer">
+            <p>Sözleşme No: GLOV-KOÇ-2025-001 | Glov Bilgi Teknolojileri A.Ş. | Sayfa 1</p>
+        </footer>
+    </div>
+
+    <div class="page">
+        <header class="doc-header">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve"><style type="text/css">.st0{fill:none;}.st1{fill:#FFFFFF;}.st2{fill:#FFFFFF;}</style><g id="Your_design"><g><g><circle class="st1" cx="264.95" cy="502.04" r="12.64"/><circle class="st1" cx="314.27" cy="502.04" r="12.64"/></g><g><path class="st2" d="M564.05,431.5h-37.02c-38.9,0-70.54,31.65-70.54,70.54s31.65,70.54,70.54,70.54h37.02    c38.9,0,70.54-31.65,70.54-70.54S602.95,431.5,564.05,431.5z M564.05,544.98h-37.02c-23.68,0-42.94-19.26-42.94-42.94    c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94C606.99,525.72,587.73,544.98,564.05,544.98z"/><path class="st2" d="M417.52,572.59c-7.61,0-13.8-6.19-13.8-13.8V385.61c0-7.61,6.19-13.8,13.8-13.8c7.61,0,13.8,6.19,13.8,13.8    v173.18C431.32,566.39,425.13,572.59,417.52,572.59z"/><path class="st2" d="M266.48,628.2c-7.61,0-13.8-6.19-13.8-13.8c0-7.61,6.19-13.8,13.8-13.8h50.22    c15.25,0,29.48-8.21,37.14-21.43l0.13-0.23l0.06-0.13c0.28-0.48,0.55-0.97,0.81-1.48c2.57-4.05,6.93-6.46,11.73-6.46    c7.62,0,13.83,6.2,13.83,13.83c0,2.1-0.46,4.12-1.36,5.99c-0.2,0.41-0.4,0.79-0.62,1.15l-0.13,0.23    c-12.46,22.29-36.06,36.14-61.58,36.14H266.48z"/><path class="st2" d="M363.83,459.17l13.56-13.55c5.38-5.38,5.38-14.14,0-19.52c-2.61-2.61-6.07-4.04-9.76-4.04    c-3.69,0-7.15,1.44-9.76,4.04l-14.79,14.79l-4.45-2.19c-9.73-4.78-20.18-7.2-31.07-7.2h-37.02c-38.9,0-70.54,31.65-70.54,70.54    s31.65,70.54,70.54,70.54h37.02c38.9,0,70.54-31.65,70.54-70.54c0-13.58-3.88-26.78-11.24-38.17L363.83,459.17z M307.56,544.98    h-37.02c-23.68,0-42.94-19.26-42.94-42.94c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94    C350.5,525.72,331.24,544.98,307.56,544.98z"/><path class="st2" d="M798.42,451.68l-55.74,107.21c-4.38,8.42-13.09,13.71-22.58,13.71l0,0c-9.49,0-18.2-5.29-22.58-13.71    l-55.74-107.21c-4.78-9.19,1.89-20.17,12.25-20.17h0c5.15,0,9.87,2.87,12.25,7.44l51.83,99.73c0.83,1.6,3.12,1.6,3.96,0    l51.85-99.74c2.38-4.57,7.10-7.44,12.25-7.44l0,0C796.53,431.51,803.2,442.49,798.42,451.68z"/></g></g></svg>
+            </div>
+            <div class="header-info">
+                <div class="company-name">Glov Bilgi Teknolojileri ve Servisleri Yazılım Danışmanlık Ticaret A.Ş.</div>
+                <div class="company-address">Cube Beyoğlu, Şehit Muhtar Mah. Mis Sok. No:24, 34435 Beyoğlu / İstanbul, Turkey</div>
+                <div class="company-contact">Tel: (0216) 999 70 00 | support@gengage.ai</div>
+                <div class="company-tax">Vergi Numarası: 3961548765</div>
+            </div>
+        </header>
+
+        <div class="content">
+    <div class="section">
+        <div class="section-title">MADDE 3 - PROJE DETAYLARI VE FİYATLANDIRMA</div>
+        
+        <div class="article">
+            <div class="article-title">3.1. SATICI ÜRÜN İÇERİĞİ OTOMASYON PLATFORMU</div>
+            <div class="article-content">
+                <p><strong>Kapsam:</strong></p>
+                <ul>
+                    <li>Koçtaş iç kullanıcı platformu geliştirme</li>
+                    <li>Mirakl 2-yönlü senkronizasyon</li>
+                    <li>Veri optimizasyonu sistemleri</li>
+                    <li>Satıcı raporlama sistemi</li>
+                    <li>Sistem bakım ve güncelleme</li>
+                </ul>
+
+                <p><strong>Fiyatlandırma (USD):</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hizmet Kalemi</th>
+                            <th>Birim Fiyat</th>
+                            <th>Süre/Adet</th>
+                            <th>Açıklama</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Geliştirme</td>
+                            <td>$6,800/ay</td>
+                            <td>2 ay</td>
+                            <td>%20 indirim uygulanmış</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>$2,040/ay</td>
+                            <td>3 ay</td>
+                            <td>Aylık faturalandırma</td>
+                        </tr>
+                        <tr>
+                            <td>Maintenance</td>
+                            <td>$1,000/ay</td>
+                            <td>7 ay</td>
+                            <td>Aylık faturalandırma</td>
+                        </tr>
+                        <tr>
+                            <td>Kullanım (Ürün Bazlı)</td>
+                            <td>₺2/ürün</td>
+                            <td>Değişken</td>
+                            <td>Ay sonu faturalandırma</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Ödeme Planı:</strong></p>
+                <ul>
+                    <li><strong>Peşin Ödeme (1 Aralık 2025):</strong> $13,600 (2 aylık geliştirme ücreti)</li>
+                    <li><strong>Aylık Ödemeler:</strong> Support, Maintenance ve Kullanım ücretleri aylık faturalandırılır</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">3.2. AI ASİSTANLAR PROJESİ</div>
+            <div class="article-content">
+                <p><strong>Kapsam:</strong></p>
+                <ul>
+                    <li>4 özelleştirilmiş AI asistan (Botanik, Dekorasyon, Renovasyon, Fixi)</li>
+                    <li>Koçtaş web sitesi entegrasyonu</li>
+                    <li>Görsel üretim sistemi</li>
+                    <li>Cross-platform uyumluluk</li>
+                </ul>
+
+                <p><strong>Fiyatlandırma (USD):</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hizmet Kalemi</th>
+                            <th>Fiyat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Geliştirme (Peşin)</td>
+                            <td>$8,000</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>$2,000/ay x 2 ay</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Kademe Bazlı Kullanım Ücreti (Mesaj):</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Min Mesaj (K)</th>
+                            <th>Max Mesaj (K)</th>
+                            <th>Aylık Ücret (USD)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td>50</td>
+                            <td>$650</td>
+                        </tr>
+                        <tr>
+                            <td>50</td>
+                            <td>100+</td>
+                            <td>$1,300</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Görsel Üretim:</strong></p>
+                <ul>
+                    <li>Birim Fiyat: $0.07/görsel</li>
+                    <li>Fiyat Revizyonu: 6 ay sonra piyasa benchmark'ına göre gözden geçirilecektir</li>
+                </ul>
+
+                <p><strong>Ödeme Planı:</strong></p>
+                <ul>
+                    <li><strong>Peşin Ödeme (1 Aralık 2025):</strong> $8,000 (Geliştirme)</li>
+                    <li><strong>Aylık Ödemeler:</strong> Support, Kullanım ve Görsel Ücretleri</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="article">
+            <div class="article-title">3.3. SATIŞ ASİSTANI (PERFORMANS BAZLI MODEL)</div>
+            <div class="article-content">
+                <p><strong>Kapsam:</strong></p>
+                <ul>
+                    <li>Akıllı satış asistanı sistemi</li>
+                    <li>GMV artışı odaklı optimizasyon</li>
+                    <li>Performans bazlı komisyon yapısı</li>
+                    <li>Müşteri deneyimi iyileştirme</li>
+                </ul>
+
+                <p><strong>Fiyatlandırma (TL):</strong></p>
+                
+                <p><u>İlk 6 Ay (Tanıtım Dönemi - %40 İndirim):</u></p>
+                <ul>
+                    <li>Sabit Ücret: 75,000 TL/ay</li>
+                    <li>Performans Komisyonu: GMV artışının %3'ü</li>
+                </ul>
+
+                <p><u>7-12. Aylar (Önerilen - Performans Değerlendirmesi Sonrası):</u></p>
+                <ul>
+                    <li>Sabit Ücret: 100,000 TL/ay</li>
+                    <li>Performans Komisyonu: GMV artışının %5'i</li>
+                </ul>
+
+                <p class="note">
+                    <strong>Not:</strong> 7-12. aylar için fiyatlandırma, ilk 6 aylık performans değerlendirmesi sonrasında taraflar arasında müştereken kararlaştırılacaktır. GMV artışı, proje başlangıcında belirlenen baseline değere göre hesaplanır.
+                </p>
+
+                <p><strong>Örnek Hesaplama:</strong></p>
+                <p>Aylık GMV Artışı: 10,000,000 TL olduğunda;</p>
+                <ul>
+                    <li>İlk 6 ay: 75,000 TL + (10,000,000 TL x %3) = 375,000 TL/ay</li>
+                    <li>Sonraki dönem (önerilen): 100,000 TL + (10,000,000 TL x %5) = 600,000 TL/ay</li>
+                </ul>
+
+                <p><strong>Ödeme Planı:</strong></p>
+                <ul>
+                    <li>Peşin ödeme bulunmamaktadır</li>
+                    <li>Tüm ödemeler aylık faturalandırılır</li>
+                    <li>GMV bazlı komisyon ay sonu hesaplanır ve takip eden ay faturaya yansıtılır</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <footer class="footer">
+            <p>Sözleşme No: GLOV-KOÇ-2025-001 | Glov Bilgi Teknolojileri A.Ş. | Sayfa 2</p>
+        </footer>
+    </div>
+
+    <div class="page">
+        <header class="doc-header">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve"><style type="text/css">.st0{fill:none;}.st1{fill:#FFFFFF;}.st2{fill:#FFFFFF;}</style><g id="Your_design"><g><g><circle class="st1" cx="264.95" cy="502.04" r="12.64"/><circle class="st1" cx="314.27" cy="502.04" r="12.64"/></g><g><path class="st2" d="M564.05,431.5h-37.02c-38.9,0-70.54,31.65-70.54,70.54s31.65,70.54,70.54,70.54h37.02    c38.9,0,70.54-31.65,70.54-70.54S602.95,431.5,564.05,431.5z M564.05,544.98h-37.02c-23.68,0-42.94-19.26-42.94-42.94    c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94C606.99,525.72,587.73,544.98,564.05,544.98z"/><path class="st2" d="M417.52,572.59c-7.61,0-13.8-6.19-13.8-13.8V385.61c0-7.61,6.19-13.8,13.8-13.8c7.61,0,13.8,6.19,13.8,13.8    v173.18C431.32,566.39,425.13,572.59,417.52,572.59z"/><path class="st2" d="M266.48,628.2c-7.61,0-13.8-6.19-13.8-13.8c0-7.61,6.19-13.8,13.8-13.8h50.22    c15.25,0,29.48-8.21,37.14-21.43l0.13-0.23l0.06-0.13c0.28-0.48,0.55-0.97,0.81-1.48c2.57-4.05,6.93-6.46,11.73-6.46    c7.62,0,13.83,6.2,13.83,13.83c0,2.1-0.46,4.12-1.36,5.99c-0.2,0.41-0.4,0.79-0.62,1.15l-0.13,0.23    c-12.46,22.29-36.06,36.14-61.58,36.14H266.48z"/><path class="st2" d="M363.83,459.17l13.56-13.55c5.38-5.38,5.38-14.14,0-19.52c-2.61-2.61-6.07-4.04-9.76-4.04    c-3.69,0-7.15,1.44-9.76,4.04l-14.79,14.79l-4.45-2.19c-9.73-4.78-20.18-7.2-31.07-7.2h-37.02c-38.9,0-70.54,31.65-70.54,70.54    s31.65,70.54,70.54,70.54h37.02c38.9,0,70.54-31.65,70.54-70.54c0-13.58-3.88-26.78-11.24-38.17L363.83,459.17z M307.56,544.98    h-37.02c-23.68,0-42.94-19.26-42.94-42.94c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94    C350.5,525.72,331.24,544.98,307.56,544.98z"/><path class="st2" d="M798.42,451.68l-55.74,107.21c-4.38,8.42-13.09,13.71-22.58,13.71l0,0c-9.49,0-18.2-5.29-22.58-13.71    l-55.74-107.21c-4.78-9.19,1.89-20.17,12.25-20.17h0c5.15,0,9.87,2.87,12.25,7.44l51.83,99.73c0.83,1.6,3.12,1.6,3.96,0    l51.85-99.74c2.38-4.57,7.10-7.44,12.25-7.44l0,0C796.53,431.51,803.2,442.49,798.42,451.68z"/></g></g></svg>
+            </div>
+            <div class="header-info">
+                <div class="company-name">Glov Bilgi Teknolojileri ve Servisleri Yazılım Danışmanlık Ticaret A.Ş.</div>
+                <div class="company-address">Cube Beyoğlu, Şehit Muhtar Mah. Mis Sok. No:24, 34435 Beyoğlu / İstanbul, Turkey</div>
+                <div class="company-contact">Tel: (0216) 999 70 00 | support@gengage.ai</div>
+                <div class="company-tax">Vergi Numarası: 3961548765</div>
+            </div>
+        </header>
+
+        <div class="content">
+    <div class="section">
+        <div class="section-title">MADDE 4 - ÖDEME KOŞULLARI VE VADELERİ</div>
+        <div class="article-content">
+            <p>4.1. <strong>Para Birimi ve Kur:</strong></p>
+            <ul>
+                <li>Projeler bazında USD ve TL para birimleri kullanılmaktadır</li>
+                <li>USD üzerinden belirlenen fiyatlar, ödeme tarihindeki TCMB döviz satış kuru üzerinden TL'ye çevrilecektir</li>
+                <li>Bu Sözleşme'de referans kur 41 TL/USD olarak belirtilmiştir (gösterge amaçlı)</li>
+            </ul>
+
+            <p>4.2. <strong>Peşin Ödemeler:</strong></p>
+            <ul>
+                <li>Satıcı Ürün İçeriği Platformu için $13,600</li>
+                <li>AI Asistanlar Projesi için $8,000</li>
+                <li>Peşin ödemeler Sözleşme imza tarihinden itibaren 15 (on beş) gün içinde yapılacaktır</li>
+            </ul>
+
+            <p>4.3. <strong>Aylık Ödemeler:</strong></p>
+            <ul>
+                <li>Yüklenici, her ay sonunda aylık hizmetler ve kullanım bedelleri için fatura düzenleyecektir</li>
+                <li>Faturalar İşveren'e e-posta yoluyla gönderilecektir</li>
+                <li>İşveren, fatura tarihinden itibaren 30 (otuz) gün içinde ödemeyi Yüklenici'nin banka hesabına yapacaktır</li>
+            </ul>
+
+            <p>4.4. <strong>Kullanım Bazlı Ödemeler:</strong></p>
+            <ul>
+                <li>Ürün bazlı, mesaj bazlı ve görsel üretim ücretleri her ay sonunda hesaplanır</li>
+                <li>Detaylı kullanım raporu fatura ile birlikte İşveren'e sunulur</li>
+                <li>Performans bazlı komisyon (Satış Asistanı) ay sonu GMV raporlaması ile hesaplanır</li>
+            </ul>
+
+            <p>4.5. <strong>Gecikme Faizi:</strong></p>
+            <ul>
+                <li>Ödeme vadesinde yapılmayan ödemelere, vade tarihinden itibaren aylık %5 gecikme faizi uygulanır</li>
+                <li>30 günü aşan ödemeler için Yüklenici hizmetleri askıya alma hakkına sahiptir</li>
+            </ul>
+
+            <p>4.6. <strong>Vergiler:</strong></p>
+            <ul>
+                <li>Tüm fiyatlar KDV hariçtir</li>
+                <li>Yürürlükteki vergi oranları faturalara yansıtılacaktır</li>
+                <li>Vergi mevzuatında oluşabilecek değişiklikler fiyatlara yansıtılır</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 5 - KULLANIM TAKİBİ VE RAPORLAMA</div>
+        <div class="article-content">
+            <p>5.1. <strong>Raporlama Sistemi:</strong></p>
+            <ul>
+                <li>Tüm projeler için detaylı kullanım takip sistemi oluşturulacaktır</li>
+                <li>Mesaj kullanımı, görsel üretimi ve ürün içeriği üretimleri kayıt altına alınacaktır</li>
+                <li>GMV artışı hesaplamaları için başlangıç baseline değeri belirlenerek kayıt altına alınacaktır</li>
+            </ul>
+
+            <p>5.2. <strong>Aylık Raporlar:</strong></p>
+            <ul>
+                <li>Yüklenici, her ay sonunda detaylı kullanım raporu hazırlayacaktır</li>
+                <li>Raporda; kullanım hacimleri, birim fiyatlar ve toplam tutarlar yer alacaktır</li>
+                <li>İşveren, gerçek zamanlı dashboard üzerinden kullanım verilerini izleyebilecektir</li>
+            </ul>
+
+            <p>5.3. <strong>Şeffaflık ve Denetim:</strong></p>
+            <ul>
+                <li>İşveren, makul bir bildirimle kullanım loglarını talep edebilir</li>
+                <li>Yüklenici, talep edilen verileri 5 (beş) iş günü içinde temin edecektir</li>
+                <li>İşveren'in bağımsız denetim talebi durumunda, masraflar İşveren tarafından karşılanır</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 6 - FİYAT GÖZDEN GEÇİRME MEKANİZMASI</div>
+        <div class="article-content">
+            <p>6.1. <strong>Görsel Üretim Fiyatlandırması:</strong></p>
+            <ul>
+                <li>Görsel üretim birim fiyatı ($0.07/görsel) Google Gemini 2.5 Flash Image modeli referans alınarak belirlenmiştir</li>
+                <li>Kontrat başlangıcından 6 ay sonra piyasa fiyatları gözden geçirilecektir</li>
+                <li>Referans: https://ai.google.dev/gemini-api/docs/pricing</li>
+            </ul>
+
+            <p>6.2. <strong>Revizyon Koşulları:</strong></p>
+            <ul>
+                <li>Piyasa fiyatlarında %20'den fazla değişiklik olması durumunda fiyat ayarlaması yapılabilir</li>
+                <li>Fiyat değişikliği her iki tarafın da lehine/aleyhine olabilir (artış veya azalış)</li>
+                <li>Yeni fiyat uygulamasından 30 gün önce karşı tarafa yazılı bildirim yapılır</li>
+            </ul>
+
+            <p>6.3. <strong>Enflasyon Ayarlaması:</strong></p>
+            <ul>
+                <li>Sözleşme yenileme dönemlerinde, TÜİK Yİ-ÜFE endeksi dikkate alınarak fiyat güncellemesi yapılabilir</li>
+                <li>Yıllık enflasyon oranı %15'i aşması durumunda taraflar fiyat revizyonunu görüşebilir</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <div class="section">
+        <div class="section-title">MADDE 7 - GİZLİLİK VE VERİ KORUMA</div>
+        <div class="article-content">
+            <p>7.1. <strong>Gizlilik Yükümlülüğü:</strong></p>
+            <ul>
+                <li>Taraflar, işbu Sözleşme kapsamında edindikleri tüm ticari, teknik, finansal bilgileri gizli tutmayı taahhüt ederler</li>
+                <li>Gizlilik yükümlülüğü Sözleşme sona erdikten sonra 5 (beş) yıl süreyle devam eder</li>
+                <li>Yasal zorunluluk veya yetkili makam talebi hariç, gizli bilgiler üçüncü kişilerle paylaşılamaz</li>
+            </ul>
+
+            <p>7.2. <strong>Kişisel Verilerin Korunması:</strong></p>
+            <ul>
+                <li>Taraflar, 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") hükümlerine uygun hareket edeceklerdir</li>
+                <li>Yüklenici, İşveren'e ait kişisel verileri yalnızca hizmetin ifası amacıyla işleyecektir</li>
+                <li>Veri güvenliği için gerekli teknik ve idari tedbirler alınacaktır</li>
+                <li>Veri ihlali durumunda karşı taraf derhal bilgilendirilecektir</li>
+            </ul>
+
+            <p>7.3. <strong>Veri Saklama ve İmha:</strong></p>
+            <ul>
+                <li>Sözleşme sonunda veya fesih durumunda, İşveren'e ait tüm veriler İşveren'in talimatı doğrultusunda iade edilecek veya güvenli şekilde imha edilecektir</li>
+                <li>Yasal saklama zorunlulukları saklı kalmak kaydıyla, veriler 30 gün içinde silinecektir</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 8 - FİKRİ MÜLKİYET HAKLARI</div>
+        <div class="article-content">
+            <p>8.1. <strong>Önceki Haklar:</strong></p>
+            <ul>
+                <li>Yüklenici'nin Sözleşme öncesi geliştirdiği ve mevcut olan tüm yazılım, kod, algoritma ve platformlar Yüklenici'nin fikri mülkiyetinde kalır</li>
+                <li>İşveren, yalnızca kullanım hakkına sahiptir, kaynak kodlar üzerinde mülkiyet hakkı edinemez</li>
+            </ul>
+
+            <p>8.2. <strong>Özelleştirilmiş Geliştirmeler:</strong></p>
+            <ul>
+                <li>İşveren'in özel talepleri doğrultusunda yapılan özelleştirmeler İşveren'e aittir</li>
+                <li>Ancak bu özelleştirmelerin altında yatan temel platform ve altyapı Yüklenici'ye aittir</li>
+            </ul>
+
+            <p>8.3. <strong>Kullanım Lisansı:</strong></p>
+            <ul>
+                <li>Yüklenici, İşveren'e hizmetlerin kullanımı için münhasır olmayan, devredilemez lisans verir</li>
+                <li>Lisans süresi Sözleşme süresi ile sınırlıdır</li>
+                <li>İşveren, sistemleri tersine mühendislik yapamaz, kopyalayamaz veya üçüncü kişilere devredemez</li>
+            </ul>
+
+            <p>8.4. <strong>İşveren Verileri:</strong></p>
+            <ul>
+                <li>İşveren'in sisteme yüklediği tüm veriler, içerikler ve materyaller İşveren'e aittir</li>
+                <li>Yüklenici bu verileri yalnızca hizmet sunumu için kullanabilir</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 9 - DESTEK VE BAKIM HİZMETLERİ</div>
+        <div class="article-content">
+            <p>9.1. <strong>Destek Kapsamı:</strong></p>
+            <ul>
+                <li>Teknik destek çalışma saatleri: Hafta içi 09:00-18:00</li>
+                <li>Kritik sorunlar için 7/24 acil destek hattı sağlanacaktır</li>
+                <li>Destek kanalları: E-posta, telefon, ticketing sistemi</li>
+            </ul>
+
+            <p>9.2. <strong>Yanıt Süreleri:</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Öncelik Seviyesi</th>
+                        <th>İlk Yanıt</th>
+                        <th>Çözüm Hedefi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kritik (Sistem Çalışmıyor)</td>
+                        <td>1 saat</td>
+                        <td>4 saat</td>
+                    </tr>
+                    <tr>
+                        <td>Yüksek (Önemli Aksama)</td>
+                        <td>4 saat</td>
+                        <td>1 iş günü</td>
+                    </tr>
+                    <tr>
+                        <td>Orta (Kısmi Aksama)</td>
+                        <td>8 saat</td>
+                        <td>3 iş günü</td>
+                    </tr>
+                    <tr>
+                        <td>Düşük (İyileştirme/Soru)</td>
+                        <td>1 iş günü</td>
+                        <td>5 iş günü</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>9.3. <strong>Bakım Hizmetleri:</strong></p>
+            <ul>
+                <li>Düzenli sistem güncellemeleri ve yamalar</li>
+                <li>Performans izleme ve optimizasyonu</li>
+                <li>Güvenlik güncellemeleri</li>
+                <li>Aylık sistem sağlık raporları</li>
+            </ul>
+
+            <p>9.4. <strong>Planlı Bakım:</strong></p>
+            <ul>
+                <li>Planlı bakım çalışmaları için İşveren'e en az 72 saat önceden bildirim yapılır</li>
+                <li>Bakım çalışmaları mümkün olduğunca düşük yoğunluklu saatlerde gerçekleştirilir</li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+
+        <footer class="footer">
+            <p>Sözleşme No: GLOV-KOÇ-2025-001 | Glov Bilgi Teknolojileri A.Ş. | Sayfa 3</p>
+        </footer>
+    </div>
+
+    <div class="page">
+        <header class="doc-header">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve"><style type="text/css">.st0{fill:none;}.st1{fill:#FFFFFF;}.st2{fill:#FFFFFF;}</style><g id="Your_design"><g><g><circle class="st1" cx="264.95" cy="502.04" r="12.64"/><circle class="st1" cx="314.27" cy="502.04" r="12.64"/></g><g><path class="st2" d="M564.05,431.5h-37.02c-38.9,0-70.54,31.65-70.54,70.54s31.65,70.54,70.54,70.54h37.02    c38.9,0,70.54-31.65,70.54-70.54S602.95,431.5,564.05,431.5z M564.05,544.98h-37.02c-23.68,0-42.94-19.26-42.94-42.94    c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94C606.99,525.72,587.73,544.98,564.05,544.98z"/><path class="st2" d="M417.52,572.59c-7.61,0-13.8-6.19-13.8-13.8V385.61c0-7.61,6.19-13.8,13.8-13.8c7.61,0,13.8,6.19,13.8,13.8    v173.18C431.32,566.39,425.13,572.59,417.52,572.59z"/><path class="st2" d="M266.48,628.2c-7.61,0-13.8-6.19-13.8-13.8c0-7.61,6.19-13.8,13.8-13.8h50.22    c15.25,0,29.48-8.21,37.14-21.43l0.13-0.23l0.06-0.13c0.28-0.48,0.55-0.97,0.81-1.48c2.57-4.05,6.93-6.46,11.73-6.46    c7.62,0,13.83,6.2,13.83,13.83c0,2.1-0.46,4.12-1.36,5.99c-0.2,0.41-0.4,0.79-0.62,1.15l-0.13,0.23    c-12.46,22.29-36.06,36.14-61.58,36.14H266.48z"/><path class="st2" d="M363.83,459.17l13.56-13.55c5.38-5.38,5.38-14.14,0-19.52c-2.61-2.61-6.07-4.04-9.76-4.04    c-3.69,0-7.15,1.44-9.76,4.04l-14.79,14.79l-4.45-2.19c-9.73-4.78-20.18-7.2-31.07-7.2h-37.02c-38.9,0-70.54,31.65-70.54,70.54    s31.65,70.54,70.54,70.54h37.02c38.9,0,70.54-31.65,70.54-70.54c0-13.58-3.88-26.78-11.24-38.17L363.83,459.17z M307.56,544.98    h-37.02c-23.68,0-42.94-19.26-42.94-42.94c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94    C350.5,525.72,331.24,544.98,307.56,544.98z"/><path class="st2" d="M798.42,451.68l-55.74,107.21c-4.38,8.42-13.09,13.71-22.58,13.71l0,0c-9.49,0-18.2-5.29-22.58-13.71    l-55.74-107.21c-4.78-9.19,1.89-20.17,12.25-20.17h0c5.15,0,9.87,2.87,12.25,7.44l51.83,99.73c0.83,1.6,3.12,1.6,3.96,0    l51.85-99.74c2.38-4.57,7.10-7.44,12.25-7.44l0,0C796.53,431.51,803.2,442.49,798.42,451.68z"/></g></g></svg>
+            </div>
+            <div class="header-info">
+                <div class="company-name">Glov Bilgi Teknolojileri ve Servisleri Yazılım Danışmanlık Ticaret A.Ş.</div>
+                <div class="company-address">Cube Beyoğlu, Şehit Muhtar Mah. Mis Sok. No:24, 34435 Beyoğlu / İstanbul, Turkey</div>
+                <div class="company-contact">Tel: (0216) 999 70 00 | support@gengage.ai</div>
+                <div class="company-tax">Vergi Numarası: 3961548765</div>
+            </div>
+        </header>
+
+        <div class="content">
+    <div class="section">
+        <div class="section-title">MADDE 10 - SORUMLULUKLAR VE GARANTİLER</div>
+        <div class="article-content">
+            <p>10.1. <strong>Yüklenici'nin Sorumlulukları:</strong></p>
+            <ul>
+                <li>Hizmetleri özenli, süratli ve mesleki standartlara uygun şekilde yerine getirmek</li>
+                <li>Sistemlerin %99.5 uptime oranıyla çalışmasını sağlamak (planlı bakımlar hariç)</li>
+                <li>İşveren verilerinin güvenliğini sağlamak</li>
+                <li>Belirlenen teslim tarihlerine uymak</li>
+            </ul>
+
+            <p>10.2. <strong>İşveren'in Sorumlulukları:</strong></p>
+            <ul>
+                <li>Ödemeleri zamanında yapmak</li>
+                <li>Entegrasyon için gerekli erişim ve bilgileri sağlamak</li>
+                <li>Gerekli test ve onay süreçlerini makul sürede tamamlamak</li>
+                <li>Kendi sistemlerinin uyumluluğunu ve hazır bulunduruluğunu sağlamak</li>
+            </ul>
+
+            <p>10.3. <strong>Sorumluluk Sınırlamaları:</strong></p>
+            <ul>
+                <li>Yüklenici'nin sorumluluğu, ilgili hizmet kalemi için ödenen yıllık toplam ücretle sınırlıdır</li>
+                <li>Dolaylı zararlar, kâr kaybı, veri kaybı gibi hususlar sorumluluk dışındadır</li>
+                <li>Üçüncü taraf hizmet sağlayıcıların (OpenAI, Google vb.) neden olduğu kesintiler mücbir sebep sayılır</li>
+            </ul>
+
+            <p>10.4. <strong>Garantiler:</strong></p>
+            <ul>
+                <li>Yazılım orijinal olup, üçüncü kişilerin haklarını ihlal etmemektedir</li>
+                <li>Sistemler tanımlanmış spesifikasyonlara uygun çalışacaktır</li>
+                <li>Geliştirme aşamasında tespit edilen hatalar ücretsiz düzeltilecektir</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 11 - SÖZLEŞMENİN FESHİ</div>
+        <div class="article-content">
+            <p>11.1. <strong>Olağan Fesih:</strong></p>
+            <ul>
+                <li>Taraflar, Sözleşme süresinin bitiminden 60 gün önce yazılı bildirimde bulunarak Sözleşme'yi yenilememe hakkına sahiptir</li>
+                <li>Fesih bildiriminin noter aracılığıyla veya iadeli taahhütlü posta ile yapılması gerekmektedir</li>
+            </ul>
+
+            <p>11.2. <strong>Haklı Nedenle Fesih:</strong></p>
+            <p>Taraflar aşağıdaki durumlarda derhal fesih hakkına sahiptir:</p>
+            <ul>
+                <li>Karşı tarafın ağır kusur veya kasti hareketleri</li>
+                <li>Ödemelerin 60 günü aşkın süre geciktirilmesi</li>
+                <li>İflas, konkordato veya tasfiye kararı</li>
+                <li>Gizlilik yükümlülüğünün ciddi şekilde ihlali</li>
+                <li>Esaslı sözleşme hükümlerinin ihlali ve 30 günlük ek sürede düzeltilmemesi</li>
+            </ul>
+
+            <p>11.3. <strong>Fesih Sonuçları:</strong></p>
+            <ul>
+                <li>Teslim edilen hizmetlerin bedeli orantılı olarak hesaplanır ve ödenir</li>
+                <li>İşveren'in verileri 30 gün içinde iade edilir veya silinir</li>
+                <li>Kullanım lisansı sona erer</li>
+                <li>Gizlilik yükümlülükleri devam eder</li>
+            </ul>
+
+            <p>11.4. <strong>Ön Ödemeli Hizmetler:</strong></p>
+            <ul>
+                <li>Fesih halinde, kullanılmayan ön ödemeler orantılı olarak iade edilir</li>
+                <li>Geliştirme aşamasındaysa, tamamlanan iş oranında ödeme yapılır</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 12 - MÜCBİR SEBEPLER</div>
+        <div class="article-content">
+            <p>12.1. <strong>Mücbir Sebep Tanımı:</strong></p>
+            <p>Tarafların kontrolü dışında gelişen ve makul özen gösterilse dahi engellenemeyen durumlar mücbir sebep sayılır. Bunlar şunları içerir ancak bunlarla sınırlı değildir:</p>
+            <ul>
+                <li>Doğal afetler (deprem, sel, yangın vb.)</li>
+                <li>Savaş, terör eylemleri, ayaklanma</li>
+                <li>Grev, lokavt (tarafın kendi çalışanları hariç)</li>
+                <li>Elektrik kesintisi, internet altyapı arızası</li>
+                <li>Hükümet kararları, yeni düzenlemeler</li>
+                <li>Üçüncü taraf API/servis sağlayıcıların kesintileri</li>
+                <li>Pandemi veya salgın hastalıklar</li>
+            </ul>
+
+            <p>12.2. <strong>Mücbir Sebep Sonuçları:</strong></p>
+            <ul>
+                <li>Mücbir sebep süresince tarafların yükümlülükleri askıya alınır</li>
+                <li>Taraflar temerrüt veya tazminat sorumluluğundan muaf tutulur</li>
+                <li>Mücbir sebep 30 günü aşarsa, taraflardan biri Sözleşme'yi feshedebilir</li>
+            </ul>
+
+            <p>12.3. <strong>Bildirim Yükümlülüğü:</strong></p>
+            <ul>
+                <li>Mücbir sebep durumu 5 gün içinde karşı tarafa yazılı bildirilir</li>
+                <li>Mücbir sebebin sona ermesi halinde hizmetler en kısa sürede yeniden başlatılır</li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+
+        <footer class="footer">
+            <p>Sözleşme No: GLOV-KOÇ-2025-001 | Glov Bilgi Teknolojileri A.Ş. | Sayfa 4</p>
+        </footer>
+    </div>
+
+    <div class="page">
+        <header class="doc-header">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve"><style type="text/css">.st0{fill:none;}.st1{fill:#FFFFFF;}.st2{fill:#FFFFFF;}</style><g id="Your_design"><g><g><circle class="st1" cx="264.95" cy="502.04" r="12.64"/><circle class="st1" cx="314.27" cy="502.04" r="12.64"/></g><g><path class="st2" d="M564.05,431.5h-37.02c-38.9,0-70.54,31.65-70.54,70.54s31.65,70.54,70.54,70.54h37.02    c38.9,0,70.54-31.65,70.54-70.54S602.95,431.5,564.05,431.5z M564.05,544.98h-37.02c-23.68,0-42.94-19.26-42.94-42.94    c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94C606.99,525.72,587.73,544.98,564.05,544.98z"/><path class="st2" d="M417.52,572.59c-7.61,0-13.8-6.19-13.8-13.8V385.61c0-7.61,6.19-13.8,13.8-13.8c7.61,0,13.8,6.19,13.8,13.8    v173.18C431.32,566.39,425.13,572.59,417.52,572.59z"/><path class="st2" d="M266.48,628.2c-7.61,0-13.8-6.19-13.8-13.8c0-7.61,6.19-13.8,13.8-13.8h50.22    c15.25,0,29.48-8.21,37.14-21.43l0.13-0.23l0.06-0.13c0.28-0.48,0.55-0.97,0.81-1.48c2.57-4.05,6.93-6.46,11.73-6.46    c7.62,0,13.83,6.2,13.83,13.83c0,2.1-0.46,4.12-1.36,5.99c-0.2,0.41-0.4,0.79-0.62,1.15l-0.13,0.23    c-12.46,22.29-36.06,36.14-61.58,36.14H266.48z"/><path class="st2" d="M363.83,459.17l13.56-13.55c5.38-5.38,5.38-14.14,0-19.52c-2.61-2.61-6.07-4.04-9.76-4.04    c-3.69,0-7.15,1.44-9.76,4.04l-14.79,14.79l-4.45-2.19c-9.73-4.78-20.18-7.2-31.07-7.2h-37.02c-38.9,0-70.54,31.65-70.54,70.54    s31.65,70.54,70.54,70.54h37.02c38.9,0,70.54-31.65,70.54-70.54c0-13.58-3.88-26.78-11.24-38.17L363.83,459.17z M307.56,544.98    h-37.02c-23.68,0-42.94-19.26-42.94-42.94c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94    C350.5,525.72,331.24,544.98,307.56,544.98z"/><path class="st2" d="M798.42,451.68l-55.74,107.21c-4.38,8.42-13.09,13.71-22.58,13.71l0,0c-9.49,0-18.2-5.29-22.58-13.71    l-55.74-107.21c-4.78-9.19,1.89-20.17,12.25-20.17h0c5.15,0,9.87,2.87,12.25,7.44l51.83,99.73c0.83,1.6,3.12,1.6,3.96,0    l51.85-99.74c2.38-4.57,7.10-7.44,12.25-7.44l0,0C796.53,431.51,803.2,442.49,798.42,451.68z"/></g></g></svg>
+            </div>
+            <div class="header-info">
+                <div class="company-name">Glov Bilgi Teknolojileri ve Servisleri Yazılım Danışmanlık Ticaret A.Ş.</div>
+                <div class="company-address">Cube Beyoğlu, Şehit Muhtar Mah. Mis Sok. No:24, 34435 Beyoğlu / İstanbul, Turkey</div>
+                <div class="company-contact">Tel: (0216) 999 70 00 | support@gengage.ai</div>
+                <div class="company-tax">Vergi Numarası: 3961548765</div>
+            </div>
+        </header>
+
+        <div class="content">
+    <div class="section">
+        <div class="section-title">MADDE 13 - UYUŞMAZLIKLARIN ÇÖZÜMÜ</div>
+        <div class="article-content">
+            <p>13.1. <strong>Dostane Çözüm:</strong></p>
+            <ul>
+                <li>Sözleşme'den doğabilecek uyuşmazlıklar öncelikle taraflar arasında müzakere yoluyla çözülmeye çalışılacaktır</li>
+                <li>Taraflar, uyuşmazlık bildirimi üzerine 15 gün içinde görüşme gerçekleştireceklerdir</li>
+            </ul>
+
+            <p>13.2. <strong>Arabuluculuk:</strong></p>
+            <ul>
+                <li>Müzakere ile çözülemeyen uyuşmazlıklar için taraflar arabuluculuğa başvurabilir</li>
+                <li>Arabuluculuk masrafları taraflarca eşit paylaşılır</li>
+            </ul>
+
+            <p>13.3. <strong>Yargı Yolu:</strong></p>
+            <ul>
+                <li>Dostane çözüm sağlanamazsa, uyuşmazlıkların çözümünde <strong>İSTANBUL (ÇAĞLAYAN)</strong> Mahkemeleri ve İcra Daireleri yetkilidir</li>
+                <li>Uygulanacak hukuk Türkiye Cumhuriyeti kanunlarıdır</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 14 - BİLDİRİMLER</div>
+        <div class="article-content">
+            <p>14.1. Taraflar arasındaki tüm bildirimler yazılı olarak yapılacaktır.</p>
+            
+            <p>14.2. Bildirimler aşağıdaki yöntemlerle yapılabilir:</p>
+            <ul>
+                <li>Elden teslim (imza karşılığı)</li>
+                <li>Noter aracılığıyla tebligat</li>
+                <li>İadeli taahhütlü posta</li>
+                <li>E-posta (Sözleşme'de belirtilen resmi e-posta adreslerine)</li>
+                <li>Kayıtlı Elektronik Posta (KEP)</li>
+            </ul>
+
+            <p>14.3. E-posta yoluyla yapılan bildirimler, karşı taraftan alındı onayı gelmesiyle yürürlüğe girer.</p>
+
+            <p>14.4. Adres değişikliği halinde, taraf değişikliği 7 gün içinde karşı tarafa bildirecektir. Aksi takdirde, Sözleşme'de kayıtlı adrese yapılan bildirimler geçerli sayılır.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 15 - DEVİR VE TEMLİK</div>
+        <div class="article-content">
+            <p>15.1. Taraflar, karşı tarafın yazılı onayı olmaksızın Sözleşme'den doğan hak ve yükümlülüklerini üçüncü kişilere devir ve temlik edemezler.</p>
+
+            <p>15.2. İşveren'in şirket birleşme, devralma veya yeniden yapılanma durumlarında, Sözleşme hak ve yükümlülükleri halef şirkete otomatik olarak geçer.</p>
+
+            <p>15.3. Yüklenici, grup şirketlerine veya bağlı ortaklıklarına hizmet sunumunda alt yüklenici olarak görevlendirebilir, ancak yükümlülüklerinden sorumlu olmaya devam eder.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 16 - DEĞİŞİKLİK VE TADILLER</div>
+        <div class="article-content">
+            <p>16.1. İşbu Sözleşme'de yapılacak her türlü değişiklik, tadil ve ekleme tarafların karşılıklı mutabakatı ile yazılı olarak yapılır.</p>
+
+            <p>16.2. Sözleşme değişiklikleri, her iki tarafın yetkili temsilcilerinin imzaladığı "Ek Protokol" ile yürürlüğe girer.</p>
+
+            <p>16.3. Ek Protokoller Sözleşme'nin ayrılmaz parçasıdır.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">MADDE 17 - ÇEŞİTLİ HÜKÜMLER</div>
+        <div class="article-content">
+            <p>17.1. <strong>Bütünlük:</strong> İşbu Sözleşme, taraflar arasındaki tüm anlaşmayı oluşturur ve önceki tüm yazılı veya sözlü anlaşmaların yerine geçer.</p>
+
+            <p>17.2. <strong>Kısmi Hükümsüzlük:</strong> Sözleşme hükümlerinden birinin geçersiz sayılması, diğer hükümlerin geçerliliğini etkilemez.</p>
+
+            <p>17.3. <strong>Feragat:</strong> Taraflardan birinin herhangi bir hakkını kullanmaması, o haktan feragat ettiği anlamına gelmez.</p>
+
+            <p>17.4. <strong>Dil:</strong> Sözleşme Türkçe olarak düzenlenmiştir. Başka dillerde versiyonlar hazırlanırsa, Türkçe versiyon geçerli olacaktır.</p>
+
+            <p>17.5. <strong>Ekler:</strong> Aşağıdaki ekler işbu Sözleşme'nin ayrılmaz parçalarıdır:
+                <ul>
+                    <li>Ek-1: Teknik Spesifikasyonlar ve Proje Detayları</li>
+                    <li>Ek-2: Fiyat Tablosu ve Ödeme Planı</li>
+                    <li>Ek-3: SLA (Service Level Agreement)</li>
+                    <li>Ek-4: Veri İşleme Sözleşmesi (KVKK Uyum)</li>
+                </ul>
+            </p>
+
+            <p>17.6. <strong>Nüsha:</strong> Sözleşme 2 (iki) nüsha olarak düzenlenmiş ve taraflarca imzalanmıştır. Her iki nüsha da aynı hukuki değere sahiptir.</p>
+        </div>
+    </div>
+
+    <div class="section" style="margin-top: 40px;">
+        <p style="text-align: justify; font-size: 12px;">
+            İşbu Sözleşme <strong>___ / ___ / 2025</strong> tarihinde taraflarca okunmuş, anlaşılmış ve karşılıklı mutabakat ile imzalanmıştır.
+        </p>
+    </div>
+
+    <div class="signatures">
+        <div class="signature-block">
+            <div style="margin-bottom: 80px;">
+                <strong>HİZMET SAĞLAYICI</strong><br>
+                <strong>GLOV TEKNOLOJİ</strong>
+            </div>
+            <div class="signature-line">
+                <div>_____________________</div>
+                <div class="signature-title">Ömer AKKENTLİ<br>CEO</div>
+                <div style="margin-top: 15px; font-size: 11px;">Tarih: ___ / ___ / 2025</div>
+            </div>
+        </div>
+
+        <div class="signature-block">
+            <div style="margin-bottom: 80px;">
+                <strong>HİZMET ALAN</strong><br>
+                <strong>KOÇTAŞ</strong>
+            </div>
+            <div class="signature-line">
+                <div>_____________________</div>
+                <div class="signature-title">Ad Soyad<br>Ünvan</div>
+                <div style="margin-top: 15px; font-size: 11px;">Tarih: ___ / ___ / 2025</div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <footer class="footer">
+            <p>Sözleşme No: GLOV-KOÇ-2025-001 | Glov Bilgi Teknolojileri A.Ş. | Sayfa 5</p>
+        </footer>
+    </div>
+
+</body>
+</html>
