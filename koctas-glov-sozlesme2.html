@@ -325,7 +325,7 @@
         li {
             margin-bottom: 6px;
             position: relative;
-            padding-left: 24px;
+            padding-left: 18px;
             font-size: 11px;
             line-height: 1.5;
             color: #444;
@@ -333,6 +333,21 @@
         }
 
         li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #8A00FF;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Checkmark style for feature/deliverable lists */
+        ul.checklist li {
+            padding-left: 24px;
+        }
+
+        ul.checklist li::before {
             content: '✓';
             position: absolute;
             left: 0;
@@ -527,7 +542,7 @@
                 border-right: 1px solid #f0f0f0;
             }
 
-            li::before {
+            ul.checklist li::before {
                 background: linear-gradient(135deg, #8A00FF 0%, #a033ff 100%) !important;
                 color: #fff !important;
                 -webkit-print-color-adjust: exact;
@@ -663,7 +678,7 @@
             <p>1.1. İşbu Sözleşme'nin konusu, Yüklenici tarafından İşveren'e, aşağıda detayları belirtilen üç (3) ayrı proje kapsamında yazılım geliştirme, entegrasyon, bakım, destek ve danışmanlık hizmetlerinin verilmesine ilişkin tarafların hak ve yükümlülüklerinin belirlenmesidir.</p>
             
             <p>1.2. Sözleşme kapsamındaki projeler:</p>
-            <ul>
+            <ul class="checklist">
                 <li>Satıcı Ürün İçeriği Otomasyon Platformu</li>
                 <li>AI Asistanlar Projesi (4 özelleştirilmiş AI asistan)</li>
                 <li>Satış Asistanı (GMV bazlı performans modeli)</li>
@@ -710,7 +725,7 @@
             <div class="article-title">3.1. SATICI ÜRÜN İÇERİĞİ OTOMASYON PLATFORMU</div>
             <div class="article-content">
                 <p><strong>Kapsam:</strong></p>
-                <ul>
+                <ul class="checklist">
                     <li>Koçtaş iç kullanıcı platformu geliştirme</li>
                     <li>Mirakl 2-yönlü senkronizasyon</li>
                     <li>Veri optimizasyonu sistemleri</li>
@@ -768,7 +783,7 @@
             <div class="article-title">3.2. AI ASİSTANLAR PROJESİ</div>
             <div class="article-content">
                 <p><strong>Kapsam:</strong></p>
-                <ul>
+                <ul class="checklist">
                     <li>4 özelleştirilmiş AI asistan (Botanik, Dekorasyon, Renovasyon, Fixi)</li>
                     <li>Koçtaş web sitesi entegrasyonu</li>
                     <li>Görsel üretim sistemi</li>
@@ -836,7 +851,7 @@
             <div class="article-title">3.3. SATIŞ ASİSTANI (PERFORMANS BAZLI MODEL)</div>
             <div class="article-content">
                 <p><strong>Kapsam:</strong></p>
-                <ul>
+                <ul class="checklist">
                     <li>Akıllı satış asistanı sistemi</li>
                     <li>GMV artışı odaklı optimizasyon</li>
                     <li>Performans bazlı komisyon yapısı</li>
