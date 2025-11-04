@@ -448,24 +448,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
+            padding: 12px 0;
             border-bottom: 1px solid #f0f0f0;
-            font-size: 13px;
         }
         
         .comparison-metric:last-of-type {
             border-bottom: none;
         }
         
-        .metric-label {
+        .comparison-metric .metric-label {
             color: #666;
             font-weight: 500;
+            font-size: 12px;
+            flex-shrink: 0;
+            margin-right: 20px;
         }
         
-        .metric-value {
-            font-weight: bold;
+        .comparison-metric .metric-value {
+            font-weight: 600;
             color: #1a1a1a;
             text-align: right;
+            font-size: 13px;
         }
         
         .highlight-box {
