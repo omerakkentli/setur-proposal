@@ -17,17 +17,13 @@
         }
 
         .page {
-            width: 210mm;
-            min-height: 297mm;
+            max-width: 210mm;
             padding: 0;
-            margin: 1cm auto;
+            margin: 0 auto;
             background: white;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
             box-sizing: border-box;
             position: relative;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
             border-radius: 4px;
         }
 
@@ -85,7 +81,6 @@
         }
 
         .content {
-            flex-grow: 1;
             padding: 20px 1.5cm 20px;
             background: linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%);
         }
@@ -93,7 +88,7 @@
         .footer {
             padding: 8px 1.5cm;
             font-size: 8px;
-            margin-top: auto;
+            margin-top: 20px;
             width: 100%;
             box-sizing: border-box;
             background: #f5f5f5;
@@ -289,7 +284,6 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-            page-break-inside: avoid;
         }
 
         .signature-block {
@@ -312,7 +306,7 @@
         }
 
         .page-break {
-            page-break-after: always;
+            display: none;
         }
 
         ul {
@@ -420,26 +414,15 @@
                 color: #000;
                 padding: 0;
                 margin: 0;
-                width: 210mm;
             }
 
             .page {
-                width: 210mm;
-                min-height: 297mm;
-                margin: 0;
+                max-width: 210mm;
+                margin: 0 auto;
                 border: none;
                 box-shadow: none;
                 border-radius: 0;
                 padding: 0;
-                page-break-after: always;
-                page-break-before: auto;
-                page-break-inside: avoid;
-                display: block;
-                position: relative;
-            }
-
-            .page:last-child {
-                page-break-after: auto;
             }
 
             .doc-header {
@@ -449,8 +432,6 @@
                 print-color-adjust: exact !important;
                 color-adjust: exact !important;
                 padding: 3px 1.5cm 3px !important;
-                page-break-inside: avoid !important;
-                page-break-after: avoid !important;
             }
 
             .doc-header .logo {
@@ -472,15 +453,12 @@
             .content {
                 padding: 20px 1.5cm;
                 background: #fff;
-                page-break-inside: auto;
             }
 
             .footer {
                 background: #f5f5f5 !important;
                 border-top: 1px solid #ddd !important;
                 color: #666 !important;
-                page-break-inside: avoid !important;
-                page-break-before: auto;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
@@ -493,8 +471,6 @@
                 color: #8A00FF;
                 border-image: linear-gradient(90deg, #8A00FF 0%, #b366ff 100%);
                 border-image-slice: 1;
-                page-break-after: avoid;
-                page-break-inside: avoid;
             }
 
             .header h1::after {
@@ -507,20 +483,15 @@
                 background: rgba(138, 0, 255, 0.05);
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
-                page-break-after: avoid;
-                page-break-inside: avoid;
             }
 
             .article-title {
                 border-left: 2px solid #b366ff;
-                page-break-after: avoid;
-                page-break-inside: avoid;
             }
 
             table {
                 border: 1px solid #e0e0e0;
                 box-shadow: none;
-                page-break-inside: avoid;
             }
 
             th {
@@ -560,7 +531,6 @@
                 border: 1px solid #e0e0e0;
                 background: #fff;
                 box-shadow: none;
-                page-break-inside: avoid;
                 font-size: 10px;
             }
 
@@ -576,8 +546,6 @@
                 border: 1px solid #e0e0e0;
                 background: #fff;
                 box-shadow: none;
-                page-break-inside: avoid !important;
-                page-break-before: auto;
                 margin-top: 20px;
                 padding: 15px;
             }
@@ -588,16 +556,7 @@
             }
 
             .page-break {
-                page-break-after: always;
-            }
-
-            ul, li {
-                page-break-inside: avoid;
-            }
-
-            p {
-                orphans: 3;
-                widows: 3;
+                display: none;
             }
         }
     </style>
@@ -697,27 +656,6 @@
         </div>
     </div>
 
-        </div>
-
-        <footer class="footer">
-            <p>Sözleşme No: GLOV-KOÇ-2025-001 | Glov Bilgi Teknolojileri A.Ş. | Sayfa 1</p>
-        </footer>
-    </div>
-
-    <div class="page">
-        <header class="doc-header">
-            <div class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve"><style type="text/css">.st0{fill:none;}.st1{fill:#FFFFFF;}.st2{fill:#FFFFFF;}</style><g id="Your_design"><g><g><circle class="st1" cx="264.95" cy="502.04" r="12.64"/><circle class="st1" cx="314.27" cy="502.04" r="12.64"/></g><g><path class="st2" d="M564.05,431.5h-37.02c-38.9,0-70.54,31.65-70.54,70.54s31.65,70.54,70.54,70.54h37.02    c38.9,0,70.54-31.65,70.54-70.54S602.95,431.5,564.05,431.5z M564.05,544.98h-37.02c-23.68,0-42.94-19.26-42.94-42.94    c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94C606.99,525.72,587.73,544.98,564.05,544.98z"/><path class="st2" d="M417.52,572.59c-7.61,0-13.8-6.19-13.8-13.8V385.61c0-7.61,6.19-13.8,13.8-13.8c7.61,0,13.8,6.19,13.8,13.8    v173.18C431.32,566.39,425.13,572.59,417.52,572.59z"/><path class="st2" d="M266.48,628.2c-7.61,0-13.8-6.19-13.8-13.8c0-7.61,6.19-13.8,13.8-13.8h50.22    c15.25,0,29.48-8.21,37.14-21.43l0.13-0.23l0.06-0.13c0.28-0.48,0.55-0.97,0.81-1.48c2.57-4.05,6.93-6.46,11.73-6.46    c7.62,0,13.83,6.2,13.83,13.83c0,2.1-0.46,4.12-1.36,5.99c-0.2,0.41-0.4,0.79-0.62,1.15l-0.13,0.23    c-12.46,22.29-36.06,36.14-61.58,36.14H266.48z"/><path class="st2" d="M363.83,459.17l13.56-13.55c5.38-5.38,5.38-14.14,0-19.52c-2.61-2.61-6.07-4.04-9.76-4.04    c-3.69,0-7.15,1.44-9.76,4.04l-14.79,14.79l-4.45-2.19c-9.73-4.78-20.18-7.2-31.07-7.2h-37.02c-38.9,0-70.54,31.65-70.54,70.54    s31.65,70.54,70.54,70.54h37.02c38.9,0,70.54-31.65,70.54-70.54c0-13.58-3.88-26.78-11.24-38.17L363.83,459.17z M307.56,544.98    h-37.02c-23.68,0-42.94-19.26-42.94-42.94c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94    C350.5,525.72,331.24,544.98,307.56,544.98z"/><path class="st2" d="M798.42,451.68l-55.74,107.21c-4.38,8.42-13.09,13.71-22.58,13.71l0,0c-9.49,0-18.2-5.29-22.58-13.71    l-55.74-107.21c-4.78-9.19,1.89-20.17,12.25-20.17h0c5.15,0,9.87,2.87,12.25,7.44l51.83,99.73c0.83,1.6,3.12,1.6,3.96,0    l51.85-99.74c2.38-4.57,7.10-7.44,12.25-7.44l0,0C796.53,431.51,803.2,442.49,798.42,451.68z"/></g></g></svg>
-            </div>
-            <div class="header-info">
-                <div class="company-name">Glov Bilgi Teknolojileri ve Servisleri Yazılım Danışmanlık Ticaret A.Ş.</div>
-                <div class="company-address">Cube Beyoğlu, Şehit Muhtar Mah. Mis Sok. No:24, 34435 Beyoğlu / İstanbul, Turkey</div>
-                <div class="company-contact">Tel: (0216) 999 70 00 | support@gengage.ai</div>
-                <div class="company-tax">Vergi Numarası: 3961548765</div>
-            </div>
-        </header>
-
-        <div class="content">
     <div class="section">
         <div class="section-title">MADDE 3 - PROJE DETAYLARI VE FİYATLANDIRMA</div>
         
@@ -892,28 +830,6 @@
             </div>
         </div>
     </div>
-
-        </div>
-
-        <footer class="footer">
-            <p>Sözleşme No: GLOV-KOÇ-2025-001 | Glov Bilgi Teknolojileri A.Ş. | Sayfa 2</p>
-        </footer>
-    </div>
-
-    <div class="page">
-        <header class="doc-header">
-            <div class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve"><style type="text/css">.st0{fill:none;}.st1{fill:#FFFFFF;}.st2{fill:#FFFFFF;}</style><g id="Your_design"><g><g><circle class="st1" cx="264.95" cy="502.04" r="12.64"/><circle class="st1" cx="314.27" cy="502.04" r="12.64"/></g><g><path class="st2" d="M564.05,431.5h-37.02c-38.9,0-70.54,31.65-70.54,70.54s31.65,70.54,70.54,70.54h37.02    c38.9,0,70.54-31.65,70.54-70.54S602.95,431.5,564.05,431.5z M564.05,544.98h-37.02c-23.68,0-42.94-19.26-42.94-42.94    c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94C606.99,525.72,587.73,544.98,564.05,544.98z"/><path class="st2" d="M417.52,572.59c-7.61,0-13.8-6.19-13.8-13.8V385.61c0-7.61,6.19-13.8,13.8-13.8c7.61,0,13.8,6.19,13.8,13.8    v173.18C431.32,566.39,425.13,572.59,417.52,572.59z"/><path class="st2" d="M266.48,628.2c-7.61,0-13.8-6.19-13.8-13.8c0-7.61,6.19-13.8,13.8-13.8h50.22    c15.25,0,29.48-8.21,37.14-21.43l0.13-0.23l0.06-0.13c0.28-0.48,0.55-0.97,0.81-1.48c2.57-4.05,6.93-6.46,11.73-6.46    c7.62,0,13.83,6.2,13.83,13.83c0,2.1-0.46,4.12-1.36,5.99c-0.2,0.41-0.4,0.79-0.62,1.15l-0.13,0.23    c-12.46,22.29-36.06,36.14-61.58,36.14H266.48z"/><path class="st2" d="M363.83,459.17l13.56-13.55c5.38-5.38,5.38-14.14,0-19.52c-2.61-2.61-6.07-4.04-9.76-4.04    c-3.69,0-7.15,1.44-9.76,4.04l-14.79,14.79l-4.45-2.19c-9.73-4.78-20.18-7.2-31.07-7.2h-37.02c-38.9,0-70.54,31.65-70.54,70.54    s31.65,70.54,70.54,70.54h37.02c38.9,0,70.54-31.65,70.54-70.54c0-13.58-3.88-26.78-11.24-38.17L363.83,459.17z M307.56,544.98    h-37.02c-23.68,0-42.94-19.26-42.94-42.94c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94    C350.5,525.72,331.24,544.98,307.56,544.98z"/><path class="st2" d="M798.42,451.68l-55.74,107.21c-4.38,8.42-13.09,13.71-22.58,13.71l0,0c-9.49,0-18.2-5.29-22.58-13.71    l-55.74-107.21c-4.78-9.19,1.89-20.17,12.25-20.17h0c5.15,0,9.87,2.87,12.25,7.44l51.83,99.73c0.83,1.6,3.12,1.6,3.96,0    l51.85-99.74c2.38-4.57,7.10-7.44,12.25-7.44l0,0C796.53,431.51,803.2,442.49,798.42,451.68z"/></g></g></svg>
-            </div>
-            <div class="header-info">
-                <div class="company-name">Glov Bilgi Teknolojileri ve Servisleri Yazılım Danışmanlık Ticaret A.Ş.</div>
-                <div class="company-address">Cube Beyoğlu, Şehit Muhtar Mah. Mis Sok. No:24, 34435 Beyoğlu / İstanbul, Turkey</div>
-                <div class="company-contact">Tel: (0216) 999 70 00 | support@gengage.ai</div>
-                <div class="company-tax">Vergi Numarası: 3961548765</div>
-            </div>
-        </header>
-
-        <div class="content">
     <div class="section">
         <div class="section-title">MADDE 4 - ÖDEME KOŞULLARI VE VADELERİ</div>
         <div class="article-content">
@@ -1128,27 +1044,6 @@
         </div>
     </div>
 
-        </div>
-
-        <footer class="footer">
-            <p>Sözleşme No: GLOV-KOÇ-2025-001 | Glov Bilgi Teknolojileri A.Ş. | Sayfa 3</p>
-        </footer>
-    </div>
-
-    <div class="page">
-        <header class="doc-header">
-            <div class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve"><style type="text/css">.st0{fill:none;}.st1{fill:#FFFFFF;}.st2{fill:#FFFFFF;}</style><g id="Your_design"><g><g><circle class="st1" cx="264.95" cy="502.04" r="12.64"/><circle class="st1" cx="314.27" cy="502.04" r="12.64"/></g><g><path class="st2" d="M564.05,431.5h-37.02c-38.9,0-70.54,31.65-70.54,70.54s31.65,70.54,70.54,70.54h37.02    c38.9,0,70.54-31.65,70.54-70.54S602.95,431.5,564.05,431.5z M564.05,544.98h-37.02c-23.68,0-42.94-19.26-42.94-42.94    c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94C606.99,525.72,587.73,544.98,564.05,544.98z"/><path class="st2" d="M417.52,572.59c-7.61,0-13.8-6.19-13.8-13.8V385.61c0-7.61,6.19-13.8,13.8-13.8c7.61,0,13.8,6.19,13.8,13.8    v173.18C431.32,566.39,425.13,572.59,417.52,572.59z"/><path class="st2" d="M266.48,628.2c-7.61,0-13.8-6.19-13.8-13.8c0-7.61,6.19-13.8,13.8-13.8h50.22    c15.25,0,29.48-8.21,37.14-21.43l0.13-0.23l0.06-0.13c0.28-0.48,0.55-0.97,0.81-1.48c2.57-4.05,6.93-6.46,11.73-6.46    c7.62,0,13.83,6.2,13.83,13.83c0,2.1-0.46,4.12-1.36,5.99c-0.2,0.41-0.4,0.79-0.62,1.15l-0.13,0.23    c-12.46,22.29-36.06,36.14-61.58,36.14H266.48z"/><path class="st2" d="M363.83,459.17l13.56-13.55c5.38-5.38,5.38-14.14,0-19.52c-2.61-2.61-6.07-4.04-9.76-4.04    c-3.69,0-7.15,1.44-9.76,4.04l-14.79,14.79l-4.45-2.19c-9.73-4.78-20.18-7.2-31.07-7.2h-37.02c-38.9,0-70.54,31.65-70.54,70.54    s31.65,70.54,70.54,70.54h37.02c38.9,0,70.54-31.65,70.54-70.54c0-13.58-3.88-26.78-11.24-38.17L363.83,459.17z M307.56,544.98    h-37.02c-23.68,0-42.94-19.26-42.94-42.94c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94    C350.5,525.72,331.24,544.98,307.56,544.98z"/><path class="st2" d="M798.42,451.68l-55.74,107.21c-4.38,8.42-13.09,13.71-22.58,13.71l0,0c-9.49,0-18.2-5.29-22.58-13.71    l-55.74-107.21c-4.78-9.19,1.89-20.17,12.25-20.17h0c5.15,0,9.87,2.87,12.25,7.44l51.83,99.73c0.83,1.6,3.12,1.6,3.96,0    l51.85-99.74c2.38-4.57,7.10-7.44,12.25-7.44l0,0C796.53,431.51,803.2,442.49,798.42,451.68z"/></g></g></svg>
-            </div>
-            <div class="header-info">
-                <div class="company-name">Glov Bilgi Teknolojileri ve Servisleri Yazılım Danışmanlık Ticaret A.Ş.</div>
-                <div class="company-address">Cube Beyoğlu, Şehit Muhtar Mah. Mis Sok. No:24, 34435 Beyoğlu / İstanbul, Turkey</div>
-                <div class="company-contact">Tel: (0216) 999 70 00 | support@gengage.ai</div>
-                <div class="company-tax">Vergi Numarası: 3961548765</div>
-            </div>
-        </header>
-
-        <div class="content">
     <div class="section">
         <div class="section-title">MADDE 10 - SORUMLULUKLAR VE GARANTİLER</div>
         <div class="article-content">
@@ -1249,27 +1144,6 @@
         </div>
     </div>
 
-        </div>
-
-        <footer class="footer">
-            <p>Sözleşme No: GLOV-KOÇ-2025-001 | Glov Bilgi Teknolojileri A.Ş. | Sayfa 4</p>
-        </footer>
-    </div>
-
-    <div class="page">
-        <header class="doc-header">
-            <div class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve"><style type="text/css">.st0{fill:none;}.st1{fill:#FFFFFF;}.st2{fill:#FFFFFF;}</style><g id="Your_design"><g><g><circle class="st1" cx="264.95" cy="502.04" r="12.64"/><circle class="st1" cx="314.27" cy="502.04" r="12.64"/></g><g><path class="st2" d="M564.05,431.5h-37.02c-38.9,0-70.54,31.65-70.54,70.54s31.65,70.54,70.54,70.54h37.02    c38.9,0,70.54-31.65,70.54-70.54S602.95,431.5,564.05,431.5z M564.05,544.98h-37.02c-23.68,0-42.94-19.26-42.94-42.94    c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94C606.99,525.72,587.73,544.98,564.05,544.98z"/><path class="st2" d="M417.52,572.59c-7.61,0-13.8-6.19-13.8-13.8V385.61c0-7.61,6.19-13.8,13.8-13.8c7.61,0,13.8,6.19,13.8,13.8    v173.18C431.32,566.39,425.13,572.59,417.52,572.59z"/><path class="st2" d="M266.48,628.2c-7.61,0-13.8-6.19-13.8-13.8c0-7.61,6.19-13.8,13.8-13.8h50.22    c15.25,0,29.48-8.21,37.14-21.43l0.13-0.23l0.06-0.13c0.28-0.48,0.55-0.97,0.81-1.48c2.57-4.05,6.93-6.46,11.73-6.46    c7.62,0,13.83,6.2,13.83,13.83c0,2.1-0.46,4.12-1.36,5.99c-0.2,0.41-0.4,0.79-0.62,1.15l-0.13,0.23    c-12.46,22.29-36.06,36.14-61.58,36.14H266.48z"/><path class="st2" d="M363.83,459.17l13.56-13.55c5.38-5.38,5.38-14.14,0-19.52c-2.61-2.61-6.07-4.04-9.76-4.04    c-3.69,0-7.15,1.44-9.76,4.04l-14.79,14.79l-4.45-2.19c-9.73-4.78-20.18-7.2-31.07-7.2h-37.02c-38.9,0-70.54,31.65-70.54,70.54    s31.65,70.54,70.54,70.54h37.02c38.9,0,70.54-31.65,70.54-70.54c0-13.58-3.88-26.78-11.24-38.17L363.83,459.17z M307.56,544.98    h-37.02c-23.68,0-42.94-19.26-42.94-42.94c0-23.68,19.26-42.94,42.94-42.94h37.02c23.68,0,42.94,19.26,42.94,42.94    C350.5,525.72,331.24,544.98,307.56,544.98z"/><path class="st2" d="M798.42,451.68l-55.74,107.21c-4.38,8.42-13.09,13.71-22.58,13.71l0,0c-9.49,0-18.2-5.29-22.58-13.71    l-55.74-107.21c-4.78-9.19,1.89-20.17,12.25-20.17h0c5.15,0,9.87,2.87,12.25,7.44l51.83,99.73c0.83,1.6,3.12,1.6,3.96,0    l51.85-99.74c2.38-4.57,7.10-7.44,12.25-7.44l0,0C796.53,431.51,803.2,442.49,798.42,451.68z"/></g></g></svg>
-            </div>
-            <div class="header-info">
-                <div class="company-name">Glov Bilgi Teknolojileri ve Servisleri Yazılım Danışmanlık Ticaret A.Ş.</div>
-                <div class="company-address">Cube Beyoğlu, Şehit Muhtar Mah. Mis Sok. No:24, 34435 Beyoğlu / İstanbul, Turkey</div>
-                <div class="company-contact">Tel: (0216) 999 70 00 | support@gengage.ai</div>
-                <div class="company-tax">Vergi Numarası: 3961548765</div>
-            </div>
-        </header>
-
-        <div class="content">
     <div class="section">
         <div class="section-title">MADDE 13 - UYUŞMAZLIKLARIN ÇÖZÜMÜ</div>
         <div class="article-content">
@@ -1385,7 +1259,7 @@
         </div>
 
         <footer class="footer">
-            <p>Sözleşme No: GLOV-KOÇ-2025-001 | Glov Bilgi Teknolojileri A.Ş. | Sayfa 5</p>
+            <p>Sözleşme No: GLOV-KOÇ-2025-001 | Glov Bilgi Teknolojileri A.Ş.</p>
         </footer>
     </div>
 
