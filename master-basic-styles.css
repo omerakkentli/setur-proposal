@@ -728,6 +728,10 @@ a {
     margin-bottom: 40px;
 }
 
+.header * {
+    color: white;
+}
+
 .flag {
     font-size: 48px;
     margin-bottom: 20px;
@@ -739,16 +743,22 @@ a {
     font-weight: 700;
 }
 
+.header h1 {
+    color: white;
+}
+
 .subtitle {
     font-size: 1.3em;
     opacity: 0.95;
     margin-bottom: 15px;
+    color: white;
 }
 
 .meta {
     font-size: 0.95em;
     opacity: 0.9;
     margin-top: 20px;
+    color: white;
 }
 
 /* Stats Grid */
@@ -768,15 +778,21 @@ a {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+.stat-card * {
+    color: white;
+}
+
 .stat-number {
     font-size: 3em;
     font-weight: 700;
     margin-bottom: 10px;
+    color: white;
 }
 
 .stat-label {
     font-size: 1.1em;
     opacity: 0.95;
+    color: white;
 }
 
 /* Section Styles */
@@ -786,6 +802,25 @@ a {
     margin: 30px 0;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Override section styles when section has PURPLE gradient background */
+.section[style*="background: linear-gradient(135deg, #667eea"],
+.section[style*="background:linear-gradient(135deg,#667eea"] {
+    color: white !important;
+}
+
+.section[style*="background: linear-gradient(135deg, #667eea"] *,
+.section[style*="background:linear-gradient(135deg,#667eea"] * {
+    color: white !important;
+}
+
+.section[style*="background: linear-gradient(135deg, #667eea"] h2,
+.section[style*="background: linear-gradient(135deg, #667eea"] h3,
+.section[style*="background: linear-gradient(135deg, #667eea"] p,
+.section[style*="background: linear-gradient(135deg, #667eea"] li,
+.section[style*="background: linear-gradient(135deg, #667eea"] strong {
+    color: white !important;
 }
 
 .grant-document h2 {
@@ -823,46 +858,51 @@ a {
 /* Visualization Container */
 .viz-container {
     background: #f8f9fa;
-    padding: 30px;
-    margin: 30px 0;
-    border-radius: 10px;
+    padding: 35px;
+    margin: 35px 0;
+    border-radius: 12px;
     border: 2px solid #e9ecef;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .viz-title {
     text-align: center;
-    font-size: 1.3em;
-    font-weight: 600;
-    color: #495057;
-    margin-bottom: 30px;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 35px;
+    letter-spacing: -0.02em;
 }
 
 /* Comparison Grid */
 .comparison-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin: 20px 0;
+    gap: 25px;
+    margin: 30px 0;
 }
 
 .comparison-bad {
     background: #ffe6e6;
     padding: 25px;
-    border-radius: 8px;
+    border-radius: 12px;
     border-left: 5px solid #dc3545;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.15);
 }
 
 .comparison-good {
     background: #e6f9f0;
     padding: 25px;
-    border-radius: 8px;
+    border-radius: 12px;
     border-left: 5px solid #28a745;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.15);
 }
 
 .comparison-title {
-    font-weight: 600;
-    font-size: 1.2em;
-    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 1.15em;
+    margin-bottom: 20px;
+    color: #2c3e50;
 }
 
 /* Flow Steps */
@@ -900,6 +940,21 @@ a {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
     margin: 30px 0;
+}
+
+/* Ensure pillar-grid children with semi-transparent backgrounds have white text ONLY when inside purple gradient section */
+.section[style*="background: linear-gradient(135deg, #667eea"] .pillar-grid > div[style*="background: rgba(255,255,255,0.1)"],
+.section[style*="background: linear-gradient(135deg, #667eea"] .pillar-grid > div[style*="background: rgba(255,255,255,0.15)"],
+[style*="background: linear-gradient(135deg, #667eea"] .pillar-grid > div[style*="background: rgba(255,255,255,0.1)"],
+[style*="background: linear-gradient(135deg, #667eea"] .pillar-grid > div[style*="background: rgba(255,255,255,0.15)"] {
+    color: white !important;
+}
+
+.section[style*="background: linear-gradient(135deg, #667eea"] .pillar-grid > div[style*="background: rgba(255,255,255,0.1)"] *,
+.section[style*="background: linear-gradient(135deg, #667eea"] .pillar-grid > div[style*="background: rgba(255,255,255,0.15)"] *,
+[style*="background: linear-gradient(135deg, #667eea"] .pillar-grid > div[style*="background: rgba(255,255,255,0.1)"] *,
+[style*="background: linear-gradient(135deg, #667eea"] .pillar-grid > div[style*="background: rgba(255,255,255,0.15)"] * {
+    color: white !important;
 }
 
 .pillar-card {
@@ -1020,24 +1075,33 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
+    min-width: 80px;
+    max-width: 120px;
 }
 
 .bar {
     width: 100%;
+    min-width: 60px;
     background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
     border-radius: 5px 5px 0 0;
     position: relative;
     transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
 }
 
 .bar.good {
     background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
 }
 
 .bar-label {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 12px;
     font-weight: 600;
+    font-size: 0.85em;
+    color: #495057;
+    line-height: 1.4;
 }
 
 /* Print Styles */
@@ -1293,11 +1357,16 @@ a {
     box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
 }
 
+.phase-box * {
+    color: white;
+}
+
 .phase-title {
     font-size: 1.6em;
     font-weight: 700;
     margin-bottom: 25px;
     text-align: center;
+    color: white;
 }
 
 /* Checkmark */
@@ -1329,10 +1398,10 @@ a {
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
-    height: 200px;
-    gap: 30px;
-    padding: 20px;
-    background: white;
+    height: 250px;
+    gap: 15px;
+    padding: 30px 20px 20px 20px;
+    background: transparent;
     border-radius: 8px;
 }
 
@@ -1359,10 +1428,111 @@ a {
     color: #495057;
 }
 
+/* Override typography ONLY for purple gradient backgrounds */
+.grant-document [style*="background: linear-gradient(135deg, #667eea"] p,
+.grant-document [style*="background: linear-gradient(135deg, #667eea"] strong,
+.grant-document [style*="background: linear-gradient(135deg, #667eea"] ul,
+.grant-document [style*="background: linear-gradient(135deg, #667eea"] ul li {
+    color: white !important;
+}
+
+/* Fix text color ONLY on purple gradient backgrounds */
+.section[style*="background: linear-gradient(135deg, #667eea"] *,
+.section[style*="background:linear-gradient(135deg,#667eea"] *,
+div[style*="background: linear-gradient(135deg, #667eea"] p,
+div[style*="background: linear-gradient(135deg, #667eea"] li,
+div[style*="background: linear-gradient(135deg, #667eea"] strong,
+div[style*="background: linear-gradient(135deg, #667eea"] h3,
+div[style*="background: linear-gradient(135deg, #667eea"] h4 {
+    color: white !important;
+}
+
+/* Fix text readability on purple gradient backgrounds - SPECIFIC */
+/* Target the purple gradient parent container */
+[style*="background: linear-gradient(135deg, #667eea"],
+[style*="background:linear-gradient(135deg,#667eea"] {
+    color: white !important;
+}
+
+/* Target ALL children of purple gradient backgrounds */
+[style*="background: linear-gradient(135deg, #667eea"] *,
+[style*="background:linear-gradient(135deg,#667eea"] * {
+    color: white !important;
+}
+
+/* Target semi-transparent backgrounds ONLY when inside purple gradient sections */
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.1)"] *,
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.15)"] *,
+.section[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.1)"] *,
+.section[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.15)"] * {
+    color: white !important;
+}
+
+/* Ensure h3 with yellow color stays yellow */
+[style*="background: linear-gradient(135deg, #667eea"] h3[style*="color: #ffd93d"],
+h3[style*="color: #ffd93d"] {
+    color: #ffd93d !important;
+}
+
+/* Target lists inside purple gradient sections specifically */
+[style*="background: linear-gradient(135deg, #667eea"] ul,
+[style*="background: linear-gradient(135deg, #667eea"] ul li {
+    color: white !important;
+}
+
+/* Ensure white/light-colored backgrounds inside gradients keep dark text */
+/* This overrides the gradient white text rule for nested white/light boxes */
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.95)"],
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: #ffffff"],
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: white"],
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: #f8f9fa"],
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: #e9ecef"] {
+    color: #333 !important;
+}
+
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.95)"] *,
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: #ffffff"] *,
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: white"] *,
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: #f8f9fa"] *,
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: #e9ecef"] * {
+    color: #333 !important;
+}
+
+/* Specific element colors inside white boxes within gradients */
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.95)"] p,
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.95)"] strong,
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.95)"] h4 {
+    color: #333 !important;
+}
+
+/* Keep specific styled colors */
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.95)"] strong[style*="color: #3b82f6"],
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.95)"] h4[style*="color: #667eea"],
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.95)"] [style*="color: #3b82f6"],
+[style*="background: linear-gradient(135deg, #667eea"] [style*="background: rgba(255,255,255,0.95)"] [style*="color: #667eea"] {
+    color: inherit !important;
+}
+
+/* Ensure common box classes inside gradients keep proper colors */
+[style*="background: linear-gradient(135deg, #667eea"] .highlight-box,
+[style*="background: linear-gradient(135deg, #667eea"] .info-box,
+[style*="background: linear-gradient(135deg, #667eea"] .success-box,
+[style*="background: linear-gradient(135deg, #667eea"] .example-box {
+    color: #2c3e50 !important;
+}
+
+[style*="background: linear-gradient(135deg, #667eea"] .highlight-box *,
+[style*="background: linear-gradient(135deg, #667eea"] .info-box *,
+[style*="background: linear-gradient(135deg, #667eea"] .success-box *,
+[style*="background: linear-gradient(135deg, #667eea"] .example-box * {
+    color: #2c3e50 !important;
+}
+
 /* Responsive Design for Grant Document */
 @media (max-width: 768px) {
     .comparison-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     .pillar-grid {
         grid-template-columns: 1fr;
@@ -1388,5 +1558,20 @@ a {
     .pillar-header {
         flex-direction: column;
         align-items: flex-start;
+    }
+    .chart-simple {
+        height: 200px;
+        gap: 10px;
+        padding: 20px 10px 20px 10px;
+    }
+    .bar-group {
+        min-width: 60px;
+        max-width: 90px;
+    }
+    .bar-label {
+        font-size: 0.75em;
+    }
+    .viz-container {
+        padding: 20px;
     }
 }
