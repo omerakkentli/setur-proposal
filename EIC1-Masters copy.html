@@ -67,662 +67,619 @@
         </div>
     </div>
 
-    <div class="section">
-        <h2>🔴 The Technical Barrier: Why Current AI Cannot Scale Expert Validation</h2>
-        
-        <p>The industry-standard method for teaching AI domain expertise—<strong>fine-tuning</strong>—is economically unsustainable. It "bakes in" knowledge that becomes obsolete the moment market conditions or customer needs evolve. A model fine-tuned on 2024 healthcare procurement patterns fails when regulations change in 2025. Each update requires another expensive retraining cycle, contributing to the documented <strong>95% failure rate of enterprise AI deployments.</strong></p>
-        
-        <p>The modern alternative—<strong>context adaptation</strong> (using prompts and memory)—also fails. Our research identifies two fatal flaws:</p>
-        
-        <h3>Flaw #1: Information Compression Destroys Value</h3>
-        
-        <p>Traditional systems compress detailed insights into useless summaries:</p>
-        
-        <div class="viz-container">
-            <div class="viz-title">📉 Information Decay in Traditional Systems</div>
-            <div class="comparison-grid">
-                <div class="comparison-bad">
-                    <div class="comparison-title">❌ Traditional System: Knowledge Loss</div>
-                    <div class="chart-simple">
-                        <div class="bar-group">
-                            <div class="bar" style="height: 180px;"></div>
-                            <div class="bar-label">Interview 1<br>100% Detail</div>
+    <body>
+        <div class="container">
+            
+            <!-- SECTION 1: The Technical Barrier (CONSOLIDATED from pages 3-4) -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="emoji">🔴</span>
+                    <h1>The Technical Barrier: Why Current AI Cannot Scale Expert Validation</h1>
+                </div>
+                
+                <p>The industry-standard method for teaching AI domain expertise—<strong>fine-tuning</strong>—is economically unsustainable. It "bakes in" knowledge that becomes obsolete the moment market conditions or customer needs evolve. A model fine-tuned on 2024 healthcare procurement patterns fails when regulations change in 2025. Each update requires another expensive retraining cycle, contributing to the documented 95% failure rate of enterprise AI deployments.</p>
+                
+                <p>The modern alternative—<strong>context adaptation</strong> (using prompts and memory)—also fails. Our research identifies a fundamental problem that manifests in two ways:</p>
+                
+                <h2>Context Collapse: The Core Problem</h2>
+                
+                <p>As AI systems conduct more interviews, their performance paradoxically gets <strong>worse, not better</strong>. Performance drops sharply as critical details erode through repeated summarization—a phenomenon we call "context collapse."</p>
+                
+                <div class="info-box">
+                    <strong>The core challenge:</strong> How can AI learn from 1,000 expert interviews if it forgets the most valuable insights from the first 10?
+                    <br><br>
+                    For The Masters to work, the AI must become MORE knowledgeable with every interview, not less. A system that forgets insights cannot scale expert validation.
+                </div>
+                
+                <h2>How Context Collapse Happens: Information Compression</h2>
+                
+                <p>Traditional systems compress detailed insights into useless summaries, causing catastrophic knowledge loss over time:</p>
+                
+                <div class="viz-container">
+                    <div class="viz-title">📉 Information Decay in Traditional Systems</div>
+                    <div class="comparison-grid">
+                        <div class="comparison-bad">
+                            <div class="comparison-title">❌ Traditional System: Knowledge Loss</div>
+                            <div class="chart-simple">
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 180px;"></div>
+                                    <div class="bar-label">Interview 1<br>100% Detail</div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 90px;"></div>
+                                    <div class="bar-label">Interview 50<br>50% Detail</div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar" style="height: 20px;"></div>
+                                    <div class="bar-label">Interview 1000<br>10% Detail</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bar-group">
-                            <div class="bar" style="height: 90px;"></div>
-                            <div class="bar-label">Interview 50<br>50% Detail</div>
+                        
+                        <div class="comparison-good">
+                            <div class="comparison-title">✅ ACE System: Knowledge Growth</div>
+                            <div class="chart-simple">
+                                <div class="bar-group">
+                                    <div class="bar good" style="height: 60px;"></div>
+                                    <div class="bar-label">Interview 1<br>100% Detail</div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar good" style="height: 120px;"></div>
+                                    <div class="bar-label">Interview 50<br>200% Knowledge</div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar good" style="height: 180px;"></div>
+                                    <div class="bar-label">Interview 1000<br>300% Knowledge</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bar-group">
-                            <div class="bar" style="height: 20px;"></div>
-                            <div class="bar-label">Interview 1000<br>10% Detail</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="comparison-good">
-                    <div class="comparison-title">✅ ACE System: Knowledge Growth</div>
-                    <div class="chart-simple">
-                        <div class="bar-group">
-                            <div class="bar good" style="height: 60px;"></div>
-                            <div class="bar-label">Interview 1<br>100% Detail</div>
-                        </div>
-                        <div class="bar-group">
-                            <div class="bar good" style="height: 120px;"></div>
-                            <div class="bar-label">Interview 50<br>200% Knowledge</div>
-                        </div>
-                        <div class="bar-group">
-                            <div class="bar good" style="height: 180px;"></div>
-                            <div class="bar-label">Interview 1000<br>300% Knowledge</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 8px;">
-                <h4 style="margin-bottom: 15px;">Example: How Compression Destroys Value</h4>
-                <div class="code-block">
-<strong>Original insight from interview:</strong>
-"Medical practice IT departments require 90-day board approval cycles 
-for any software over €5K annually. They prefer 30-day pilot programs..."
-
-<span style="color: #dc3545;">↓ Traditional system compresses to:</span>
-
-"Healthcare buyers have slow approval processes"
-
-<span style="color: #dc3545;">↓ Further compression:</span>
-
-"B2B sales are complex"
-<span style="color: #dc3545;">(All actionable insight lost)</span></div>
-
-                <div class="code-block" style="background: #e6f9f0; color: #2c3e50; margin-top: 15px;">
-<strong>Same insight with ACE:</strong>
-Complete transcript preserved + extracted patterns:
-  • Buyer segment: Medical practice IT
-  • Approval threshold: €5K annually
-  • Timeline: 90-day board cycle
-  • Procurement preference: Pilot programs
-  • Evidence source: Interview #1
-
-<span style="color: #28a745;">✓ Zero information loss, 100% preserved forever</span></div>
-            </div>
-        </div>
-        
-        <p><strong>Why this matters for The Masters:</strong> When a healthcare software founder joins the platform, the AI must remember that specific 90-day detail to ask informed questions. Generic summaries like "B2B sales are complex" provide zero value.</p>
-        
-        <h3>Flaw #2: Context Collapse—Catastrophic Knowledge Loss Over Time</h3>
-        
-        <p>As AI systems conduct more interviews, their performance paradoxically gets <strong>worse, not better</strong>. Performance drops sharply as critical details erode through repeated summarization—a phenomenon we call "context collapse."</p>
-        
-        <div class="highlight-box">
-            <strong>The core challenge:</strong> How can AI learn from 1,000 expert interviews if it forgets the most valuable insights from the first 10?
-            <br><br>
-            For The Masters to work, the AI must become MORE knowledgeable with every interview, not less. A system that forgets insights cannot scale expert validation.
-        </div>
-        
-        <p><strong>EU Strategic Relevance:</strong> Solving this problem has implications far beyond The Masters. Context collapse is the fundamental reason 95% of enterprise AI deployments fail. Businesses cannot afford continuous fine-tuning, yet current context methods lose critical knowledge. This research addresses a barrier to EU-wide AI adoption.</p>
-    </div>
-
-    <div class="section">
-        <h2>✅ Our Solution: Agentic Context Engineering (ACE)</h2>
-        
-        <p>ACE eliminates both fine-tuning dependency and context collapse through a fundamentally different approach: <strong>instead of compressing knowledge, we preserve everything and build an evolving playbook that grows with every interaction.</strong></p>
-        
-        <div class="highlight-box">
-            <strong>The breakthrough:</strong> ACE-augmented small models (7-13B parameters like Llama-2, Mistral) match or exceed GPT-4's performance on complex reasoning tasks while consuming 95% less computational resources and reducing inference costs by two orders of magnitude.
-        </div>
-        
-        <p><strong>Technical validation:</strong></p>
-        <ul class="benefit-list">
-            <li>10.6% performance improvement over baseline approaches</li>
-            <li>86.9% lower adaptation latency compared to fine-tuning</li>
-            <li>Zero knowledge degradation over time (solves context collapse)</li>
-        </ul>
-        
-        <h3>The Self-Improvement Loop: Generate → Curate → Reflect</h3>
-        
-        <p>ACE operates through three specialized agents in a continuous cycle:</p>
-        
-        <div class="viz-container">
-            <div class="viz-title">🔄 How ACE Learns from Mistakes</div>
-            
-            <div class="flow-step">
-                <div class="step-label">STEP 1: GENERATE</div>
-                <strong>Run the Interview</strong>
-                <p style="margin: 10px 0;">The AI conducts live interviews using current best strategies from its playbook.</p>
-                <div class="code-block">
-Interview #37 - Direct Question Approach:
-AI: "Have you validated this with customers?"
-Founder: "I know my customers! I worked in this field for 3 years!"
-
-→ Founder becomes defensive
-→ Conversation derails for 5 minutes
-→ Limited insights extracted</div>
-            </div>
-            
-            <div class="flow-step">
-                <div class="step-label">STEP 2: CURATE</div>
-                <strong>Analyze What Happened</strong>
-                <p style="margin: 10px 0;">System analyzes 50 past interviews overnight to identify patterns.</p>
-                <div class="code-block">
-PATTERN DETECTED: Direct questions trigger defensiveness 
-in confident founders (failed in 12 out of 18 cases)
-
-ALTERNATIVE PATTERN: Socratic questions reveal assumptions 
-without defensiveness (successful in 47 out of 50 cases)
-
-Time to insight: 3.2 min (Socratic) vs 8.5 min (Direct)</div>
-            </div>
-            
-            <div class="flow-step">
-                <div class="step-label">STEP 3: REFLECT</div>
-                <strong>Update the Strategy</strong>
-                <p style="margin: 10px 0;">System updates its playbook with new rules.</p>
-                <div class="code-block">
-NEW RULE ADDED TO PLAYBOOK:
-IF founder_confidence > 0.7 AND assumption_detected
-  THEN use_strategy = "Socratic Approach"
-
-Interview #38 - New Socratic Approach:
-AI: "That's interesting—what did healthcare administrators 
-say when you interviewed them?"
-Founder: "Well... I haven't actually interviewed them yet..."
-
-→ Assumption revealed in 30 seconds
-→ Success rate improved from 67% to 98%
-
-<span style="color: #28a745;">✓ Automatically learned, zero retraining required</span></div>
-            </div>
-            
-            <div style="text-align: center; padding: 20px; background: #e6f9f0; border-radius: 8px; margin-top: 20px;">
-                <strong style="color: #28a745; font-size: 1.2em;">Why This Solves Context Collapse</strong>
-                <p style="margin-top: 10px;">Instead of compressing Interview #37's transcript into a summary, ACE preserves the entire conversation and builds a new rule. Every subsequent interview benefits from this learning without any information loss.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Insert this section after the "Our Solution: ACE" section -->
-
-<div class="section" style="background: #f8f9fa; padding: 0;">
-    <div style="background: white; padding: 30px; text-align: center; border-bottom: 3px solid #667eea;">
-        <h2 style="margin: 0; color: #2c3e50; border: none; padding: 0;">ACE-Powered Expert Validation Architecture</h2>
-        <p style="margin: 10px 0 0 0; color: #6c757d; font-size: 0.95em;">Small Models (7-13B) + Context Engineering = Expert-Level Performance</p>
-    </div>
-
-    <!-- The Platform: Who Uses It -->
-    <div style="padding: 40px;">
-        <div class="comparison-grid" style="margin-bottom: 40px;">
-            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 10px; color: white;">
-                <div style="text-align: center; margin-bottom: 15px;">
-                    <span style="font-size: 2.5em;">👥</span>
-                </div>
-                <h3 style="color: white; text-align: center; margin: 0 0 20px 0; font-size: 1.3em;">Entrepreneurs</h3>
-                <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li style="margin: 10px 0; padding-left: 25px; position: relative;">
-                        <span style="position: absolute; left: 0;">•</span>
-                        B2B SaaS startup founders
-                    </li>
-                    <li style="margin: 10px 0; padding-left: 25px; position: relative;">
-                        <span style="position: absolute; left: 0;">•</span>
-                        Seeking product validation
-                    </li>
-                    <li style="margin: 10px 0; padding-left: 25px; position: relative;">
-                        <span style="position: absolute; left: 0;">•</span>
-                        Need buyer insights
-                    </li>
-                    <li style="margin: 10px 0; padding-left: 25px; position: relative;">
-                        <span style="position: absolute; left: 0;">•</span>
-                        Cannot afford €5K-50K consultants
-                    </li>
-                </ul>
-            </div>
-            
-            <div style="background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); padding: 30px; border-radius: 10px; color: white;">
-                <div style="text-align: center; margin-bottom: 15px;">
-                    <span style="font-size: 2.5em;">🎯</span>
-                </div>
-                <h3 style="color: white; text-align: center; margin: 0 0 20px 0; font-size: 1.3em;">Masters (Experts)</h3>
-                <ul style="list-style: none; padding: 0; margin: 0;">
-                    <li style="margin: 10px 0; padding-left: 25px; position: relative;">
-                        <span style="position: absolute; left: 0;">•</span>
-                        Enterprise buyers & decision-makers
-                    </li>
-                    <li style="margin: 10px 0; padding-left: 25px; position: relative;">
-                        <span style="position: absolute; left: 0;">•</span>
-                        CIOs, procurement directors
-                    </li>
-                    <li style="margin: 10px 0; padding-left: 25px; position: relative;">
-                        <span style="position: absolute; left: 0;">•</span>
-                        Evaluate products for their companies
-                    </li>
-                    <li style="margin: 10px 0; padding-left: 25px; position: relative;">
-                        <span style="position: absolute; left: 0;">•</span>
-                        Share real procurement criteria
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ACE Core System -->
-        <div style="background: white; border: 3px solid #667eea; border-radius: 15px; padding: 30px; margin-bottom: 40px;">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: #667eea; color: white; padding: 10px 30px; border-radius: 25px; font-weight: 700; font-size: 1.1em;">
-                    AGENTIC CONTEXT ENGINEERING (ACE)
-                </div>
-            </div>
-            
-            <div class="pillar-grid" style="margin: 0;">
-                <div style="text-align: center; padding: 20px;">
-                    <div style="font-size: 3em; margin-bottom: 15px;">✏️</div>
-                    <h4 style="margin: 0 0 10px 0; color: #667eea; font-size: 1.2em;">Generator</h4>
-                    <p style="margin: 0; color: #6c757d; font-size: 0.9em;">
-                        Conducts live Socratic interviews using current best strategies from playbook
-                    </p>
-                </div>
-                
-                <div style="text-align: center; padding: 20px;">
-                    <div style="font-size: 3em; margin-bottom: 15px;">🔍</div>
-                    <h4 style="margin: 0 0 10px 0; color: #667eea; font-size: 1.2em;">Reflector</h4>
-                    <p style="margin: 0; color: #6c757d; font-size: 0.9em;">
-                        Analyzes conversation quality, identifies what worked & what failed
-                    </p>
-                </div>
-                
-                <div style="text-align: center; padding: 20px;">
-                    <div style="font-size: 3em; margin-bottom: 15px;">📚</div>
-                    <h4 style="margin: 0 0 10px 0; color: #667eea; font-size: 1.2em;">Curator</h4>
-                    <p style="margin: 0; color: #6c757d; font-size: 0.9em;">
-                        Extracts patterns, builds playbook of effective interview strategies
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Learning Infrastructure Header -->
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: inline-block; background: #495057; color: white; padding: 8px 25px; border-radius: 5px; font-weight: 600; font-size: 0.95em; letter-spacing: 0.5px;">
-                CONTINUOUS LEARNING & GROWTH
-            </div>
-        </div>
-
-        <!-- Three-Tier Memory System -->
-        <div style="background: linear-gradient(135deg, #fff9e6 0%, #fff5d6 100%); border: 3px solid #ffd93d; border-radius: 15px; padding: 40px; margin-bottom: 20px;">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <div style="display: inline-block; background: #ffd93d; color: #2c3e50; padding: 8px 25px; border-radius: 20px; font-weight: 700; font-size: 1em;">
-                    THREE-TIER MEMORY INFRASTRUCTURE
-                </div>
-            </div>
-
-            <div class="pillar-grid" style="margin-bottom: 30px;">
-                <div style="background: white; padding: 25px; border-radius: 10px; border: 2px solid #ffd93d;">
-                    <h4 style="margin: 0 0 10px 0; color: #2c3e50; font-size: 1.1em;">📝 Episodic Memory</h4>
-                    <p style="margin: 0 0 15px 0; color: #6c757d; font-size: 0.85em; font-style: italic;">Full-fidelity transcripts</p>
-                    <p style="margin: 0; color: #495057; font-size: 0.9em; line-height: 1.5;">
-                        Complete recordings of every interview: dialogue, tone, timestamps, sentiment shifts. Nothing is ever lost.
-                    </p>
-                </div>
-
-                <div style="background: white; padding: 25px; border-radius: 10px; border: 2px solid #ffd93d;">
-                    <h4 style="margin: 0 0 10px 0; color: #2c3e50; font-size: 1.1em;">🕸️ Semantic Memory</h4>
-                    <p style="margin: 0 0 15px 0; color: #6c757d; font-size: 0.85em; font-style: italic;">Knowledge evolution tracking</p>
-                    <p style="margin: 0; color: #495057; font-size: 0.9em; line-height: 1.5;">
-                        Tracks how expert opinions change with evidence. "Too expensive" → sees demo → "Reasonable price"
-                    </p>
-                </div>
-
-                <div style="background: white; padding: 25px; border-radius: 10px; border: 2px solid #ffd93d;">
-                    <h4 style="margin: 0 0 10px 0; color: #2c3e50; font-size: 1.1em;">⚙️ Procedural Memory</h4>
-                    <p style="margin: 0 0 15px 0; color: #6c757d; font-size: 0.85em; font-style: italic;">Dynamic playbook</p>
-                    <p style="margin: 0; color: #495057; font-size: 0.9em; line-height: 1.5;">
-                        Version-controlled interview strategies that improve over time. v1.0 (94%) → v2.0 (98% success)
-                    </p>
-                </div>
-            </div>
-
-            <div class="pillar-grid" style="margin: 0;">
-                <div style="background: white; padding: 25px; border-radius: 10px; border: 2px solid #ffd93d;">
-                    <h4 style="margin: 0 0 10px 0; color: #2c3e50; font-size: 1.1em;">🎯 Validation Patterns</h4>
-                    <p style="margin: 0; color: #495057; font-size: 0.9em; line-height: 1.5;">
-                        "Founders who say 'definitely' without evidence → 87% have unvalidated assumptions"
-                    </p>
-                </div>
-
-                <div style="background: white; padding: 25px; border-radius: 10px; border: 2px solid #ffd93d;">
-                    <h4 style="margin: 0 0 10px 0; color: #2c3e50; font-size: 1.1em;">🔄 Match Quality Signals</h4>
-                    <p style="margin: 0; color: #495057; font-size: 0.9em; line-height: 1.5;">
-                        "Masters change minds when shown working demos, not slides. Match demo-ready founders first."
-                    </p>
-                </div>
-
-                <div style="background: white; padding: 25px; border-radius: 10px; border: 2px solid #ffd93d;">
-                    <h4 style="margin: 0 0 10px 0; color: #2c3e50; font-size: 1.1em;">💡 Sales Intelligence</h4>
-                    <p style="margin: 0; color: #495057; font-size: 0.9em; line-height: 1.5;">
-                        "Hospital IT: 90-day board cycles, €5K threshold, prefer pilots" → Used in 1,000+ future interviews
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Growth Banner -->
-        <div style="background: linear-gradient(135deg, #ffd93d 0%, #ffca1f 100%); padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-            <div style="font-size: 1.5em; font-weight: 700; color: #2c3e50; margin-bottom: 5px;">
-                ✨ GROWS WITHOUT BOUNDS
-            </div>
-            <p style="margin: 0; color: #495057; font-size: 0.95em;">
-                Every conversation improves the system. No retraining needed. No knowledge loss.
-            </p>
-        </div>
-
-        <!-- Research Outputs -->
-        <div style="text-align: center; margin-bottom: 20px;">
-            <div style="display: inline-block; background: #495057; color: white; padding: 8px 25px; border-radius: 5px; font-weight: 600; font-size: 0.95em; letter-spacing: 0.5px;">
-                NOVEL RESEARCH CONTRIBUTIONS
-            </div>
-        </div>
-
-        <div class="pillar-grid" style="margin: 0;">
-            <div style="background: linear-gradient(135deg, #28a745 0%, #218838 100%); color: white; padding: 30px; border-radius: 10px;">
-                <div style="text-align: center; margin-bottom: 15px;">
-                    <span style="font-size: 2em;">🎤</span>
-                </div>
-                <h4 style="margin: 0 0 15px 0; color: white; font-size: 1.2em; text-align: center;">Qualitative Feedback</h4>
-                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9em;">
-                    <li style="margin: 8px 0;">• Voice tone analysis</li>
-                    <li style="margin: 8px 0;">• Hesitation detection</li>
-                    <li style="margin: 8px 0;">• "Aha moment" recognition</li>
-                    <li style="margin: 8px 0;">• Defensiveness signals</li>
-                    <li style="margin: 8px 0;">• Real-time quality scoring</li>
-                </ul>
-            </div>
-
-            <div style="background: linear-gradient(135deg, #17a2b8 0%, #138496 100%); color: white; padding: 30px; border-radius: 10px;">
-                <div style="text-align: center; margin-bottom: 15px;">
-                    <span style="font-size: 2em;">💬</span>
-                </div>
-                <h4 style="margin: 0 0 15px 0; color: white; font-size: 1.2em; text-align: center;">Socratic Playbooks</h4>
-                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9em;">
-                    <li style="margin: 8px 0;">• Question sequencing patterns</li>
-                    <li style="margin: 8px 0;">• Assumption-revealing techniques</li>
-                    <li style="margin: 8px 0;">• Context-switching strategies</li>
-                    <li style="margin: 8px 0;">• Founder psychology profiles</li>
-                    <li style="margin: 8px 0;">• Success-driven curation</li>
-                </ul>
-            </div>
-
-            <div style="background: linear-gradient(135deg, #6610f2 0%, #520dc2 100%); color: white; padding: 30px; border-radius: 10px;">
-                <div style="text-align: center; margin-bottom: 15px;">
-                    <span style="font-size: 2em;">🧬</span>
-                </div>
-                <h4 style="margin: 0 0 15px 0; color: white; font-size: 1.2em; text-align: center;">Dynamic Knowledge</h4>
-                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9em;">
-                    <li style="margin: 8px 0;">• Temporal opinion tracking</li>
-                    <li style="margin: 8px 0;">• Evidence-trigger linkage</li>
-                    <li style="margin: 8px 0;">• Belief confidence modeling</li>
-                    <li style="margin: 8px 0;">• Counterfactual reasoning</li>
-                    <li style="margin: 8px 0;">• Market evolution capture</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-    <div class="section">
-        <h2>🧠 The Three-Tier Memory System: ACE's "Brain"</h2>
-        <p>The self-improvement loop feeds a sophisticated memory architecture that stores and organizes everything the AI learns:</p>
-        
-        <div class="pillar-grid">
-            <div class="pillar-card">
-                <div class="pillar-number">1</div>
-                <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">Episodic Memory</h3>
-                <p style="margin-bottom: 15px;"><strong>The Complete Transcript</strong></p>
-                <p>Perfect, full-fidelity recording of everything that happened: transcripts, tone analysis, timestamps, sentiment shifts.</p>
-                
-                <div class="code-block" style="font-size: 0.85em; margin-top: 15px;">
-Interview #42 with Founder "Alex"
-[14:05:12] AI: "Tell me about your target customer"
-[14:05:15] Alex: "Medical practice IT depts, definitely"
-[14:05:16] [Tone: High confidence, no hedging]
-[14:05:20] AI: "How did you learn about their needs?"
-[14:05:22] Alex: "I worked in medical practice IT 3 years"
-[14:05:23] [Pattern: Personal experience, not customer evidence]</div>
-                
-                <p style="margin-top: 10px; font-size: 0.9em;"><strong>Purpose:</strong> Enables the AI to review exactly what happened in any past conversation, preserving context that would be lost in summaries.</p>
-            </div>
-            
-            <div class="pillar-card">
-                <div class="pillar-number">2</div>
-                <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">Semantic Memory</h3>
-                <p style="margin-bottom: 15px;"><strong>The Knowledge Graph</strong></p>
-                <p>Tracks how expert opinions and market insights evolve over time, capturing the validation process itself.</p>
-                
-                <div style="background: #fff; padding: 15px; border-radius: 5px; margin-top: 15px; border-left: 3px solid #667eea;">
-                    <strong>Week 1 - Master Emily (Hospital CIO):</strong><br>
-                    "€50/month is too expensive for small practices"<br>
-                    <em>Context: Before seeing demo | Confidence: 0.9</em>
-                </div>
-                
-                <div style="text-align: center; margin: 10px 0; font-size: 1.5em; color: #667eea;">↓</div>
-                
-                <div style="background: #e6f9f0; padding: 15px; border-radius: 5px; border-left: 3px solid #28a745;">
-                    <strong>Week 3 - Same Master Emily:</strong><br>
-                    "Actually, €50/month is reasonable given time savings"<br>
-                    <em>Context: After hands-on demo | Confidence: 0.95</em><br>
-                    <strong style="color: #28a745;">Change trigger: Saw working demo</strong>
-                </div>
-                
-                <p style="margin-top: 10px; font-size: 0.9em;"><strong>Purpose:</strong> The AI learns that Master Emily's opinion evolved when she saw evidence. This informs future matching: founders with working demos should meet Emily early.</p>
-            </div>
-            
-            <div class="pillar-card">
-                <div class="pillar-number">3</div>
-                <h3 style="margin: 0 0 15px 0; font-size: 1.3em;">Procedural Memory</h3>
-                <p style="margin-bottom: 15px;"><strong>The Dynamic Playbook</strong></p>
-                <p>Version-controlled library of proven interview techniques that improve over time.</p>
-                
-                <div style="background: #fff; padding: 15px; border-radius: 5px; margin-top: 15px;">
-                    <strong>Play: Socratic Challenge v1.0</strong><br>
-                    Success rate: 94% (47/50 revealed assumptions)<br>
-                    Defensive reactions: 4% (2/50)
-                </div>
-                
-                <div style="text-align: center; margin: 10px 0; font-size: 1.5em; color: #667eea;">↓ Evolution</div>
-                
-                <div style="background: #e6f9f0; padding: 15px; border-radius: 5px; border-left: 3px solid #28a745;">
-                    <strong>Play: Socratic Challenge v2.0</strong><br>
-                    Success rate: 98% (49/50 revealed assumptions)<br>
-                    Defensive reactions: 0% (0/50)<br>
-                    <strong style="color: #28a745;">+4% improvement, replaces v1.0</strong>
-                </div>
-                
-                <p style="margin-top: 10px; font-size: 0.9em;"><strong>Purpose:</strong> Interview strategies evolve like software versions, with each iteration improving on the last.</p>
-            </div>
-        </div>
-        
-        <h3 style="margin-top: 40px;">Real-Time Memory Retrieval During Live Conversations</h3>
-        <p>During active interviews, the AI queries all three memory systems simultaneously:</p>
-        
-        <div class="code-block">
-<strong>[Current Interview]</strong>
-Founder Jordan: "Small medical practices will definitely pay €50/month"
-
-<strong>[System executes memory retrieval in 200 milliseconds]</strong>
-
-1. Semantic Memory → Master Emily: "€50 is too expensive"
-2. Episodic Memory → 3 founders assumed premium pricing
-   Reality: All 3 discovered need for <€20/month
-3. Procedural Memory → Best strategy: Socratic Challenge v2.0
-   Success rate: 98%
-
-<strong>[AI generates informed response]</strong>
-"That's an interesting price point for small practices. I'm curious 
-what you learned about their pricing sensitivity from customer conversations?"
-
-<span style="color: #28a745;">✓ Informed by all past learning
-✓ Zero information loss
-✓ Continuously improving quality</span></div>
-    </div>
-
-    <div class="section">
-        <h2>🎯 Focus of the R&D Work: Three Research Pillars</h2>
-        <p>This grant will fund critical R&D to bridge the gap between existing context adaptation methods (which work well for structured tasks like code generation) and the highly complex domain of <strong>live, voice-based Socratic interviews with human experts.</strong></p>
-        
-        <div class="highlight-box">
-            <strong>Why this is novel:</strong> Current ACE research focuses on structured domains where success/failure is binary—code either runs or crashes, API calls either succeed or fail. Human conversation is fundamentally different: success is qualitative, context-dependent, and measured in subtle signals like hesitation, tone shifts, and "aha" moments.
-        </div>
-        
-        <div class="viz-container">
-            <div class="viz-title">🔬 Three Research Pillars</div>
-            
-            <div class="pillar-grid">
-                <div class="pillar-card" style="border-top-color: #667eea;">
-                    <div class="pillar-number">1</div>
-                    <div class="pillar-question">Execution Feedback for Live Conversation</div>
-                    
-                    <div class="pillar-challenge">
-                        <strong>Novel Challenge:</strong><br>
-                        Existing methods rely on binary feedback (test passed/failed). Our system must identify subtle, qualitative signals during voice conversations: founder defensiveness, hesitation patterns, breakthrough moments, expert engagement levels.
                     </div>
                     
-                    <div class="pillar-output">
-                        <strong>Expected Output:</strong><br>
-                        Train the Reflector agent to score conversation quality based on qualitative human signals—turning subjective assessment into quantitative feedback for the self-improvement loop.
-                        <br><br>
-                        <strong>Technical Approach:</strong> Multi-modal analysis (voice tone, speech patterns, pause length), conversation outcome metrics, longitudinal tracking of founder success.
+
+                </div>
+                
+                <h3>Example: How Compression Destroys Value</h3>
+                
+                <div class="example-box">
+                    <strong>Original insight from interview:</strong><br>
+                    "Medical practice IT departments require 90-day board approval cycles for any software over €5K annually. They prefer 30-day pilot programs..."
+                </div>
+                
+                <div class="arrow-down">↓</div>
+                
+                <div class="example-box" style="background: #7f1d1d; color: #fca5a5;">
+                    <strong>First compression:</strong><br>
+                    "Healthcare buyers have slow approval processes"
+                </div>
+                
+                <div class="arrow-down">↓</div>
+                
+                <div class="example-box" style="background: #450a0a; color: #fca5a5;">
+                    <strong>Further compression:</strong><br>
+                    "B2B sales are complex"<br>
+                    <em>(All actionable insight lost)</em>
+                </div>
+                
+                <div class="success-box" style="margin-top: 24px;">
+                    <strong>Same insight with ACE:</strong><br>
+                    Complete transcript preserved + extracted patterns:
+                    <ul style="margin-top: 12px;">
+                        <li>Buyer segment: Medical practice IT</li>
+                        <li>Approval threshold: €5K annually</li>
+                        <li>Timeline: 90-day board cycle</li>
+                        <li>Procurement preference: Pilot programs</li>
+                        <li>Evidence source: Interview #1</li>
+                    </ul>
+                    ✓ Zero information loss, 100% preserved forever
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>Why this matters for The Masters:</strong> When a healthcare software founder joins the platform, the AI must remember that specific 90-day detail to ask informed questions. Generic summaries like "B2B sales are complex" provide zero value.
+                </div>
+                
+                <div class="info-box" style="margin-top: 32px;">
+                    <strong>EU Strategic Relevance:</strong> Solving this problem has implications far beyond The Masters. Context collapse is the fundamental reason 95% of enterprise AI deployments fail. Businesses cannot afford continuous fine-tuning, yet current context methods lose critical knowledge. This research addresses a barrier to EU-wide AI adoption.
+                </div>
+            </div>
+            
+            <!-- SECTION 2: Our Solution - ACE in Action (CONSOLIDATED from pages 5-7) -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="emoji">✅</span>
+                    <h1>Our Solution: Agentic Context Engineering (ACE)</h1>
+                </div>
+                
+                <p>ACE eliminates both fine-tuning dependency and context collapse through a fundamentally different approach: instead of compressing knowledge, we <strong>preserve everything</strong> and build an evolving playbook that grows with every interaction.</p>
+                
+                <div class="highlight-box">
+                    <strong>The breakthrough:</strong> ACE-augmented small models (7-13B parameters like Llama-2, Mistral) match or exceed GPT-4's performance on complex reasoning tasks while consuming 95% less computational resources and reducing inference costs by two orders of magnitude.
+                </div>
+                
+                <h2>The Self-Improvement Loop: Generate → Reflect → Curate</h2>
+                
+                <p>ACE operates through three specialized agents in a continuous cycle. Here's how the system learns from its mistakes:</p>
+                
+                <div class="flow-diagram">
+                    
+                    <div class="step">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <div class="step-title">GENERATE: Run the Interview</div>
+                        </div>
+                        <p>The Generator agent conducts live interviews using current best strategies from its playbook.</p>
+                        
+                        <div class="code-block">
+    <strong>Interview #37 - Direct Question Approach:</strong>
+    
+    AI: "Have you validated this with customers?"
+    
+    Founder: "I know my customers! I worked in this field for 3 years!"
+    
+    → Founder becomes defensive
+    → Conversation derails for 5 minutes
+    → Limited insights extracted
+                        </div>
+                    </div>
+                    
+                    <div class="arrow-down">↓</div>
+                    
+                    <div class="step">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <div class="step-title">REFLECT: Analyze What Happened</div>
+                        </div>
+                        <p>The Reflector agent analyzes 50 past interviews overnight to identify patterns.</p>
+                        
+                        <div class="code-block">
+    <strong>PATTERN DETECTED:</strong>
+    
+    Direct questions trigger defensiveness in confident founders
+    (failed in 12 out of 18 cases)
+    
+    <strong>ALTERNATIVE PATTERN:</strong>
+    
+    Socratic questions reveal assumptions without defensiveness
+    (successful in 47 out of 50 cases)
+    
+    Time to insight: 3.2 min (Socratic) vs 8.5 min (Direct)
+                        </div>
+                    </div>
+                    
+                    <div class="arrow-down">↓</div>
+                    
+                    <div class="step">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <div class="step-title">CURATE: Update the Strategy</div>
+                        </div>
+                        <p>The Curator agent updates the playbook with new rules.</p>
+                        
+                        <div class="code-block">
+    <strong>NEW RULE ADDED TO PLAYBOOK:</strong>
+    
+    IF founder_confidence > 0.7 AND assumption_detected
+    THEN use_strategy = "Socratic Approach"
+    
+    <strong>Interview #38 - New Socratic Approach:</strong>
+    
+    AI: "That's interesting—what did healthcare administrators 
+    say when you interviewed them?"
+    
+    Founder: "Well... I haven't actually interviewed them yet..."
+    
+    → Assumption revealed in 30 seconds
+    → Success rate improved from 67% to 98%
+    
+    ✓ Automatically learned, zero retraining required
+                        </div>
                     </div>
                 </div>
                 
-                <div class="pillar-card" style="border-top-color: #764ba2;">
-                    <div class="pillar-number" style="background: #764ba2;">2</div>
-                    <div class="pillar-question">Building a Playbook for Socratic Dialogue</div>
+                <div class="success-box">
+                    <strong>Why This Solves Context Collapse</strong><br><br>
+                    Instead of compressing Interview #37's transcript into a summary, ACE preserves the entire conversation and builds a new rule. Every subsequent interview benefits from this learning without any information loss.
+                </div>
+                
+                <h2>Architecture: Small Models + Context Engineering = Expert Performance</h2>
+                
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 32px; border-radius: 8px; margin: 24px 0;">
+                    <h3 style="color: white; text-align: center; margin-bottom: 24px;">ACE-Powered Expert Validation System</h3>
                     
-                    <div class="pillar-challenge">
-                        <strong>Novel Challenge:</strong><br>
-                        Current ACE research curates concrete artifacts: code snippets, API rules, database schemas. We need to curate effective conversational strategies: question sequencing, assumption-revealing techniques, context-switching patterns, founder psychology patterns.
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;">
+                            <div style="font-size: 32px; margin-bottom: 12px;">👥</div>
+                            <h4 style="color: white; margin-bottom: 12px;">Entrepreneurs</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li>• B2B SaaS startup founders</li>
+                                <li>• Seeking product validation</li>
+                                <li>• Need buyer insights</li>
+                                <li>• Cannot afford €5K-50K consultants</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px;">
+                            <div style="font-size: 32px; margin-bottom: 12px;">🎯</div>
+                            <h4 style="color: white; margin-bottom: 12px;">Masters (Experts)</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li>• Enterprise buyers & decision-makers</li>
+                                <li>• CIOs, procurement directors</li>
+                                <li>• Evaluate products for their companies</li>
+                                <li>• Share real procurement criteria</li>
+                            </ul>
+                        </div>
                     </div>
                     
-                    <div class="pillar-output">
-                        <strong>Expected Output:</strong><br>
-                        Design and train a Curator agent that extracts conversational patterns from successful interviews and builds a playbook of reusable strategies—without losing the nuance that makes them effective.
-                        <br><br>
-                        <strong>Technical Approach:</strong> Conversation structure analysis, pattern clustering, A/B testing across founder types, meta-learning for domain transfer.
+                    <div style="background: rgba(255,255,255,0.95); color: #333; padding: 24px; border-radius: 8px;">
+                        <h4 style="text-align: center; color: #667eea; margin-bottom: 20px;">AGENTIC CONTEXT ENGINEERING (ACE)</h4>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 48px; margin-bottom: 8px;">✏️</div>
+                                <strong style="color: #3b82f6;">Generator</strong>
+                                <p style="font-size: 13px; margin-top: 8px;">Conducts live Socratic interviews using current best strategies from playbook</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div style="font-size: 48px; margin-bottom: 8px;">🔍</div>
+                                <strong style="color: #3b82f6;">Reflector</strong>
+                                <p style="font-size: 13px; margin-top: 8px;">Analyzes conversation quality, identifies what worked & what failed</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div style="font-size: 48px; margin-bottom: 8px;">📚</div>
+                                <strong style="color: #3b82f6;">Curator</strong>
+                                <p style="font-size: 13px; margin-top: 8px;">Extracts patterns, builds playbook of effective interview strategies</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION 3: The Memory System (CONSOLIDATED from pages 8, 10-11) -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="emoji">🧠</span>
+                    <h1>ACE's Memory System: How the AI "Remembers" Everything</h1>
+                </div>
+                
+                <p>The self-improvement loop feeds a sophisticated memory architecture that stores and organizes everything the AI learns. Unlike traditional systems that compress and lose information, ACE uses a three-tier memory system inspired by human cognition:</p>
+                
+                <div class="memory-grid">
+                    <div class="memory-card" style="border-color: #3b82f6;">
+                        <div class="memory-icon">📝</div>
+                        <div class="memory-title">1. Episodic Memory</div>
+                        <div class="memory-subtitle">Full-fidelity transcripts</div>
+                        
+                        <p style="margin: 12px 0;">Perfect, full-fidelity recording of everything that happened: transcripts, tone analysis, timestamps, sentiment shifts.</p>
+                        
+                        <div class="example-box">
+    <strong>Interview #42 with Founder "Alex"</strong>
+    
+    [14:05:12] AI: "Tell me about your target customer"
+    
+    [14:05:15] Alex: "Medical practice IT depts, definitely"
+    [14:05:16] [Tone: High confidence, no hedging]
+    
+    [14:05:20] AI: "How did you learn about their needs?"
+    
+    [14:05:22] Alex: "I worked in medical practice IT 3 years"
+    [14:05:23] [Pattern: Personal experience, not customer evidence]
+                        </div>
+                        
+                        <div class="note">
+                            <strong>Purpose:</strong> Enables the AI to review exactly what happened in any past conversation, preserving context that would be lost in summaries.
+                        </div>
+                    </div>
+                    
+                    <div class="memory-card" style="border-color: #8b5cf6;">
+                        <div class="memory-icon">🕸️</div>
+                        <div class="memory-title">2. Semantic Memory</div>
+                        <div class="memory-subtitle">Knowledge evolution tracking</div>
+                        
+                        <p style="margin: 12px 0;">Tracks how expert opinions and market insights evolve over time, capturing the validation process itself.</p>
+                        
+                        <div style="background: #fef3c7; padding: 16px; border-radius: 6px; margin: 12px 0;">
+                            <strong>Week 1 - Master Emily (Hospital CIO):</strong><br>
+                            "€50/month is too expensive for small practices"<br><br>
+                            <em>Context: Before seeing demo | Confidence: 0.9</em>
+                        </div>
+                        
+                        <div class="arrow-down" style="font-size: 24px;">↓</div>
+                        
+                        <div style="background: #d1fae5; padding: 16px; border-radius: 6px; margin: 12px 0;">
+                            <strong>Week 3 - Same Master Emily:</strong><br>
+                            "Actually, €50/month is reasonable given time savings"<br><br>
+                            <em>Context: After hands-on demo | Confidence: 0.95</em><br>
+                            <strong style="color: #10b981;">Change trigger: Saw working demo</strong>
+                        </div>
+                        
+                        <div class="note">
+                            <strong>Purpose:</strong> The AI learns that Master Emily's opinion evolved when she saw evidence. This informs future matching: founders with working demos should meet Emily early.
+                        </div>
+                    </div>
+                    
+                    <div class="memory-card" style="border-color: #10b981;">
+                        <div class="memory-icon">⚙️</div>
+                        <div class="memory-title">3. Procedural Memory</div>
+                        <div class="memory-subtitle">Dynamic playbook</div>
+                        
+                        <p style="margin: 12px 0;">Version-controlled library of proven interview techniques that improve over time.</p>
+                        
+                        <div style="background: #fee2e2; padding: 16px; border-radius: 6px; margin: 12px 0;">
+                            <strong>Play: Socratic Challenge v1.0</strong><br>
+                            Success rate: 94% (47/50 revealed assumptions)<br>
+                            Defensive reactions: 4% (2/50)
+                        </div>
+                        
+                        <div class="arrow-down" style="font-size: 24px;">↓</div>
+                        
+                        <div style="background: #d1fae5; padding: 16px; border-radius: 6px; margin: 12px 0;">
+                            <strong>Play: Socratic Challenge v2.0</strong><br>
+                            Success rate: 98% (49/50 revealed assumptions)<br>
+                            Defensive reactions: 0% (0/50)<br>
+                            <strong style="color: #10b981;">+4% improvement, replaces v1.0</strong>
+                        </div>
+                        
+                        <div class="note">
+                            <strong>Purpose:</strong> Interview strategies evolve like software versions, with each iteration improving on the last.
+                        </div>
                     </div>
                 </div>
                 
-                <div class="pillar-card" style="border-top-color: #ffd93d;">
-                    <div class="pillar-number" style="background: #ffd93d; color: #2c3e50;">3</div>
-                    <div class="pillar-question">Semantic Memory for an Evolving Market</div>
-                    
-                    <div class="pillar-challenge">
-                        <strong>Novel Challenge:</strong><br>
-                        Existing knowledge graphs store static relationships. The Masters requires dynamic memory that captures how expert opinions evolve with evidence: "€50 is too expensive" → sees demo → "€50 is reasonable."
+                <h2>Real-Time Memory Retrieval During Live Conversations</h2>
+                
+                <p>During active interviews, the AI queries all three memory systems simultaneously in ~200 milliseconds:</p>
+                
+                <div class="code-block">
+    [Current Interview]
+    Founder Jordan: "Small medical practices will definitely pay €50/month"
+    
+    [System executes memory retrieval in 200 milliseconds]
+    
+    1. Semantic Memory → Master Emily: "€50 is too expensive"
+    
+    2. Episodic Memory → 3 founders assumed premium pricing
+       Reality: All 3 discovered need for less than €20/month
+    
+    3. Procedural Memory → Best strategy: Socratic Challenge v2.0
+       Success rate: 98%
+    
+    [AI generates informed response]
+    "That's an interesting price point for small practices. I'm curious what 
+    you learned about their pricing sensitivity from customer conversations?"
+    
+    ✓ Informed by all past learning
+    ✓ Zero information loss
+    ✓ Continuously improving quality
+                </div>
+                
+                <h2>What Gets Stored: Examples from Real Interviews</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 24px 0;">
+                    <div style="background: #fef3c7; padding: 16px; border-radius: 6px;">
+                        <strong>🎯 Validation Patterns</strong>
+                        <p style="font-size: 14px; margin-top: 8px;">"Founders who say 'definitely' without evidence → 87% have unvalidated assumptions"</p>
                     </div>
                     
-                    <div class="pillar-output">
-                        <strong>Expected Output:</strong><br>
-                        Create a knowledge graph that models the validation process itself—tracking not just what experts believe, but why they believe it, what evidence changed their minds, and under what conditions opinions shift.
-                        <br><br>
-                        <strong>Technical Approach:</strong> Temporal knowledge graphs with timestamped edges, evidence linkage, belief confidence modeling, counterfactual reasoning.
+                    <div style="background: #dbeafe; padding: 16px; border-radius: 6px;">
+                        <strong>🔄 Match Quality Signals</strong>
+                        <p style="font-size: 14px; margin-top: 8px;">"Masters change minds when shown working demos, not slides. Match demo-ready founders first."</p>
+                    </div>
+                    
+                    <div style="background: #d1fae5; padding: 16px; border-radius: 6px;">
+                        <strong>💡 Sales Intelligence</strong>
+                        <p style="font-size: 14px; margin-top: 8px;">"Hospital IT: 90-day board cycles, €5K threshold, prefer pilots" → Used in 1,000+ future interviews</p>
+                    </div>
+                </div>
+                
+                <div class="success-box">
+                    <h3 style="margin-bottom: 12px;">✨ GROWS WITHOUT BOUNDS</h3>
+                    <p>Every conversation improves the system. No retraining needed. No knowledge loss.</p>
+                </div>
+            </div>
+            
+            <!-- SECTION 4: Research Plan & Deliverables (CONSOLIDATED from pages 12-13, 19) -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="emoji">🎯</span>
+                    <h1>Research Plan & Deliverables</h1>
+                </div>
+                
+                <p>This grant will fund critical R&D to bridge the gap between existing context adaptation methods (which work well for structured tasks like code generation) and the highly complex domain of live, voice-based Socratic interviews with human experts.</p>
+                
+                <div class="highlight-box">
+                    <strong>Why this is novel:</strong> Current ACE research focuses on structured domains where success/failure is binary—code either runs or crashes, API calls either succeed or fail. Human conversation is fundamentally different: success is qualitative, context-dependent, and measured in subtle signals like hesitation, tone shifts, and "aha" moments.
+                </div>
+                
+                <div class="research-pillar">
+                    <div class="pillar-header">
+                        <div class="pillar-number">1</div>
+                        <div class="pillar-title">Execution Feedback for Live Conversation</div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">Novel Challenge:</div>
+                        <p>Existing methods rely on binary feedback (test passed/failed). Our system must identify subtle, qualitative signals during voice conversations: founder defensiveness, hesitation patterns, breakthrough moments, expert engagement levels.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">Technical Approach:</div>
+                        <p>Multi-modal analysis (voice tone, speech patterns, pause length), conversation outcome metrics, longitudinal tracking of founder success.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">Expected Output:</div>
+                        <p>Train the Reflector agent to score conversation quality based on qualitative human signals—turning subjective assessment into quantitative feedback for the self-improvement loop.</p>
+                    </div>
+                    
+                    <div style="background: #f1f5f9; padding: 20px; border-radius: 6px; margin-top: 20px;">
+                        <strong>📅 Timeline: Months 1-6</strong>
+                        <div class="timeline-item">
+                            <span class="checkmark">✓</span>
+                            <div><strong>Deliverable:</strong> Trained Reflector agent scoring conversation quality</div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="checkmark">✓</span>
+                            <div><strong>Milestone:</strong> 90%+ agreement with human expert ratings</div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="checkmark">✓</span>
+                            <div><strong>Output:</strong> Open-source conversation quality assessment model</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="research-pillar">
+                    <div class="pillar-header">
+                        <div class="pillar-number">2</div>
+                        <div class="pillar-title">Building a Playbook for Socratic Dialogue</div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">Novel Challenge:</div>
+                        <p>Current ACE research curates concrete artifacts: code snippets, API rules, database schemas. We need to curate effective conversational strategies: question sequencing, assumption-revealing techniques, context-switching patterns, founder psychology patterns.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">Technical Approach:</div>
+                        <p>Conversation structure analysis, pattern clustering, A/B testing across founder types, meta-learning for domain transfer.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">Expected Output:</div>
+                        <p>Design and train a Curator agent that extracts conversational patterns from successful interviews and builds a playbook of reusable strategies—without losing the nuance that makes them effective.</p>
+                    </div>
+                    
+                    <div style="background: #f1f5f9; padding: 20px; border-radius: 6px; margin-top: 20px;">
+                        <strong>📅 Timeline: Months 7-12</strong>
+                        <div class="timeline-item">
+                            <span class="checkmark">✓</span>
+                            <div><strong>Deliverable:</strong> Curator agent building Socratic dialogue strategies</div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="checkmark">✓</span>
+                            <div><strong>Milestone:</strong> 15%+ improvement in assumption revelation rate</div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="checkmark">✓</span>
+                            <div><strong>Output:</strong> Open-source playbook architecture for conversational AI</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="research-pillar">
+                    <div class="pillar-header">
+                        <div class="pillar-number">3</div>
+                        <div class="pillar-title">Semantic Memory for an Evolving Market</div>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">Novel Challenge:</div>
+                        <p>Existing knowledge graphs store static relationships. The Masters requires dynamic memory that captures how expert opinions evolve with evidence: "€50 is too expensive" → sees demo → "€50 is reasonable."</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">Technical Approach:</div>
+                        <p>Temporal knowledge graphs with timestamped edges, evidence linkage, belief confidence modeling, counterfactual reasoning.</p>
+                    </div>
+                    
+                    <div class="subsection">
+                        <div class="subsection-title">Expected Output:</div>
+                        <p>Create a knowledge graph that models the validation process itself—tracking not just what experts believe, but why they believe it, what evidence changed their minds, and under what conditions opinions shift.</p>
+                    </div>
+                    
+                    <div style="background: #f1f5f9; padding: 20px; border-radius: 6px; margin-top: 20px;">
+                        <strong>📅 Timeline: Months 13-18</strong>
+                        <div class="timeline-item">
+                            <span class="checkmark">✓</span>
+                            <div><strong>Deliverable:</strong> Temporal knowledge graph tracking opinion evolution</div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="checkmark">✓</span>
+                            <div><strong>Milestone:</strong> Successfully predict opinion changes with 75%+ accuracy</div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="checkmark">✓</span>
+                            <div><strong>Output:</strong> Open-source dynamic knowledge graph framework</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="phase-box">
+                    <div class="phase-title">Months 19-24: Integration & Validation</div>
+                    <div class="timeline-item">
+                        <span class="checkmark">✓</span>
+                        <div><strong>Deliverable:</strong> Fully integrated ACE system deployed on The Masters</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="checkmark">✓</span>
+                        <div><strong>Milestone:</strong> 1,000+ expert validation interviews conducted</div>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="checkmark">✓</span>
+                        <div><strong>Output:</strong> Published research paper + open-source codebase</div>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <strong>Open Source Commitment:</strong> All research outputs will be open-sourced under permissive licenses, enabling the European AI research community to build on this work and accelerating EU innovation in conversational AI systems.
+                </div>
+                
+                <div class="highlight-box" style="margin-top: 24px;">
+                    <strong>Why This Matters:</strong> While existing ACE frameworks excel in structured domains (code, APIs, databases), our work addresses the novel challenge of unstructured, real-time human conversation—a significantly harder problem requiring fundamental research advances. Success here opens ACE applications to enterprise AI use cases currently considered impossible.
+                </div>
+            </div>
+            
+            <!-- Novel Research Contributions (from page 9 - kept separate as it's unique) -->
+            <div class="section">
+                <div class="section-header">
+                    <span class="emoji">🔬</span>
+                    <h1>Novel Research Contributions</h1>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 24px; border-radius: 8px;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">🎤</div>
+                        <h3 style="color: white; margin-bottom: 12px;">Qualitative Feedback</h3>
+                        <ul style="list-style: none; padding: 0; font-size: 14px;">
+                            <li>• Voice tone analysis</li>
+                            <li>• Hesitation detection</li>
+                            <li>• "Aha moment" recognition</li>
+                            <li>• Defensiveness signals</li>
+                            <li>• Real-time quality scoring</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 24px; border-radius: 8px;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">💬</div>
+                        <h3 style="color: white; margin-bottom: 12px;">Socratic Playbooks</h3>
+                        <ul style="list-style: none; padding: 0; font-size: 14px;">
+                            <li>• Question sequencing patterns</li>
+                            <li>• Assumption-revealing techniques</li>
+                            <li>• Context-switching strategies</li>
+                            <li>• Founder psychology profiles</li>
+                            <li>• Success-driven curation</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; padding: 24px; border-radius: 8px;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">🧬</div>
+                        <h3 style="color: white; margin-bottom: 12px;">Dynamic Knowledge</h3>
+                        <ul style="list-style: none; padding: 0; font-size: 14px;">
+                            <li>• Temporal opinion tracking</li>
+                            <li>• Evidence-trigger linkage</li>
+                            <li>• Belief confidence modeling</li>
+                            <li>• Counterfactual reasoning</li>
+                            <li>• Market evolution capture</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="highlight-box" style="margin-top: 30px;">
-            <strong>Why This Matters:</strong> While existing ACE frameworks excel in structured domains (code, APIs, databases), our work addresses the novel challenge of unstructured, real-time human conversation—a significantly harder problem requiring fundamental research advances. Success here opens ACE applications to enterprise AI use cases currently considered impossible.
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>🚀 Deployment Strategy: Continuous Learning + Optional Fine-Tuning</h2>
-        <p>Our approach provides immediate deployment with continuous improvement, plus an optional enhancement path to crystallize learnings into model weights.</p>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-month">Phase 1: Pure ACE Deployment (Month 1)</div>
-                <p>Launch with zero fine-tuning. System relies entirely on ACE memory and real-time retrieval.</p>
-                <div class="code-block">
-Interview #1:
-AI: "Tell me about your customers"
-[No historical data yet, uses basic Socratic approach]
-Result: Takes 10 minutes to reveal assumption
-
-System captures: Full transcript, tone analysis, outcome metrics
-→ Learning loop begins</div>
-                <p style="margin-top: 10px;"><strong>Characteristics:</strong> Immediate deployment (no training time), lower initial quality (no domain expertise yet), starts accumulating knowledge from day one.</p>
-            </div>
             
-            <div class="timeline-item">
-                <div class="timeline-month">Phase 2: ACE Learning Accelerates (Months 2-3)</div>
-                <p>After 100+ interviews, memory systems become rich with patterns.</p>
-                <div class="code-block">
-Interview #101:
-[Memory retrieval executes in 200ms]
-[Found: "assume" language = no customer evidence in 47/50 past cases]
-AI: "What did healthcare administrators say when you interviewed them?"
-Result: Revealed assumption in 30 seconds (20x faster than #1)
-
-<span style="color: #28a745;">✓ Dramatically more effective with zero retraining
-✓ Cost remains constant (no fine-tuning expenses)
-✓ Adapts automatically to market changes</span></div>
-                <p style="margin-top: 10px;"><strong>Characteristics:</strong> Exponential quality improvement, zero additional training costs, can handle 10,000+ interviews with no degradation.</p>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-month">Phase 3: Optional Fine-Tuning Enhancement (Month 4+)</div>
-                <p>To achieve absolute peak performance and lowest latency, optionally create specialized model.</p>
-                <div class="code-block">
-Process:
-1. Curator selects best 10,000 transcripts from Episodic Memory
-2. Fine-tune 13B model using QLoRA (parameter-efficient)
-3. Most successful patterns "baked into" model weights
-4. Deploy fine-tuned model while ACE loop continues
-
-Interview #1,001 (with fine-tuned model):
-[Model instantly recognizes patterns, no retrieval needed]
-[Response latency: 150ms vs 350ms for pure ACE]
-Result: 15 seconds + more sophisticated follow-up
-
-<span style="color: #28a745;">✓ ACE loop remains active, continues learning
-✓ Best of both: fast inference + continuous adaptation</span></div>
-                <p style="margin-top: 10px;"><strong>Key Insight:</strong> Unlike traditional approaches where fine-tuning is required upfront, our system deploys immediately and optionally adds fine-tuning later as an enhancement—inverting the traditional development cycle.</p>
-            </div>
         </div>
-    </div>
+    </body>
 
-    <div class="section">
-        <h2>📊 Technical & Business Impact Comparison</h2>
-        
-        <div class="comparison-grid" style="margin-top: 30px;">
-            <div class="comparison-bad">
-                <h3 style="color: #dc3545; margin-bottom: 20px;">❌ Traditional Approach</h3>
-                <p><strong>Model Size:</strong> 175B+ parameters (GPT-4 class)</p>
-                <p><strong>Inference Cost:</strong> High (100x baseline)</p>
-                <p><strong>Context Handling:</strong> Compressed summaries</p>
-                <p><strong>Knowledge Over Time:</strong> Degradation (-9.6%)</p>
-                <p><strong>Adaptation Method:</strong> Expensive fine-tuning required</p>
-                <p><strong>Update Cycle:</strong> Re-train every 3-6 months</p>
-                <p><strong>Environmental:</strong> 95% more compute</p>
-                <p><strong>Result:</strong> Expensive, fragile, degrades over time</p>
-            </div>
-            
-            <div class="comparison-good">
-                <h3 style="color: #28a745; margin-bottom: 20px;">✅ ACE-Powered Approach</h3>
-                <p><strong>Model Size:</strong> 7-13B parameters (Llama-2, Mistral)</p>
-                <p><strong>Inference Cost:</strong> Low (1x baseline)</p>
-                <p><strong>Context Handling:</strong> Full-fidelity preservation</p>
-                <p><strong>Knowledge Over Time:</strong> Continuous growth (+10.6%)</p>
-                <p><strong>Adaptation Method:</strong> Zero fine-tuning needed</p>
-                <p><strong>Update Cycle:</strong> Real-time adaptation</p>
-                <p><strong>Environmental:</strong> 95% less compute</p>
-                <p><strong>Result:</strong> Expert-level performance at 1/10th cost</p>
-            </div>
-        </div>
-        
-        <div class="highlight-box" style="margin-top: 30px; background: #e6f9f0; border-left-color: #28a745;">
-            <strong>Impact for The Masters:</strong> A 13B parameter model with ACE conducts validation interviews with the contextual depth of seasoned industry analysts—providing European SMEs access to expert validation at €500 per engagement vs. €5,000-50,000 traditional consulting costs.
-            <br><br>
-            <strong>Impact for European AI Adoption:</strong> Solves the 95% enterprise AI deployment failure rate. Companies can deploy immediately without expensive fine-tuning, then watch performance improve automatically. When fine-tuning becomes economically justified, accumulated knowledge ensures optimal results.
-        </div>
-    </div>
+
 
     <div class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
         <h2 style="color: white; border-bottom-color: white;">🇪🇺 European Union Innovation Impact</h2>
@@ -822,7 +779,44 @@ Result: 15 seconds + more sophisticated follow-up
         <div class="quote-box">
             "From Alan Turing's question 'Can machines think?' to today's LLMs, AI has progressed through language. The next frontier is interaction—AI that learns from every conversation, preserves every insight, and continuously improves its ability to help humans make better decisions. This is that frontier."
         </div>
-        
+        <div class="section">
+            <h2>📊 Technical & Business Impact Comparison</h2>
+            
+            <div class="comparison-grid" style="margin-top: 30px;">
+                <div class="comparison-bad">
+                    <h3 style="color: #dc3545; margin-bottom: 20px;">❌ Traditional Approach</h3>
+                    <p><strong>Model Size:</strong> 175B+ parameters (GPT-4 class)</p>
+                    <p><strong>Inference Cost:</strong> High (100x baseline)</p>
+                    <p><strong>Context Handling:</strong> Compressed summaries</p>
+                    <p><strong>Knowledge Over Time:</strong> Degradation (-9.6%)</p>
+                    <p><strong>Adaptation Method:</strong> Expensive fine-tuning required</p>
+                    <p><strong>Update Cycle:</strong> Re-train every 3-6 months</p>
+                    <p><strong>Environmental:</strong> 95% more compute</p>
+                    <p><strong>Result:</strong> Expensive, fragile, degrades over time</p>
+                </div>
+                
+                <div class="comparison-good">
+                    <h3 style="color: #28a745; margin-bottom: 20px;">✅ ACE-Powered Approach</h3>
+                    <p><strong>Model Size:</strong> 7-13B parameters (Llama-2, Mistral)</p>
+                    <p><strong>Inference Cost:</strong> Low (1x baseline)</p>
+                    <p><strong>Context Handling:</strong> Full-fidelity preservation</p>
+                    <p><strong>Knowledge Over Time:</strong> Continuous growth (+10.6%)</p>
+                    <p><strong>Adaptation Method:</strong> Zero fine-tuning needed</p>
+                    <p><strong>Update Cycle:</strong> Real-time adaptation</p>
+                    <p><strong>Environmental:</strong> 95% less compute</p>
+                    <p><strong>Result:</strong> Expert-level performance at 1/10th cost</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 30px; background: #e6f9f0; border-left-color: #28a745;">
+                <strong>Impact for The Masters:</strong> A 13B parameter model with ACE conducts validation interviews with the contextual depth of seasoned industry analysts—providing European SMEs access to expert validation at €500 per engagement vs. €5,000-50,000 traditional consulting costs.
+                <br><br>
+                <strong>Impact for European AI Adoption:</strong> Solves the 95% enterprise AI deployment failure rate. Companies can deploy immediately without expensive fine-tuning, then watch performance improve automatically. When fine-tuning becomes economically justified, accumulated knowledge ensures optimal results.
+            </div>
+
+
+
+        </div>        
 
     </div>
 </body>
