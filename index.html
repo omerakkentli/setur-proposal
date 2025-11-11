@@ -1290,16 +1290,259 @@
                 <p><strong>Değer Önerisi:</strong> Public web ve 3. parti veri kaynaklarından (TripAdvisor vb.) toplanan bilgilerle zenginleştirilmiş, kullanıcı deneyimini iyileştiren 6 modülün GTM üzerinden entegrasyonu ve performans bazlı sürekli optimizasyon.</p>
             </div>
             
-            <div class="section">
-                <h2 class="section-title">1. Çözüm Kapsamı</h2>
+            <div class="section" style="background: #FFF9E6; padding: 30px; border-radius: 12px; border: 3px solid #FFB700; margin-bottom: 40px;">
+                <h2 style="color: #e2221b; margin-bottom: 20px; font-size: 1.5em;">📋 Revizyon Özeti (Son Güncelleme)</h2>
+                <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                    <h3 style="color: #e2221b; margin-bottom: 12px; font-size: 1.2em;">1. Fiyatlandırma Revizyonu</h3>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li><strong>3 alternatif fiyatlandırma modeli sunuldu:</strong>
+                            <ul style="margin-left: 20px; margin-top: 8px;">
+                                <li>Model A (Dengeli): 210.000 TL/ay + %5 performans primi</li>
+                                <li>Model B (Düşük Sabit): 140.000 TL/ay + %8 performans primi</li>
+                                <li>Model C (Minimum Sabit): 70.000 TL/ay + %12 performans primi</li>
+                            </ul>
+                        </li>
+                        <li>Her model için detaylı örnek hesaplamalar eklendi</li>
+                    </ul>
+                </div>
                 
-                <h3 class="subsection-title">1.1 Kapsam</h3>
+                <div style="background: white; padding: 20px; border-radius: 8px;">
+                    <h3 style="color: #e2221b; margin-bottom: 12px; font-size: 1.2em;">2. Veri Provizyon Hükümleri</h3>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li><strong>Setur'a Özel Veriler:</strong> Otel bilgileri, envanter, fiyatlandırma verilerini Setur tarafından sağlanan feed üzerinden alınacak</li>
+                        <li><strong>Üçüncü Parti API Erişimi:</strong> TripAdvisor ve Expedia API kimlik bilgileri Setur tarafından sağlanacak</li>
+                        <li><strong>Kullanım Kısıtlaması:</strong> Tüm 3. parti veriler <strong>yalnızca setur.com.tr</strong> için kullanılacak</li>
+                        <li><strong>Gizlilik:</strong> Karşılıklı NDA çerçevesinde bağlayıcı olarak mutabık kalınmıştır</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">1. Ticari Koşullar ve Fiyatlandırma</h2>
+                
+
+                
+                <div class="pricing-highlight">
+                    <h3>Fiyatlandırma Modelleri Karşılaştırması</h3>
+                    
+                    <table style="margin-top: 25px;">
+                        <thead>
+                            <tr>
+                                <th style="width: 30%;">Özellik</th>
+                                <th style="background: #c91d16;">Model A: Dengeli<br><span style="font-size: 0.85em; font-weight: normal; opacity: 0.9;">(ÖNERİLEN)</span></th>
+                                <th>Model B: Düşük Sabit</th>
+                                <th>Model C: Performans Odaklı</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: white;">
+                                <td style="font-weight: 600; color: #333;">Aylık Sabit Ücret</td>
+                                <td style="text-align: center;"><strong style="color: #e2221b; font-size: 1.15em;">210.000 TL</strong><br><span style="font-size: 0.85em; color: #666;">(+KDV)</span></td>
+                                <td style="text-align: center;"><strong style="color: #e2221b; font-size: 1.15em;">140.000 TL</strong><br><span style="font-size: 0.85em; color: #666;">(+KDV)</span></td>
+                                <td style="text-align: center;"><strong style="color: #e2221b; font-size: 1.15em;">70.000 TL</strong><br><span style="font-size: 0.85em; color: #666;">(+KDV)</span></td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600; color: #333;">Performans Primi</td>
+                                <td style="text-align: center;"><strong style="color: #e2221b;">%5</strong><br><span style="font-size: 0.85em; color: #666;">Artımlı gelirden</span></td>
+                                <td style="text-align: center;"><strong style="color: #e2221b;">%8</strong><br><span style="font-size: 0.85em; color: #666;">Artımlı gelirden</span></td>
+                                <td style="text-align: center;"><strong style="color: #e2221b;">%12</strong><br><span style="font-size: 0.85em; color: #666;">Artımlı gelirden</span></td>
+                            </tr>
+                            <tr style="background: #FFF5F4;">
+                                <td colspan="4" style="text-align: center; font-weight: 600; color: #e2221b; padding: 15px;">
+                                    📊 Örnek Senaryo: Aylık 4M TL Artımlı Gelir Durumunda
+                                </td>
+                            </tr>
+                            <tr style="background: white;">
+                                <td style="padding-left: 30px; color: #666;">Sabit Ücret</td>
+                                <td style="text-align: center;">210.000 TL</td>
+                                <td style="text-align: center;">140.000 TL</td>
+                                <td style="text-align: center;">70.000 TL</td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 30px; color: #666;">Performans Primi</td>
+                                <td style="text-align: center;">200.000 TL<br><span style="font-size: 0.8em; color: #999;">(4M × 5%)</span></td>
+                                <td style="text-align: center;">320.000 TL<br><span style="font-size: 0.8em; color: #999;">(4M × 8%)</span></td>
+                                <td style="text-align: center;">480.000 TL<br><span style="font-size: 0.8em; color: #999;">(4M × 12%)</span></td>
+                            </tr>
+                            <tr style="background: #FFF5F4;">
+                                <td style="padding-left: 30px; font-weight: 600; color: #e2221b;">Toplam Glov Ödemesi</td>
+                                <td style="text-align: center; font-weight: 700; color: #e2221b; font-size: 1.1em;">410.000 TL</td>
+                                <td style="text-align: center; font-weight: 700; color: #e2221b; font-size: 1.1em;">460.000 TL</td>
+                                <td style="text-align: center; font-weight: 700; color: #e2221b; font-size: 1.1em;">550.000 TL</td>
+                            </tr>
+                            <tr style="background: #E8F5E9;">
+                                <td style="padding-left: 30px; font-weight: 600; color: #2e7d32;">Setur Net Kazancı</td>
+                                <td style="text-align: center; font-weight: 700; color: #2e7d32; font-size: 1.1em;">3.59M TL/ay</td>
+                                <td style="text-align: center; font-weight: 700; color: #2e7d32; font-size: 1.1em;">3.54M TL/ay</td>
+                                <td style="text-align: center; font-weight: 700; color: #2e7d32; font-size: 1.1em;">3.45M TL/ay</td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: 600; color: #333;">En Uygun</td>
+                                <td style="text-align: center; font-size: 0.9em; color: #666;">Öngörülebilir bütçe + optimum paylaşım</td>
+                                <td style="text-align: center; font-size: 0.9em; color: #666;">Düşük başlangıç maliyeti isteyenler</td>
+                                <td style="text-align: center; font-size: 0.9em; color: #666;">Minimum risk, başarıya göre ödeme</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3 class="subsection-title" style="margin-top: 40px;">1.1 Performans Primi Hesaplama Metodolojisi</h3>
+                <div class="methodology-box">
+                    <h4>Artımlı Gelir Formülü</h4>
+                    
+                    <div style="background: #FFF5F4; padding: 20px; margin-top: 20px; border-radius: 8px;">
+                        <p style="margin-bottom: 15px;"><strong>Hesaplama Adımları:</strong></p>
+                        
+                        <p style="margin: 10px 0;"><strong>1. ON Grubu (Glov Modülleri Aktif):</strong></p>
+                        <p style="margin-left: 20px;">Ziyaretçi Başına Gelir = ON Gelir / ON Ziyaretçi Sayısı</p>
+                        
+                        <p style="margin: 10px 0; margin-top: 20px;"><strong>2. OFF Grubu (Kontrol - Modüller Pasif):</strong></p>
+                        <p style="margin-left: 20px;">Ziyaretçi Başına Gelir = OFF Gelir / OFF Ziyaretçi Sayısı</p>
+                        
+                        <p style="margin: 10px 0; margin-top: 20px;"><strong>3. Toplam Ek Gelir:</strong></p>
+                        <p style="margin-left: 20px;">Delta Gelir = (ON Ziyaretçi Başına Gelir) - (OFF Ziyaretçi Başına Gelir)</p>
+                        <p style="margin-left: 20px;"><strong style="color: #e2221b;">Toplam Ek Gelir = Delta Gelir × ON Ziyaretçi Sayısı</strong></p>
+                        
+                        <p style="margin: 10px 0; margin-top: 20px;"><strong>4. Performans Primi:</strong></p>
+                        <p style="margin-left: 20px;"><strong style="color: #e2221b;">Glov Primi = Toplam Ek Gelir × Seçilen Model Yüzdesi (%5, %8 veya %12)</strong></p>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title">1.2 Sözleşme Süresi ve Koşullar</h3>
+                <div class="feature-box">
+                    <ul>
+                        <li><strong>Minimum Süre:</strong> 12 ay (1 Aralık 2024 - 30 Kasım 2025)</li>
+                        <li><strong>Yenileme:</strong> Otomatik 12 aylık dönemler halinde, 3 ay önceden yazılı bildirimle iptal edilebilir</li>
+                        <li><strong>Fatura Dönemi:</strong> Aylık (ay sonunda performans reconciliation)</li>
+                        <li><strong>Ödeme Koşulu:</strong> 30 gün vadeli</li>
+                        <li><strong>Erken Sonlandırma:</strong> 3 aylık yazılı bildirimle, kalan aylar için sabit ücret ödemesi ile</li>
+                        <li><strong>Model Değişikliği:</strong> İlk 6 ay sonunda karşılıklı mutabakat ile fiyatlandırma modeli değiştirilebilir</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">2. Veri Provizyon Hükümleri</h2>
+                
+                <h3 class="subsection-title">2.1 Setur'a Özel Veriler</h3>
+                <div class="feature-box" style="background: #F0F8FF; border-left: 4px solid #2196F3;">
+                    <h4 style="color: #2196F3;">Veri Akışı ve Sorumluluklar</h4>
+                    <p style="margin-bottom: 12px;">Setur, aşağıdaki verileri Glov'a düzenli feed aracılığıyla sağlayacaktır:</p>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Otel Temel Bilgileri:</strong> Otel ID, isim, konum (şehir, bölge, koordinatlar), kategori/yıldız</li>
+                        <li><strong>Özellikler ve Olanaklar:</strong> Tesis özellikleri, oda tipleri, restoranlar, aktiviteler</li>
+                        <li><strong>Görsel İçerikler:</strong> Otel fotoğrafları, oda görselleri (CDN URL'leri)</li>
+                        <li><strong>Fiyatlandırma Bilgisi:</strong> Mevcut fiyat aralıkları (opsiyonel)</li>
+                        <li><strong>Envanter Durumu:</strong> Müsaitlik bilgisi (opsiyonel)</li>
+                    </ul>
+                    
+                    <div style="background: white; padding: 15px; margin-top: 15px; border-radius: 8px; border: 2px solid #2196F3;">
+                        <p style="margin-bottom: 8px;"><strong style="color: #2196F3;">Feed Formatı ve Sıklık:</strong></p>
+                        <ul style="margin-left: 20px; font-size: 0.95em;">
+                            <li>Format: JSON veya XML (Glov ile koordine edilecek)</li>
+                            <li>Güncelleme Sıklığı: Günlük (otomatik push veya pull)</li>
+                            <li>Teslimat: SFTP, API endpoint veya S3 bucket (tercih edilen)</li>
+                            <li>Başlangıç: Kick-off sonrası 5 iş günü içinde ilk feed sağlanacak</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title">2.2 Üçüncü Parti API Erişimi</h3>
+                <div class="feature-box" style="background: #FFF3E0; border-left: 4px solid #FF9800;">
+                    <h4 style="color: #FF9800;">TripAdvisor ve Expedia API Kimlik Bilgileri</h4>
+                    <p style="margin-bottom: 12px;"><strong>Setur tarafından sağlanacak API erişimleri:</strong></p>
+                    
+                    <div style="background: white; padding: 15px; margin-top: 15px; border-radius: 8px; border: 2px solid #FF9800;">
+                        <p style="margin-bottom: 10px;"><strong style="color: #FF9800;">1. TripAdvisor Content API</strong></p>
+                        <ul style="margin-left: 20px; font-size: 0.95em;">
+                            <li>API Key ve Secret credentials</li>
+                            <li>Oteller için Location ID mapping</li>
+                            <li>Erişilecek veri: Yorumlar, puanlamalar, rating dağılımları, öne çıkan yorumlar</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: white; padding: 15px; margin-top: 15px; border-radius: 8px; border: 2px solid #FF9800;">
+                        <p style="margin-bottom: 10px;"><strong style="color: #FF9800;">2. Expedia Partner API (Opsiyonel)</strong></p>
+                        <ul style="margin-left: 20px; font-size: 0.95em;">
+                            <li>EPS (Expedia Partner Solutions) API credentials</li>
+                            <li>Otel ID eşleştirme tablosu</li>
+                            <li>Erişilecek veri: Otel açıklamaları, özellikler, misafir değerlendirmeleri</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #FFE5E5; padding: 15px; margin-top: 15px; border-radius: 8px; border: 2px solid #e2221b;">
+                        <p style="margin-bottom: 10px;"><strong style="color: #e2221b;">⚠️ Kritik Kullanım Koşulları:</strong></p>
+                        <ul style="margin-left: 20px; font-size: 0.95em;">
+                            <li><strong>Münhasır Kullanım:</strong> API credentials yalnızca <strong>setur.com.tr</strong> için kullanılacaktır</li>
+                            <li><strong>Üçüncü Taraf Paylaşımı Yasaktır:</strong> Kimlik bilgileri başka müşterilerle paylaşılmayacak</li>
+                            <li><strong>Lisans Uyumu:</strong> TripAdvisor ve Expedia'nın kullanım şartlarına tam uyum sağlanacak</li>
+                            <li><strong>Veri Saklama:</strong> Çekilen veriler yalnızca işleme amacıyla geçici olarak saklanacak</li>
+                            <li><strong>Attribution:</strong> Veri kaynakları (TripAdvisor, Expedia) UI'da uygun şekilde belirtilecek</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title">2.3 Gizlilik ve Güvenlik</h3>
+                <div class="feature-box" style="background: #E8F5E9; border-left: 4px solid #4CAF50;">
+                    <h4 style="color: #4CAF50;">NDA ve Veri Koruma</h4>
+                    <ul style="margin-left: 20px;">
+                        <li><strong>Karşılıklı NDA:</strong> Glov ve Setur arasında imzalanan gizlilik sözleşmesi tüm veri paylaşımlarını kapsar</li>
+                        <li><strong>Veri Güvenliği:</strong> Tüm API credentials şifreli olarak saklanacak, güvenli kanallarla iletilecek</li>
+                        <li><strong>Erişim Kontrolü:</strong> Sadece yetkili Glov personeli veri kaynaklarına erişebilecek</li>
+                        <li><strong>Sözleşme Sonu:</strong> Proje sonunda tüm Setur verisi ve API erişimleri 30 gün içinde silinecek/iptal edilecek</li>
+                        <li><strong>Audit Trail:</strong> Tüm API çağrıları ve veri erişimleri log'lanacak, talep üzerine Setur'a raporlanacak</li>
+                    </ul>
+                </div>
+                
+                <h3 class="subsection-title">2.4 Veri Teslimat Zaman Planı</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Veri Tipi</th>
+                            <th>Teslimat Zamanı</th>
+                            <th>Sorumlu Taraf</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Setur Otel Feed Formatı</td>
+                            <td>Kick-off + 3 iş günü</td>
+                            <td>Setur (Glov ile koordine)</td>
+                        </tr>
+                        <tr>
+                            <td>İlk Otel Verisi (Full Export)</td>
+                            <td>Kick-off + 5 iş günü</td>
+                            <td>Setur</td>
+                        </tr>
+                        <tr>
+                            <td>TripAdvisor API Credentials</td>
+                            <td>Kick-off + 3 iş günü</td>
+                            <td>Setur</td>
+                        </tr>
+                        <tr>
+                            <td>Expedia API Credentials</td>
+                            <td>Kick-off + 5 iş günü (opsiyonel)</td>
+                            <td>Setur</td>
+                        </tr>
+                        <tr>
+                            <td>Güncellenmiş Feed (Delta/Full)</td>
+                            <td>Her gün 02:00 (otomatik)</td>
+                            <td>Setur (otomatik sistem)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">3. Çözüm Kapsamı</h2>
+                
+                <h3 class="subsection-title">3.1 Kapsam</h3>
                 <div class="feature-box">
                     <h4>Otel Kapsamı:</h4>
                     <p><strong>Tüm setur.com.tr otel detay sayfaları</strong> bu projede kapsanacaktır. İçerik zenginleştirme ve optimizasyon tüm oteller için uygulanacaktır.</p>
                 </div>
                 
-                <h3 class="subsection-title">1.2 Altı Temel Modül</h3>
+                <h3 class="subsection-title">3.2 Altı Temel Modül</h3>
                 <p>Otel detay sayfalarına entegre edilecek 6 içerik modülü:</p>
                 
                 <div class="module-showcase">
@@ -1369,7 +1612,7 @@
                     </div>
                 </div>
                 
-                <h3 class="subsection-title">1.3 Canlı Örnek</h3>
+                <h3 class="subsection-title">3.3 Canlı Örnek</h3>
                 <div class="highlight-box">
                     <h4>Modüllerin Canlı Örneğini Görün</h4>
                     <p>Ducale Lara oteli örneğinde tüm 6 modülün nasıl çalıştığını inceleyebilirsiniz.</p>
@@ -1381,11 +1624,11 @@
             </div>
             
             <div class="section">
-                <h2 class="section-title">2. Glov Sorumlulukları</h2>
+                <h2 class="section-title">4. Glov Sorumlulukları</h2>
                 
                 <div class="responsibility-grid">
                     <div class="responsibility-card">
-                        <h4>2.1 İçerik Oluşturma ve Zenginleştirme</h4>
+                        <h4>4.1 İçerik Oluşturma ve Zenginleştirme</h4>
                         <ul>
                             <li>Public web'den otel bilgilerinin toplanması</li>
                             <li>3. parti veri kaynaklarından (TripAdvisor vb.) içerik çıkarımı</li>
@@ -1397,7 +1640,7 @@
                     </div>
                     
                     <div class="responsibility-card">
-                        <h4>2.2 Ön-Uç Geliştirme</h4>
+                        <h4>4.2 Ön-Uç Geliştirme</h4>
                         <ul>
                             <li>6 modül için HTML/CSS/JavaScript kodlaması</li>
                             <li>GTM script entegrasyonu ve enjeksiyon</li>
@@ -1409,7 +1652,7 @@
                     </div>
                     
                     <div class="responsibility-card">
-                        <h4>2.3 A/B Test Yönetimi</h4>
+                        <h4>4.3 A/B Test Yönetimi</h4>
                         <ul>
                             <li>Test senaryolarının tasarlanması</li>
                             <li>Trafik bölümleme stratejisi (50/50 veya custom)</li>
@@ -1421,7 +1664,7 @@
                     </div>
                     
                     <div class="responsibility-card">
-                        <h4>2.4 Dashboard ve Raporlama</h4>
+                        <h4>4.4 Dashboard ve Raporlama</h4>
                         <ul>
                             <li>Near real-time A/B test sonuçları dashboard'u</li>
                             <li>Conversion rate metrikleri (günlük/haftalık/aylık)</li>
@@ -1433,7 +1676,7 @@
                     </div>
                     
                     <div class="responsibility-card">
-                        <h4>2.5 Teknik Destek ve Bakım</h4>
+                        <h4>4.5 Teknik Destek ve Bakım</h4>
                         <ul>
                             <li>7/24 teknik destek (kritik sorunlar için)</li>
                             <li>Bug fix'ler ve güncellemeler</li>
@@ -1447,14 +1690,14 @@
             </div>
             
             <div class="section">
-                <h2 class="section-title">3. Setur'dan Beklentiler</h2>
+                <h2 class="section-title">5. Setur'dan Beklentiler</h2>
                 
-                <h3 class="subsection-title">3.1 GTM Erişimi</h3>
+                <h3 class="subsection-title">5.1 GTM Erişimi</h3>
                 <div class="feature-box">
                     <p>GTM (Google Tag Manager) üzerinde Glov için bir container/tag oluşturulması ve yönetim erişimi verilmesi. Mevcut GTM altyapısına müdahale edilmeden, bağımsız tag'ler ile çalışılacaktır.</p>
                 </div>
                 
-                <h3 class="subsection-title">3.2 Otel Verilerine Erişim</h3>
+                <h3 class="subsection-title">5.2 Otel Verilerine Erişim</h3>
                 <div class="feature-box">
                     <p>Otel temel bilgilerine (isim, konum, özellikler, görsel URL'leri) erişim için:</p>
                     <ul>
@@ -1464,7 +1707,7 @@
                     </ul>
                 </div>
                 
-                <h3 class="subsection-title">3.3 Üçüncü Parti Veri Lisansı Koordinasyonu</h3>
+                <h3 class="subsection-title">5.3 Üçüncü Parti Veri Lisansı Koordinasyonu</h3>
                 <div class="feature-box">
                     <p>TripAdvisor ve benzeri platformlardan veri kullanımı için:</p>
                     <ul>
@@ -1474,7 +1717,7 @@
                     </ul>
                 </div>
                 
-                <h3 class="subsection-title">3.4 Analytics ve Conversion Tracking</h3>
+                <h3 class="subsection-title">5.4 Analytics ve Conversion Tracking</h3>
                 <div class="feature-box">
                     <p>Dönüşüm ölçümü için:</p>
                     <ul>
@@ -1486,7 +1729,7 @@
             </div>
             
             <div class="section">
-                <h2 class="section-title">4. A/B Test Metodolojisi</h2>
+                <h2 class="section-title">6. A/B Test Metodolojisi</h2>
                 
                 <div class="methodology-box">
                     <h4>Test Stratejisi</h4>
@@ -1514,7 +1757,7 @@
                     </div>
                 </div>
                 
-                <h3 class="subsection-title">4.1 Sürekli Optimizasyon Döngüsü</h3>
+                <h3 class="subsection-title">6.1 Sürekli Optimizasyon Döngüsü</h3>
                 <div class="success-criteria">
                     <div class="criteria-card">
                         <h4>Hafta 1-2</h4>
@@ -1536,7 +1779,7 @@
             </div>
             
             <div class="section">
-                <h2 class="section-title">5. Proje Zaman Planı</h2>
+                <h2 class="section-title">7. Proje Zaman Planı</h2>
                 
                 <table class="timeline-table">
                     <thead>
@@ -1612,7 +1855,7 @@
             </div>
             
             <div class="section">
-                <h2 class="section-title">5.5. A/B Test Performans Dashboard Örneği</h2>
+                <h2 class="section-title">8. A/B Test Performans Dashboard Örneği</h2>
                 
                 <div class="dashboard-embed">
                     <div class="dashboard-header">
@@ -1720,78 +1963,9 @@
                 </div>
             </div>
             
-            <div class="section">
-                <h2 class="section-title">6. Ticari Koşullar</h2>
-                
-                <h3 class="subsection-title">6.1 Ücretlendirme Detayları</h3>
-                
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Bileşen</th>
-                            <th>Tutar</th>
-                            <th>Açıklama</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Aylık Sabit Ücret</td>
-                            <td>210.000 TL (+KDV)</td>
-                            <td>Platform altyapı, geliştirme, içerik üretimi, A/B test yönetimi, teknik destek</td>
-                        </tr>
-                        <tr>
-                            <td>Performans Primi</td>
-                            <td>Artımlı Gelirin %5'i</td>
-                            <td>Test grubu ile kontrol grubu arasındaki faturalanan satış farkının %5'i</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <h3 class="subsection-title">6.2 Performans Primi Hesaplama Örneği</h3>
-                <div class="feature-box">
-                    <p><strong>Senaryo:</strong> Ocak ayında toplam 2 milyon ziyaretçi (50/50 split)</p>
-                    
-                    <div style="background: white; padding: 20px; margin: 15px 0; border-left: 3px solid #e2221b;">
-                        <p style="margin-bottom: 10px;"><strong>OFF Grubu (Kontrol - 1M ziyaretçi):</strong></p>
-                        <ul style="margin-left: 20px;">
-                            <li>Toplam Gelir: 50M TL</li>
-                            <li>Ziyaretçi Başına Gelir: 50M TL / 1M = <strong>50 TL</strong></li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background: white; padding: 20px; margin: 15px 0; border-left: 3px solid #e2221b;">
-                        <p style="margin-bottom: 10px;"><strong>ON Grubu (Glov Modülleri - 1M ziyaretçi):</strong></p>
-                        <ul style="margin-left: 20px;">
-                            <li>Toplam Gelir: 54M TL</li>
-                            <li>Ziyaretçi Başına Gelir: 54M TL / 1M = <strong>54 TL</strong></li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background: #FFF5F4; padding: 20px; margin: 15px 0; border-radius: 8px;">
-                        <p style="margin-bottom: 10px;"><strong style="color: #e2221b;">Ek Gelir Hesaplama:</strong></p>
-                        <ul style="margin-left: 20px;">
-                            <li><strong>Delta Gelir:</strong> 54 TL - 50 TL = 4 TL/ziyaretçi</li>
-                            <li><strong>Toplam Ek Gelir:</strong> 4 TL × 1M ziyaretçi = <strong style="color: #e2221b;">4M TL</strong></li>
-                            <li><strong>Performans Primi:</strong> 4M TL × 5% = <strong style="color: #e2221b;">200.000 TL</strong></li>
-                            <li><strong>Toplam Aylık Ödeme:</strong> 210.000 TL (sabit) + 200.000 TL (primi) = <strong style="color: #e2221b;">410.000 TL (+KDV)</strong></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h3 class="subsection-title">6.3 Sözleşme Süresi ve Koşullar</h3>
-                <div class="feature-box">
-                    <ul>
-                        <li><strong>Minimum Süre:</strong> 12 ay (1 Aralık 2024 - 30 Kasım 2025)</li>
-                        <li><strong>Yenileme:</strong> Otomatik 12 aylık dönemler halinde, 3 ay önceden yazılı bildirimle iptal edilebilir</li>
-                        <li><strong>Fatura Dönemi:</strong> Aylık (ay sonunda performans reconciliation)</li>
-                        <li><strong>Ödeme Koşulu:</strong> 30 gün vadeli</li>
-                        <li><strong>Erken Sonlandırma:</strong> 3 aylık yazılı bildirimle, kalan aylar için sabit ücret ödemesi ile</li>
-                    </ul>
-                </div>
-            </div>
             
             <div class="next-steps">
-                <h2 style="margin-bottom: 15px;">7. Sonraki Adımlar</h2>
+                <h2 style="margin-bottom: 15px;">9. Sonraki Adımlar</h2>
                 <ol>
                     <li><strong>Teklif İncelemesi:</strong> Setur ekipleriyle detaylı teklif görüşmesi ve Q&A</li>
                     <li><strong>Ticari Koşulların Belirlenmesi:</strong> Ücretlendirme, sözleşme koşulları, SLA'ların müzakeresi</li>
