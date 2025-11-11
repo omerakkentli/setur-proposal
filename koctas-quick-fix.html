@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koçtaş Katalog Zenginleştirme Projesi</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #2c3e50;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm 25mm;
+            background: white;
+        }
+        .header {
+            border-bottom: 4px solid #e74c3c;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+        h1 {
+            color: #e74c3c;
+            font-size: 22px;
+            margin: 0 0 6px 0;
+            font-weight: 700;
+        }
+        .meta {
+            color: #7f8c8d;
+            font-size: 13px;
+        }
+        h2 {
+            color: #2c3e50;
+            font-size: 15px;
+            font-weight: 700;
+            margin: 18px 0 10px 0;
+            padding-left: 10px;
+            border-left: 3px solid #3498db;
+        }
+        .goal-box {
+            background: #ecf9ff;
+            border-left: 4px solid #3498db;
+            padding: 14px 16px;
+            margin: 16px 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 14px 0;
+        }
+        .option-card {
+            background: #f8f9fa;
+            padding: 12px 14px;
+            border-radius: 6px;
+            border: 1.5px solid #dee2e6;
+        }
+        .option-card h3 {
+            color: #2c3e50;
+            font-size: 13px;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+        }
+        .option-card p {
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        .highlight {
+            color: #e74c3c;
+            font-weight: 700;
+        }
+        .process-steps {
+            background: #fff9e6;
+            border-radius: 6px;
+            padding: 14px 16px;
+            margin: 14px 0;
+        }
+        .process-steps ol {
+            margin: 8px 0 0 0;
+            padding-left: 20px;
+        }
+        .process-steps li {
+            font-size: 13px;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        .timeline {
+            display: flex;
+            justify-content: space-around;
+            background: #e8f5e9;
+            padding: 14px;
+            border-radius: 6px;
+            margin: 14px 0;
+        }
+        .timeline-item {
+            text-align: center;
+        }
+        .timeline-item .label {
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .timeline-item .date {
+            font-size: 16px;
+            font-weight: 700;
+            color: #27ae60;
+        }
+        .critical-box {
+            background: #ffe6e6;
+            border: 2px solid #e74c3c;
+            border-radius: 6px;
+            padding: 14px 16px;
+            margin: 14px 0;
+        }
+        .critical-box h3 {
+            color: #e74c3c;
+            font-size: 14px;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+        }
+        .critical-box p {
+            margin: 0 0 8px 0;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        .critical-box ul {
+            margin: 8px 0 0 0;
+            padding-left: 18px;
+        }
+        .critical-box li {
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 14px 0;
+        }
+        .price-card {
+            background: #f0f7ff;
+            border: 2px solid #3498db;
+            border-radius: 6px;
+            padding: 14px;
+            text-align: center;
+        }
+        .price-card h3 {
+            font-size: 12px;
+            color: #666;
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .price-card .amount {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0;
+        }
+        .price-card .detail {
+            font-size: 11px;
+            color: #7f8c8d;
+            margin: 6px 0 0 0;
+        }
+        .steps-compact {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 14px 0;
+        }
+        .step-card {
+            background: white;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 12px;
+            text-align: center;
+        }
+        .step-number {
+            background: #3498db;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .step-card h4 {
+            font-size: 12px;
+            color: #2c3e50;
+            margin: 0 0 6px 0;
+            font-weight: 700;
+        }
+        .step-card p {
+            font-size: 11px;
+            color: #666;
+            margin: 0;
+            line-height: 1.4;
+        }
+        p {
+            font-size: 13px;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Katalog Ürün Bilgilerinin Teyidi ve Zenginleştirilmesi</h1>
+    </div>
+
+    <div class="goal-box">
+        <strong>Amaç:</strong> Koçtaş ürün katalog verilerinin doğruluğunu artırmak; üretici ve 3. parti güvenilir kaynak teyidi ile hatalı veya eksik bilgileri tespit etmek ve güncellemek.
+    </div>
+
+    <h2>Veriye Erişim ve Kapsam</h2>
+    <div class="two-column">
+        <div class="option-card">
+            <h3>⚡ Hızlı Başlangıç</h3>
+            <p>Son 90 günde en az 1 görüntüleme alan <span class="highlight">900.000 ürün</span> verisi hazır. Derhal başlanabilir.</p>
+        </div>
+        <div class="option-card">
+            <h3>🔄 En Güncel Veri</h3>
+            <p>Koçtaş Katalog Database'inin sıkıştırılmış kopyası paylaşılırsa, en güncel veri seti kullanılabilir.</p>
+        </div>
+    </div>
+
+    <h2>Yapılacak İşin Tanımı</h2>
+    <div class="process-steps">
+        <p style="margin: 0 0 8px 0; font-weight: 600;">Her SKU için:</p>
+        <ol>
+            <li><strong>Üretici sayfası</strong> taranır</li>
+            <li><strong>3 güvenilir 3. parti kaynak</strong> (Trendyol, Hepsiburada vb.) taranır</li>
+            <li>Tüm kaynaklar <strong>mevcut Koçtaş katalog verisi ile kıyaslanır</strong></li>
+            <li>Eksik, hatalı veya güncel olmayan bilgiler tespit edilir <span style="color: #7f8c8d;">(fiyat hariç)</span></li>
+            <li>Teyit edilen doğru veriler güncellenmek üzere hazırlanır</li>
+        </ol>
+    </div>
+
+    <h2>Proje Adımları</h2>
+    <div class="steps-compact">
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <h4>Pipeline Kurulumu</h4>
+            <p>Veri zenginleştirme otomasyonunun kurulması ve testi</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <h4>Veri Güncelleme</h4>
+            <p>Kıyaslama ve güncelleme işlemlerinin yürütülmesi</p>
+        </div>
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <h4>Veri Aktarımı</h4>
+            <p>Güncellenmiş verilerin Koçtaş'a teslimi</p>
+        </div>
+    </div>
+
+    <h2>Proje Takvimi</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="label">Başlangıç</div>
+            <div class="date">17 Kasım</div>
+        </div>
+        <div class="timeline-item">
+            <div class="label">Veri Teslimi</div>
+            <div class="date">17 Aralık</div>
+        </div>
+    </div>
+
+    <div class="critical-box">
+        <h3>⚠️ Kritik Konu: Veri Aktarım Formatı</h3>
+        <p><strong>Proje başarısı için güncellenen verinin Koçtaş sistemlerine sorunsuz aktarılması kritiktir.</strong></p>
+        <ul>
+            <li>Şu anda veriler site üzerinden (mobil uygulama wrapper formatı) alınmaktadır</li>
+            <li>Bu format, Katalog Database ekibinin kullandığı formatla doğrudan uyumlu olmayabilir</li>
+            <li><strong>Çalışma başlamadan önce Katalog Ekibi ile format konusunda mutlaka netleştirme toplantısı yapılmalıdır</strong></li>
+        </ul>
+    </div>
+
+    <h2>Fiyatlama</h2>
+    <div class="pricing-grid">
+        <div class="price-card">
+            <h3>Sabit Kurulum Bedeli</h3>
+            <div class="amount">$15,000</div>
+            <div class="detail">2 Adam/Ay geliştirme maliyeti dahil</div>
+        </div>
+        <div class="price-card">
+            <h3>Değişken Operasyon Bedeli</h3>
+            <div class="amount">$760</div>
+            <div class="detail">Her 10,000 ürün için</div>
+        </div>
+    </div>
+</body>
+</html>
