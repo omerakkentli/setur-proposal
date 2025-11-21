@@ -1290,136 +1290,42 @@
                 <p><strong>Değer Önerisi:</strong> Public web ve 3. parti veri kaynaklarından (TripAdvisor vb.) toplanan bilgilerle zenginleştirilmiş, kullanıcı deneyimini iyileştiren 6 modülün GTM üzerinden entegrasyonu ve performans bazlı sürekli optimizasyon.</p>
             </div>
             
-            <div class="section" style="background: #FFF9E6; padding: 30px; border-radius: 12px; border: 3px solid #FFB700; margin-bottom: 40px;">
-                <h2 style="color: #e2221b; margin-bottom: 20px; font-size: 1.5em;">📋 Revizyon Özeti (Son Güncelleme)</h2>
-                <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
-                    <h3 style="color: #e2221b; margin-bottom: 12px; font-size: 1.2em;">1. Fiyatlandırma Revizyonu</h3>
-                    <ul style="margin-left: 20px; line-height: 1.8;">
-                        <li><strong>3 alternatif fiyatlandırma modeli sunuldu:</strong>
-                            <ul style="margin-left: 20px; margin-top: 8px;">
-                                <li>Model A (Dengeli): 210.000 TL/ay + %5 performans primi</li>
-                                <li>Model B (Düşük Sabit): 140.000 TL/ay + %8 performans primi</li>
-                                <li>Model C (Minimum Sabit): 70.000 TL/ay + %12 performans primi</li>
-                            </ul>
-                        </li>
-                        <li>Her model için detaylı örnek hesaplamalar eklendi</li>
-                    </ul>
+            <div class="section">
+                <h2 class="section-title">📋 Revizyon Özeti (Son Güncelleme)</h2>
+                
+                <h3 style="color: #e2221b; margin-bottom: 20px;">1. Fiyatlandırma Revizyonu</h3>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                    <!-- Pilot Program -->
+                    <div style="background: #fff; padding: 20px; border-radius: 8px; border: 2px solid #e2221b;">
+                        <h4 style="color: #e2221b; margin-bottom: 15px;">🎯 3-Aylık Pilot Program</h4>
+                        <p style="margin: 8px 0;"><strong>Toplam:</strong> 150.000 TL + KDV</p>
+                        <p style="margin: 8px 0;"><strong>Süre:</strong> 3 ay</p>
+                        <p style="margin: 8px 0;"><strong>Fatura:</strong> Sözleşme sonrası</p>
+                        <p style="margin: 8px 0;"><strong>Vade:</strong> 30 gün</p>
+                    </div>
+                    
+                    <!-- Post-Pilot Options -->
+                    <div style="background: #fff; padding: 20px; border-radius: 8px; border: 2px solid #FFB700;">
+                        <h4 style="color: #e2221b; margin-bottom: 15px;">📊 Pilot Sonrası Fiyatlandırma</h4>
+                        <p style="margin: 8px 0; font-size: 0.95em; color: #555;">Pilot'taki gelir artışına göre:</p>
+                        <p style="margin: 8px 0;"><strong>&lt;2%:</strong> Sadece %8 değişken ücret</p>
+                        <p style="margin: 8px 0;"><strong>2-4%:</strong> 100K TL/ay + %8</p>
+                        <p style="margin: 8px 0;"><strong>&gt;4%:</strong> 200K TL/ay + %8</p>
+                    </div>
                 </div>
                 
-                <div style="background: white; padding: 20px; border-radius: 8px;">
-                    <h3 style="color: #e2221b; margin-bottom: 12px; font-size: 1.2em;">2. Veri Provizyon Hükümleri</h3>
+                <h3 style="color: #e2221b; margin-bottom: 15px; margin-top: 30px;">2. Veri Provizyon Hükümleri</h3>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
                     <ul style="margin-left: 20px; line-height: 1.8;">
-                        <li><strong>Setur'a Özel Veriler:</strong> Otel bilgileri, envanter, fiyatlandırma verilerini Setur tarafından sağlanan feed üzerinden alınacak</li>
-                        <li><strong>Üçüncü Parti API Erişimi:</strong> TripAdvisor ve Expedia API kimlik bilgileri Setur tarafından sağlanacak</li>
-                        <li><strong>Kullanım Kısıtlaması:</strong> Tüm 3. parti veriler <strong>yalnızca setur.com.tr</strong> için kullanılacak</li>
-                        <li><strong>Gizlilik:</strong> Karşılıklı NDA çerçevesinde bağlayıcı olarak mutabık kalınmıştır</li>
+                        <li><strong>Setur Verileri:</strong> Otel feed, fiyatlandırma, envanter</li>
+                        <li><strong>API Erişimi:</strong> TripAdvisor ve Expedia credentials (Setur sağlayacak)</li>
+                        <li><strong>Kullanım:</strong> Yalnızca setur.com.tr için</li>
+                        <li><strong>Gizlilik:</strong> Karşılıklı NDA</li>
                     </ul>
                 </div>
             </div>
             
-            <div class="section">
-                <h2 class="section-title">1. Ticari Koşullar ve Fiyatlandırma</h2>
-                
-
-                
-                <div class="pricing-highlight">
-                    <h3>Fiyatlandırma Modelleri Karşılaştırması</h3>
-                    
-                    <table style="margin-top: 25px;">
-                        <thead>
-                            <tr>
-                                <th style="width: 30%;">Özellik</th>
-                                <th style="background: #c91d16;">Model A: Dengeli<br><span style="font-size: 0.85em; font-weight: normal; opacity: 0.9;">(ÖNERİLEN)</span></th>
-                                <th>Model B: Düşük Sabit</th>
-                                <th>Model C: Performans Odaklı</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="background: white;">
-                                <td style="font-weight: 600; color: #333;">Aylık Sabit Ücret</td>
-                                <td style="text-align: center;"><strong style="color: #e2221b; font-size: 1.15em;">210.000 TL</strong><br><span style="font-size: 0.85em; color: #666;">(+KDV)</span></td>
-                                <td style="text-align: center;"><strong style="color: #e2221b; font-size: 1.15em;">140.000 TL</strong><br><span style="font-size: 0.85em; color: #666;">(+KDV)</span></td>
-                                <td style="text-align: center;"><strong style="color: #e2221b; font-size: 1.15em;">70.000 TL</strong><br><span style="font-size: 0.85em; color: #666;">(+KDV)</span></td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 600; color: #333;">Performans Primi</td>
-                                <td style="text-align: center;"><strong style="color: #e2221b;">%5</strong><br><span style="font-size: 0.85em; color: #666;">Artımlı gelirden</span></td>
-                                <td style="text-align: center;"><strong style="color: #e2221b;">%8</strong><br><span style="font-size: 0.85em; color: #666;">Artımlı gelirden</span></td>
-                                <td style="text-align: center;"><strong style="color: #e2221b;">%12</strong><br><span style="font-size: 0.85em; color: #666;">Artımlı gelirden</span></td>
-                            </tr>
-                            <tr style="background: #FFF5F4;">
-                                <td colspan="4" style="text-align: center; font-weight: 600; color: #e2221b; padding: 15px;">
-                                    📊 Örnek Senaryo: Aylık 4M TL Artımlı Gelir Durumunda
-                                </td>
-                            </tr>
-                            <tr style="background: white;">
-                                <td style="padding-left: 30px; color: #666;">Sabit Ücret</td>
-                                <td style="text-align: center;">210.000 TL</td>
-                                <td style="text-align: center;">140.000 TL</td>
-                                <td style="text-align: center;">70.000 TL</td>
-                            </tr>
-                            <tr>
-                                <td style="padding-left: 30px; color: #666;">Performans Primi</td>
-                                <td style="text-align: center;">200.000 TL<br><span style="font-size: 0.8em; color: #999;">(4M × 5%)</span></td>
-                                <td style="text-align: center;">320.000 TL<br><span style="font-size: 0.8em; color: #999;">(4M × 8%)</span></td>
-                                <td style="text-align: center;">480.000 TL<br><span style="font-size: 0.8em; color: #999;">(4M × 12%)</span></td>
-                            </tr>
-                            <tr style="background: #FFF5F4;">
-                                <td style="padding-left: 30px; font-weight: 600; color: #e2221b;">Toplam Glov Ödemesi</td>
-                                <td style="text-align: center; font-weight: 700; color: #e2221b; font-size: 1.1em;">410.000 TL</td>
-                                <td style="text-align: center; font-weight: 700; color: #e2221b; font-size: 1.1em;">460.000 TL</td>
-                                <td style="text-align: center; font-weight: 700; color: #e2221b; font-size: 1.1em;">550.000 TL</td>
-                            </tr>
-                            <tr style="background: #E8F5E9;">
-                                <td style="padding-left: 30px; font-weight: 600; color: #2e7d32;">Setur Net Kazancı</td>
-                                <td style="text-align: center; font-weight: 700; color: #2e7d32; font-size: 1.1em;">3.59M TL/ay</td>
-                                <td style="text-align: center; font-weight: 700; color: #2e7d32; font-size: 1.1em;">3.54M TL/ay</td>
-                                <td style="text-align: center; font-weight: 700; color: #2e7d32; font-size: 1.1em;">3.45M TL/ay</td>
-                            </tr>
-                            <tr>
-                                <td style="font-weight: 600; color: #333;">En Uygun</td>
-                                <td style="text-align: center; font-size: 0.9em; color: #666;">Öngörülebilir bütçe + optimum paylaşım</td>
-                                <td style="text-align: center; font-size: 0.9em; color: #666;">Düşük başlangıç maliyeti isteyenler</td>
-                                <td style="text-align: center; font-size: 0.9em; color: #666;">Minimum risk, başarıya göre ödeme</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <h3 class="subsection-title" style="margin-top: 40px;">1.1 Performans Primi Hesaplama Metodolojisi</h3>
-                <div class="methodology-box">
-                    <h4>Artımlı Gelir Formülü</h4>
-                    
-                    <div style="background: #FFF5F4; padding: 20px; margin-top: 20px; border-radius: 8px;">
-                        <p style="margin-bottom: 15px;"><strong>Hesaplama Adımları:</strong></p>
-                        
-                        <p style="margin: 10px 0;"><strong>1. ON Grubu (Glov Modülleri Aktif):</strong></p>
-                        <p style="margin-left: 20px;">Ziyaretçi Başına Gelir = ON Gelir / ON Ziyaretçi Sayısı</p>
-                        
-                        <p style="margin: 10px 0; margin-top: 20px;"><strong>2. OFF Grubu (Kontrol - Modüller Pasif):</strong></p>
-                        <p style="margin-left: 20px;">Ziyaretçi Başına Gelir = OFF Gelir / OFF Ziyaretçi Sayısı</p>
-                        
-                        <p style="margin: 10px 0; margin-top: 20px;"><strong>3. Toplam Ek Gelir:</strong></p>
-                        <p style="margin-left: 20px;">Delta Gelir = (ON Ziyaretçi Başına Gelir) - (OFF Ziyaretçi Başına Gelir)</p>
-                        <p style="margin-left: 20px;"><strong style="color: #e2221b;">Toplam Ek Gelir = Delta Gelir × ON Ziyaretçi Sayısı</strong></p>
-                        
-                        <p style="margin: 10px 0; margin-top: 20px;"><strong>4. Performans Primi:</strong></p>
-                        <p style="margin-left: 20px;"><strong style="color: #e2221b;">Glov Primi = Toplam Ek Gelir × Seçilen Model Yüzdesi (%5, %8 veya %12)</strong></p>
-                    </div>
-                </div>
-                
-                <h3 class="subsection-title">1.2 Sözleşme Süresi ve Koşullar</h3>
-                <div class="feature-box">
-                    <ul>
-                        <li><strong>Minimum Süre:</strong> 12 ay (1 Aralık 2024 - 30 Kasım 2025)</li>
-                        <li><strong>Yenileme:</strong> Otomatik 12 aylık dönemler halinde, 3 ay önceden yazılı bildirimle iptal edilebilir</li>
-                        <li><strong>Fatura Dönemi:</strong> Aylık (ay sonunda performans reconciliation)</li>
-                        <li><strong>Ödeme Koşulu:</strong> 30 gün vadeli</li>
-                        <li><strong>Erken Sonlandırma:</strong> 3 aylık yazılı bildirimle, kalan aylar için sabit ücret ödemesi ile</li>
-                        <li><strong>Model Değişikliği:</strong> İlk 6 ay sonunda karşılıklı mutabakat ile fiyatlandırma modeli değiştirilebilir</li>
-                    </ul>
-                </div>
-            </div>
             
             <div class="section">
                 <h2 class="section-title">2. Veri Provizyon Hükümleri</h2>
